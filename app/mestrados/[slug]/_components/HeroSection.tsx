@@ -34,9 +34,7 @@ export default function HeroSection({
         style={{ height: "120%", top: "-10%" }}
       >
         {videoUrl ? (
-          <VideoBackground
-            videoSrc={videoUrl}
-          />
+          <VideoBackground videoSrc={videoUrl} fallbackImage={heroImage} />
         ) : heroImage ? (
           <div
             className="absolute inset-0 bg-cover bg-center"

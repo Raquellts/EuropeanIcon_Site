@@ -6,6 +6,7 @@ const nextConfig = {
       "european-wordpress-prod.s3.amazonaws.com",
       "www.worldometers.info",
       "journals.institutoeuropean.com",
+      "res.cloudinary.com",
     ],
   },
   async redirects() {

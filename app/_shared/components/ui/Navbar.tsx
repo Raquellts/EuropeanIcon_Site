@@ -55,6 +55,15 @@ export default function Navbar() {
     setMobileSubExpanded(null);
   }, [pathname]);
 
+  // Notify EventSubNav when menus open/close
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent("navbar-menu-toggle", {
+        detail: { open: megaOpen !== null || mobileOpen },
+      })
+    );
+  }, [megaOpen, mobileOpen]);
+
   const clearCloseTimer = () => {
     if (closeTimer.current) {
       clearTimeout(closeTimer.current);

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/app/_shared/components/ui/Navbar";
+import EventSubNav from "./_components/EventSubNav";
 import Footer from "@/app/_shared/components/ui/Footer";
 import WhatsAppButton from "@/app/_shared/components/ui/WhatsAppButton";
 import VideoBackground from "@/app/_shared/components/ui/VideoBackground";
@@ -103,6 +104,7 @@ export default function EdicaoPage({ params }: Props) {
   return (
     <>
       <Navbar />
+      <EventSubNav />
       <main>
         {/* HERO */}
         <section

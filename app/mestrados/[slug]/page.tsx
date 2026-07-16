@@ -4,7 +4,7 @@ import Navbar from "../../_shared/components/ui/Navbar";
 import Footer from "../../_shared/components/ui/Footer";
 import WhatsAppButton from "../../_shared/components/ui/WhatsAppButton";
 import ScrollReveal from "../../_shared/components/ui/ScrollReveal";
-import { getMasterDetail } from "../../../src/services/masterApi";
+import { getMaster } from "../../../src/services/masterApi";
 import HeroSection from "./_components/HeroSection";
 import StatsSection from "./_components/StatsSection";
 import BenefitsSection from "./_components/BenefitsSection";
@@ -21,7 +21,7 @@ export async function generateMetadata({
   params,
 }: MasterPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const master = await getMasterDetail(slug);
+  const master = await getMaster(slug);
   if (!master) return {};
 
   return {
@@ -32,7 +32,7 @@ export async function generateMetadata({
 
 export default async function MasterPage({ params }: MasterPageProps) {
   const { slug } = await params;
-  const master = await getMasterDetail(slug);
+  const master = await getMaster(slug);
 
   if (!master) notFound();
 

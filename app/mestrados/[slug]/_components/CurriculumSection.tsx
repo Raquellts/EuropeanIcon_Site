@@ -8,7 +8,9 @@ interface CurriculumSectionProps {
   curriculum: CurriculumModule[];
 }
 
-export default function CurriculumSection({ curriculum }: CurriculumSectionProps) {
+export default function CurriculumSection({
+  curriculum,
+}: CurriculumSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const totalWorkload = curriculum.reduce((acc, mod) => {
@@ -77,9 +79,7 @@ export default function CurriculumSection({ curriculum }: CurriculumSectionProps
 
                 <div
                   className={`transition-all duration-300 ease-in-out ${
-                    isOpen
-                      ? "max-h-[1000px] opacity-100"
-                      : "max-h-0 opacity-0"
+                    isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
                   <div className="border-t border-border">
@@ -88,7 +88,7 @@ export default function CurriculumSection({ curriculum }: CurriculumSectionProps
                         key={discIdx}
                         className={`px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-3 ${
                           discIdx < mod.disciplines.length - 1
-                            ? "border-b border-border/50"
+                            ? "border-b border-border"
                             : ""
                         }`}
                       >

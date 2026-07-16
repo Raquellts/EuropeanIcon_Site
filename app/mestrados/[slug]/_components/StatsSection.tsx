@@ -24,26 +24,22 @@ export default function StatsSection({
           {totalHours && (
             <StatCard
               value={parseInt(totalHours.replace(/\./g, ""))}
-              suffix="h"
-              label="Carga Horária"
+              suffix=""
+              label="Horas de Carga Horária"
             />
           )}
           {ects && (
             <StatCard
               value={parseInt(ects)}
-              suffix=" ECTS"
-              label="Créditos Europeus"
+              suffix=""
+              label="ECTS - Créditos Europeus"
             />
           )}
           {modulesCount && (
             <StatCard value={modulesCount} label="Módulos Acadêmicos" />
           )}
           {locationsCount && (
-            <StatCard
-              value={locationsCount}
-              suffix="+"
-              label="Países"
-            />
+            <StatCard value={locationsCount} suffix="+" label="Países" />
           )}
         </div>
       </div>

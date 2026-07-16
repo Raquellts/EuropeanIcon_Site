@@ -1,0 +1,302 @@
+import { Syringe } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import type {
+  Benefit,
+  CurriculumModule,
+  GalleryImage,
+  BaseEntity,
+} from "../types";
+
+export interface Master extends Partial<BaseEntity> {
+  slug: string;
+  title: string;
+  description: string;
+  coordinator: string;
+  logo: string;
+  icon?: string;
+  url: string;
+  Icon: LucideIcon;
+  logoStyle?: Record<string, string>;
+  heroImage?: string;
+  aboutImage?: string;
+  tagline?: string;
+  videoUrl?: string;
+  totalHours?: string;
+  ects?: string;
+  locations?: string[];
+  certification?: string;
+  benefits?: Benefit[];
+  curriculumModules?: CurriculumModule[];
+  galleryImages?: GalleryImage[];
+}
+
+export const harmonizacaoOrofacial: Master = {
+  slug: "mestrado-harmonizacao-orofacial",
+  title: "Mestrado Internacional em Harmonização Orofacial",
+  description:
+    "O curso de Máster de Formación Permanente en Armonización destina-se a todos os Graduados da Área da Saúde: Odontologia, Medicina, Estética, Farmácia, Enfermagem, Biomedicina, Fisioterapia e Ciências Biomédicas. Formação completa com base em evidências científicas, techniques avançadas e prática clínica supervisionada.",
+  coordinator: "Prof. Dr. Paulo Moraes",
+  logo: "/images/logos/logo_eurolaw.webp",
+  url: "https://institutoeuropean.com",
+  Icon: Syringe,
+  heroImage: "/images/masters/harmonizacao-orofacial/hero.webp",
+  aboutImage: "/images/masters/harmonizacao-orofacial/about.webp",
+  tagline:
+    "Formação completa em harmonização orofacial com base em evidências científicas",
+  videoUrl:
+    "https://res.cloudinary.com/falvay2b/video/upload/v1784237890/0716_2_nnigay.mp4",
+  totalHours: "3.000",
+  ects: "120",
+  locations: ["Brasil", "Espanha"],
+  certification:
+    "Máster en Armonización Orofacial (European Face & Body Institute | UEMC, Espanha)",
+  benefits: [
+    {
+      icon: "Stethoscope",
+      title: "Prática clínica supervisionada",
+      description:
+        "Hands-on com pacientes reais em ambiente controlado com orientação de especialistas.",
+    },
+    {
+      icon: "Globe",
+      title: "Corpo docente internacional",
+      description:
+        "Professores de diversas especialidades com atuação no Brasil e Europa.",
+    },
+    {
+      icon: "Syringe",
+      title: "Técnicas avançadas",
+      description:
+        "Toxina botulínica, preenchimentos, fios, laser, ultrassom e dispositivos de última geração.",
+    },
+    {
+      icon: "BookOpen",
+      title: "14 módulos",
+      description:
+        "Percurso completo desde fundamentos anatômicos até dissertação em formato de artigo científico.",
+    },
+    {
+      icon: "Award",
+      title: "120 ECTS",
+      description:
+        "Créditos europeus reconhecidos no Espaço Europeu de Ensino Superior.",
+    },
+    {
+      icon: "Users",
+      title: "Networking profissional",
+      description:
+        "Contato com profissionais de Odontologia, Medicina, Enfermagem, Farmácia e Biomedicina.",
+    },
+  ],
+  curriculumModules: [
+    {
+      name: "Módulo 1 — Introdução e Anatomia",
+      disciplines: [
+        {
+          name: "Introdução à Harmonização Orofacial associada ao Planejamento",
+          workload: "75h",
+          ects: "3",
+        },
+        {
+          name: "Anatomia Aplicada à Harmonização Orofacial",
+          workload: "150h",
+          ects: "6",
+        },
+      ],
+    },
+    {
+      name: "Módulo 2 — Fisiologia e Peeling",
+      disciplines: [
+        {
+          name: "Fisiologia Aplicada à Harmonização Orofacial",
+          workload: "75h",
+          ects: "3",
+        },
+        {
+          name: "Neurofisiologia Aplicada à Harmonização Orofacial",
+          workload: "50h",
+          ects: "2",
+        },
+        {
+          name: "Peeling Físico e Químico Aplicado à Harmonização Orofacial",
+          workload: "75h",
+          ects: "3",
+        },
+      ],
+    },
+    {
+      name: "Módulo 3 — Ética, Medicina Forense e Toxina Botulínica",
+      disciplines: [
+        {
+          name: "Ética e Deontologia Profissional",
+          workload: "50h",
+          ects: "2",
+        },
+        {
+          name: "Medicina Forense",
+          workload: "50h",
+          ects: "2",
+        },
+        {
+          name: "Toxina Botulínica Estética e Funcional",
+          workload: "150h",
+          ects: "6",
+        },
+      ],
+    },
+    {
+      name: "Módulo 4 — Biossegurança e Bioestimuladores",
+      disciplines: [
+        {
+          name: "Biossegurança em Harmonização Orofacial",
+          workload: "75h",
+          ects: "3",
+        },
+        {
+          name: "Bioestimuladores Sintéticos e Autólogos",
+          workload: "100h",
+          ects: "4",
+        },
+      ],
+    },
+    {
+      name: "Módulo 5 — Anestesia, Farmacologia e Metodologia",
+      disciplines: [
+        {
+          name: "Técnicas Anestésicas em Harmonização Orofacial",
+          workload: "50h",
+          ects: "2",
+        },
+        {
+          name: "Farmacologia e Terapia Medicinal Aplicada",
+          workload: "50h",
+          ects: "2",
+        },
+        {
+          name: "Emergências e Urgências Médicas",
+          workload: "50h",
+          ects: "2",
+        },
+        {
+          name: "Metodologia de Trabalho Científico I",
+          workload: "100h",
+          ects: "4",
+        },
+      ],
+    },
+    {
+      name: "Módulo 6 — Prática de Consolidação Clínica",
+      disciplines: [
+        {
+          name: "Prática de Consolidação Clínica em Laboratório",
+          workload: "200h",
+          ects: "8",
+        },
+      ],
+    },
+    {
+      name: "Módulo 7 — Preenchimentos e Ultrassom",
+      disciplines: [
+        {
+          name: "Preenchimentos Faciais",
+          workload: "200h",
+          ects: "8",
+        },
+        {
+          name: "Ultrassom com Endolaser",
+          workload: "150h",
+          ects: "6",
+        },
+      ],
+    },
+    {
+      name: "Módulo 8 — Dermocosméticos e Marketing",
+      disciplines: [
+        {
+          name: "Dermocosméticos Aplicados à Harmonização Orofacial",
+          workload: "100h",
+          ects: "4",
+        },
+        {
+          name: "Marketing Aplicado à Harmonização Orofacial",
+          workload: "100h",
+          ects: "4",
+        },
+      ],
+    },
+    {
+      name: "Módulo 9 — Fios Lisos e Tensores",
+      disciplines: [
+        {
+          name: "Fios Lisos e Tensores Absorvíveis em Harmonização Orofacial",
+          workload: "200h",
+          ects: "8",
+        },
+      ],
+    },
+    {
+      name: "Módulo 10 — Fios Não Absorvíveis",
+      disciplines: [
+        {
+          name: "Fios Não Absorvíveis",
+          workload: "200h",
+          ects: "8",
+        },
+      ],
+    },
+    {
+      name: "Módulo 11 — Lipoplastia Facial",
+      disciplines: [
+        {
+          name: "Lipoplastia Química Facial e de Pescoço",
+          workload: "100h",
+          ects: "4",
+        },
+        {
+          name: "Lipoplastia Cirúrgica Facial e de Pescoço",
+          workload: "100h",
+          ects: "4",
+        },
+      ],
+    },
+    {
+      name: "Módulo 12 — Prática de Consolidação Clínica II",
+      disciplines: [
+        {
+          name: "Prática de Consolidação Clínica em Laboratório",
+          workload: "200h",
+          ects: "8",
+        },
+      ],
+    },
+    {
+      name: "Módulo 13 — Ultrassom Microfocalizado",
+      disciplines: [
+        {
+          name: "Ultrassom Microfocalizado",
+          workload: "100h",
+          ects: "4",
+        },
+      ],
+    },
+    {
+      name: "Módulo 14 — Metodologia e Dissertação",
+      disciplines: [
+        {
+          name: "Metodologia de Trabalho Científico II",
+          workload: "100h",
+          ects: "4",
+        },
+        {
+          name: "Dissertação em Formato de Artigo Científico",
+          workload: "150h",
+          ects: "6",
+        },
+      ],
+    },
+  ],
+  galleryImages: Array.from({ length: 8 }, (_, i) => ({
+    src: `/images/masters/harmonizacao-orofacial/galeria-${String(i + 1).padStart(2, "0")}.webp`,
+    alt: `Mestrado em Harmonização Orofacial ${i + 1}`,
+  })),
+};

@@ -21,7 +21,7 @@ function getYouTubeVideoId(url: string): string | null {
 function getYouTubeEmbedUrl(url: string): string {
   const id = getYouTubeVideoId(url);
   if (!id) return url;
-  return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`;
+  return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`;
 }
 
 export default function VideoBackground({
@@ -31,15 +31,36 @@ export default function VideoBackground({
   style,
 }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   const isYouTube = isYouTubeUrl(videoSrc);
 
-  useEffect(() => {
-    if (isYouTube) {
-      setVideoLoaded(true);
-      return;
+  const forceYouTubePlay = () => {
+    if (!iframeRef.current?.contentWindow) return;
+    try {
+      iframeRef.current.contentWindow.postMessage(
+        '{"event":"command","func":"playVideo","args":""}',
+        "*"
+      );
+    } catch {
+      // cross-origin postMessage é seguro, ignorar erro
     }
+  };
+
+  useEffect(() => {
+    if (!isYouTube) return;
+    setVideoLoaded(true);
+    const timer = setInterval(forceYouTubePlay, 1000);
+    const timeout = setTimeout(() => clearInterval(timer), 8000);
+    return () => {
+      clearInterval(timer);
+      clearTimeout(timeout);
+    };
+  }, [isYouTube]);
+
+  useEffect(() => {
+    if (isYouTube) return;
 
     const video = videoRef.current;
     if (!video) return;
@@ -62,6 +83,7 @@ export default function VideoBackground({
     <div className={`absolute inset-0 ${className}`} style={style}>
       {isYouTube ? (
         <iframe
+          ref={iframeRef}
           src={getYouTubeEmbedUrl(videoSrc)}
           className="absolute inset-0 w-full h-full"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

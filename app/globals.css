@@ -58,6 +58,14 @@ body {
   border-radius: 3px;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 h2 {
   font-family: var(--font-serif);
 }

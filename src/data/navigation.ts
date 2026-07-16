@@ -1,7 +1,7 @@
-import { masters } from "./masters";
-import { eventSeries } from "./eventSeries";
-import { getEditionsBySeries, formatEventDate } from "./eventEditions";
-import { journals } from "./journals";
+import { masters } from "./masters/index";
+import { eventSeries } from "./eventos/series";
+import { getEditionsBySeries, formatEventDate } from "./eventos/index";
+import { journals } from "./revistas/index";
 
 export interface NavAnchor {
   label: string;
@@ -11,11 +11,8 @@ export interface NavAnchor {
 
 export interface NavSubItem {
   label: string;
-  /** Optional page link for the sub-section title */
   href?: string;
-  /** Short descriptive text shown under the title */
   description?: string;
-  /** Deep links within the sub-section */
   anchors?: NavAnchor[];
 }
 
@@ -29,11 +26,8 @@ export interface NavFeatured {
 export interface NavItem {
   label: string;
   href: string;
-  /** Anchor links shown directly in the mega-menu for this page */
   anchors?: NavAnchor[];
-  /** Sub-sections within the mega-menu (e.g., individual masters, event series) */
   children?: NavSubItem[];
-  /** Highlighted panel shown on the left of the mega-menu */
   featured?: NavFeatured;
 }
 
