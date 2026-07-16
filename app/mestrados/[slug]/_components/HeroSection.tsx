@@ -12,6 +12,7 @@ interface HeroSectionProps {
   tagline?: string;
   videoUrl?: string;
   heroImage?: string;
+  onOpenEnrollment?: () => void;
 }
 
 export default function HeroSection({
@@ -19,6 +20,7 @@ export default function HeroSection({
   tagline,
   videoUrl,
   heroImage,
+  onOpenEnrollment,
 }: HeroSectionProps) {
   const parallaxRef = useParallax();
   const navigateTo = useAnchorNavigation();
@@ -77,17 +79,16 @@ export default function HeroSection({
           <Button
             variant="primary"
             size="lg"
-            onClick={() => navigateTo("grade")}
+            onClick={onOpenEnrollment}
           >
-            Grade Curricular
+            Seja um Aluno
           </Button>
           <Button
             variant="secondary"
             size="lg"
-            href="https://institutoeuropean.com"
-            external
+            onClick={() => navigateTo("grade")}
           >
-            Saiba mais
+            Grade Curricular
           </Button>
         </div>
 

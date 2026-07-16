@@ -5,12 +5,12 @@ import Footer from "../../_shared/components/ui/Footer";
 import WhatsAppButton from "../../_shared/components/ui/WhatsAppButton";
 import ScrollReveal from "../../_shared/components/ui/ScrollReveal";
 import { getMaster } from "../../../src/services/masterApi";
-import HeroSection from "./_components/HeroSection";
 import StatsSection from "./_components/StatsSection";
 import BenefitsSection from "./_components/BenefitsSection";
 import CurriculumSection from "./_components/CurriculumSection";
 import GallerySection from "./_components/GallerySection";
 import CtaSection from "./_components/CtaSection";
+import MasterPageClient from "./MasterPageClient";
 import type { Metadata } from "next";
 
 interface MasterPageProps {
@@ -39,13 +39,13 @@ export default async function MasterPage({ params }: MasterPageProps) {
   return (
     <>
       <Navbar />
-      <main>
-        <HeroSection
-          title={master.title}
-          tagline={master.tagline}
-          videoUrl={master.videoUrl}
-          heroImage={master.heroImage}
-        />
+      <MasterPageClient
+        slug={slug}
+        title={master.title}
+        tagline={master.tagline}
+        videoUrl={master.videoUrl}
+        heroImage={master.heroImage}
+      >
 
         <ScrollReveal>
           <StatsSection
@@ -122,7 +122,7 @@ export default async function MasterPage({ params }: MasterPageProps) {
         <ScrollReveal>
           <CtaSection />
         </ScrollReveal>
-      </main>
+      </MasterPageClient>
       <WhatsAppButton />
       <Footer />
     </>
