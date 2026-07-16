@@ -1,0 +1,101 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+interface VideoBackgroundProps {
+  videoSrc: string;
+  fallbackImage?: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+function isYouTubeUrl(url: string): boolean {
+  return /youtube\.com|youtu\.be/.test(url);
+}
+
+function getYouTubeVideoId(url: string): string | null {
+  const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : null;
+}
+
+function getYouTubeEmbedUrl(url: string): string {
+  const id = getYouTubeVideoId(url);
+  if (!id) return url;
+  return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`;
+}
+
+export default function VideoBackground({
+  videoSrc,
+  fallbackImage,
+  className = "",
+  style,
+}: VideoBackgroundProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  const isYouTube = isYouTubeUrl(videoSrc);
+
+  useEffect(() => {
+    if (isYouTube) {
+      setVideoLoaded(true);
+      return;
+    }
+
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleCanPlay = () => setVideoLoaded(true);
+    const handleError = () => setVideoLoaded(false);
+
+    video.addEventListener("canplay", handleCanPlay);
+    video.addEventListener("error", handleError);
+
+    video.load();
+
+    return () => {
+      video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("error", handleError);
+    };
+  }, [videoSrc, isYouTube]);
+
+  return (
+    <div className={`absolute inset-0 ${className}`} style={style}>
+      {isYouTube ? (
+        <iframe
+          src={getYouTubeEmbedUrl(videoSrc)}
+          className="absolute inset-0 w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          title="Video background"
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            videoLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      )}
+
+      {!videoLoaded && !fallbackImage && (
+        <div className="absolute inset-0 bg-surface animate-pulse" />
+      )}
+
+      {fallbackImage && (
+        <div
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 ${
+            videoLoaded ? "opacity-0" : "opacity-100"
+          }`}
+          style={{ backgroundImage: `url(${fallbackImage})` }}
+        />
+      )}
+    </div>
+  );
+}

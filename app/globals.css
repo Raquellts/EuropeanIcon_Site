@@ -1,0 +1,407 @@
+/* ============================================
+   1. TAILWIND
+   ============================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   2. DESIGN TOKENS
+   ============================================ */
+:root {
+  --background: #121315;
+  --surface: #1a1c20;
+  --surface-hover: #24272d;
+  --border: #2d3138;
+  --primary: #f5f5f4;
+  --secondary: #b8bdc8;
+  --muted: #8b919d;
+  --gold-ultralight: #ffecae;
+  --gold-light: #ffe387;
+  --gold: #e7b643;
+  --gold-dark: #996d1c;
+  --success: #47b881;
+  --warning: #f0b54a;
+  --danger: #e35d6a;
+}
+
+/* ============================================
+   3. BASE STYLES
+   ============================================ */
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--background);
+  color: var(--primary);
+  font-family: var(--font-sans_serif);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* Chrome, Safari, Edge */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+h2 {
+  font-family: var(--font-serif);
+}
+
+/* ============================================
+   4. UTILITY CLASSES
+   ============================================ */
+
+/* 4.1. Text Colors */
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+/* 4.2. Font Families */
+.font-sans_serif {
+  font-family: var(--font-sans_serif);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* 4.3. Layout */
+.section-container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* ============================================
+   5. GRADIENTS
+   ============================================ */
+
+/* Gradiente estático dourado */
+.gradient-gold {
+  background: linear-gradient(
+    135deg,
+    var(--gold),
+    var(--gold-light),
+    var(--gold),
+    var(--gold-dark)
+  );
+}
+
+/* Gradiente dourado aplicado em texto (preenchimento) */
+.header-text {
+  background: linear-gradient(
+    135deg,
+    var(--gold),
+    var(--gold-light),
+    var(--gold),
+    var(--gold-dark)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradiente dourado animado em texto */
+.header-text-animated {
+  background: linear-gradient(
+    135deg,
+    var(--gold),
+    var(--gold-light),
+    var(--gold),
+    var(--gold-dark)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 400% 400%;
+  animation: gradientAnimation 8s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ============================================
+   6. COMPONENT STYLES
+   ============================================ */
+
+/* ============================================
+   7. ANIMATED EFFECTS
+   ============================================ */
+
+/* 7.1. Sparkle Dots — pontinhos dourados cintilando em posições fixas */
+.sparkle-dots {
+  --sparkle-base: 5px;
+  position: relative;
+}
+
+.sparkle-dots::before,
+.sparkle-dots::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 8px var(--gold)) blur(5px) opacity(0.5);
+  will-change: transform, opacity;
+}
+
+.sparkle-dots::before {
+  background-image:
+    radial-gradient(
+      calc(var(--sparkle-base) + 1px) calc(var(--sparkle-base) + 1px) at 82% 50%,
+      var(--gold-ultralight),
+      var(--gold-ultralight) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 2px) calc(var(--sparkle-base) + 2px) at 84% 75%,
+      var(--gold),
+      var(--gold) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 0px) calc(var(--sparkle-base) + 0px) at 60% 80%,
+      var(--gold-light),
+      var(--gold-light) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 3px) calc(var(--sparkle-base) + 3px) at 37% 90%,
+      var(--gold),
+      var(--gold) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 1px) calc(var(--sparkle-base) + 1px) at 24% 69%,
+      var(--gold-ultralight),
+      var(--gold-ultralight) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 2px) calc(var(--sparkle-base) + 2px) at 8% 50%,
+      var(--gold-dark),
+      var(--gold-dark) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 0px) calc(var(--sparkle-base) + 0px) at 24% 31%,
+      var(--gold-light),
+      var(--gold-light) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 3px) calc(var(--sparkle-base) + 3px) at 37% 10%,
+      var(--gold),
+      var(--gold) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 1px) calc(var(--sparkle-base) + 1px) at 60% 20%,
+      var(--gold-ultralight),
+      var(--gold-ultralight) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 2px) calc(var(--sparkle-base) + 2px) at 84% 25%,
+      var(--gold-light),
+      var(--gold-light) 30%,
+      transparent 70%
+    );
+  animation: sparkleFloatA 9s ease-in-out infinite;
+}
+
+.sparkle-dots::after {
+  background-image:
+    radial-gradient(
+      calc(var(--sparkle-base) + 0px) calc(var(--sparkle-base) + 0px) at 84% 61%,
+      var(--gold),
+      var(--gold) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 3px) calc(var(--sparkle-base) + 3px) at 77% 87%,
+      var(--gold-ultralight),
+      var(--gold-ultralight) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 1px) calc(var(--sparkle-base) + 1px) at 50% 86%,
+      var(--gold-light),
+      var(--gold-light) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 2px) calc(var(--sparkle-base) + 2px) at 23% 87%,
+      var(--gold),
+      var(--gold) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 0px) calc(var(--sparkle-base) + 0px) at 16% 61%,
+      var(--gold-dark),
+      var(--gold-dark) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 3px) calc(var(--sparkle-base) + 3px) at 6% 36%,
+      var(--gold-ultralight),
+      var(--gold-ultralight) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 1px) calc(var(--sparkle-base) + 1px) at 29% 21%,
+      var(--gold-light),
+      var(--gold-light) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 2px) calc(var(--sparkle-base) + 2px) at 50% 4%,
+      var(--gold),
+      var(--gold) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 0px) calc(var(--sparkle-base) + 0px) at 71% 21%,
+      var(--gold-ultralight),
+      var(--gold-ultralight) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      calc(var(--sparkle-base) + 3px) calc(var(--sparkle-base) + 3px) at 94% 36%,
+      var(--gold-light),
+      var(--gold-light) 30%,
+      transparent 70%
+    );
+  animation: sparkleFloatB 7s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+@keyframes sparkleFloatA {
+  0% {
+    opacity: 0.45;
+    transform: translate(0, 0) scale(1);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(3px, -4px) scale(1.15);
+  }
+  32% {
+    opacity: 0.55;
+    transform: translate(-3px, 2px) scale(0.9);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translate(2px, 4px) scale(1.1);
+  }
+  68% {
+    opacity: 0.5;
+    transform: translate(-4px, -2px) scale(0.92);
+  }
+  85% {
+    opacity: 1;
+    transform: translate(2px, 3px) scale(1.18);
+  }
+  100% {
+    opacity: 0.45;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes sparkleFloatB {
+  0% {
+    opacity: 0.5;
+    transform: translate(0, 0) scale(1);
+  }
+  18% {
+    opacity: 0.95;
+    transform: translate(-3px, 3px) scale(1.12);
+  }
+  36% {
+    opacity: 0.4;
+    transform: translate(3px, -3px) scale(0.88);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(-2px, -4px) scale(1.2);
+  }
+  73% {
+    opacity: 0.45;
+    transform: translate(4px, 2px) scale(0.9);
+  }
+  90% {
+    opacity: 0.9;
+    transform: translate(-2px, -2px) scale(1.1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* ============================================
+   8. ANCHOR NAVIGATION FADE
+   ============================================ */
+@keyframes section-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-fade-in {
+  animation: section-fade-in 0.4s ease-out;
+}
+
+/* ============================================
+   9. PAGE TRANSITION FADE
+   ============================================ */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-fade-in {
+  animation: page-fade-in 0.3s ease-out;
+}
