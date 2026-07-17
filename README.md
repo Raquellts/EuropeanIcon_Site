@@ -14,6 +14,9 @@ Plataforma digital do European & Icon Institute — programas de mestrado intern
 | Ícones | lucide-react |
 | Imagens | next/image + domínios externos configurados |
 | Build | `next build` (SSG + SSR) |
+| Animações | Tailwind custom keyframes (`fade-in`, `slide-up`, `slide-down`, `spin-slow`) |
+| Vídeos | Cloudinary + VideoBackground component (YouTube e MP4 nativo, com playbac rate e fallback image) |
+| Upload de arquivos | Formulário de inscrição com upload de documentos (imagem e PDF) |
 
 ---
 
@@ -23,7 +26,7 @@ Plataforma digital do European & Icon Institute — programas de mestrado intern
 src/
   data/                          ← Dados estáticos organizados por domínio
     types.ts                     ← Tipos compartilhados entre domínios
-    institute.ts                 ← Dados institucionais
+    institute.ts                 ← Dados institucionais (inclui hero e vídeos)
     navigation.ts                ← Configuração da navegação (mega-menu)
     partners.ts                  ← Parceiros institucionais
     people.ts                    ← Pessoas (professores + participantes)
@@ -65,7 +68,10 @@ public/
         galeria/1-8.webp
     instituto/
       backgrounds/
+        hero.webp                 ← Imagem de fallback do hero do instituto
       logos/
+        logo_camada_1.png         ← Camada de fundo do logo animado
+        logo_camada_2.png         ← Camada da frente do logo animado (gira)
     masters/                      ← Assets organizados por master
       direito-penal-economico/
         hero.webp, about.webp, galeria-01.webp...
@@ -78,26 +84,87 @@ public/
     logos/                        ← Logotipos diversos
 
 app/
-  api/                            ← API REST (placeholder — futura implementação)
-    masters/route.ts
-    masters/[slug]/route.ts
-    eventos/route.ts
-    eventos/[serieSlug]/[edicaoSlug]/route.ts
-    people/route.ts
-    partners/route.ts
+  admin/                          ← Painel administrativo (placeholder — preparado para API futura)
+    masters/
+      page.tsx                    ← Listar mestrados
+      novo/page.tsx               ← Criar mestrado
+      [slug]/page.tsx             ← Editar mestrado
+    eventos/
+      page.tsx                    ← Listar eventos
+      [serieSlug]/[edicaoSlug]/page.tsx  ← Editar evento
+    people/
+      page.tsx                    ← Listar pessoas
+      [slug]/page.tsx             ← Editar pessoa
 
-  admin/                          ← Painel administrativo (placeholder)
-    masters/page.tsx
-    masters/novo/page.tsx
-    masters/[slug]/page.tsx
-    eventos/page.tsx
-    eventos/[serieSlug]/[edicaoSlug]/page.tsx
-    people/page.tsx
-    people/[slug]/page.tsx
+  api/                            ← Rotas de API (placeholder — preparadas para conexão com banco)
+    masters/
+      route.ts                    ← GET listar / POST criar
+      [slug]/route.ts             ← GET/PUT/DELETE master
+    eventos/
+      route.ts                    ← GET listar / POST criar
+      [serieSlug]/[edicaoSlug]/route.ts  ← GET/PUT/DELETE edição
+    people/
+      route.ts                    ← GET listar / POST criar
+    partners/
+      route.ts                    ← GET listar
 
-  _shared/                        ← Componentes compartilhados
+  contato/                        ← Página de contato e FAQ
+    _components/
+      ContactSection.tsx          ← Seção de contato
+      FAQSection.tsx              ← Seção de perguntas frequentes
+
+  eventos/                        ← Páginas de eventos
+    page.tsx                      ← Lista de eventos
+    [serieSlug]/
+      page.tsx                    ← Eventos de uma série
+      [edicaoSlug]/
+        _components/
+          EventSubNav.tsx         ← Sub-navegação do evento
+        page.tsx                  ← Página da edição
+        participantes/
+          [personSlug]/page.tsx   ← Detalhe da pessoa
+
+  instituto/                      ← Páginas do instituto (home e rota /instituto)
+    _components/
+      HeroSection.tsx             ← Hero com vídeo Cloudinary + fallback image + playback lento
+      InstituteSection.tsx        ← Seção "Sobre o Instituto" (info + vídeo + logo animado)
+      LogoAnimation.tsx           ← Animação do logotipo (logo_camada_1 + logo_camada_2 girando)
+      MasterSection.tsx           ← Cards de mestrados (clicáveis, "Saiba mais →")
+      JournalsSection.tsx         ← Seção de revistas/ periódicos
+      PartnersSection.tsx         ← Seção de parceiros
+      InstituteSectionA.tsx       ← Layout alternativo para teste (Split Screen)
+      InstituteSectionB.tsx       ← Layout alternativo para teste (Editorial)
+      InstituteSectionC.tsx       ← Layout alternativo para teste (Mosaico)
+
+  mestrados/
+    [slug]/
+      _components/
+        EnrollmentModal.tsx       ← Modal de inscrição com formulário completo
+        HeroSection.tsx           ← Hero do mestrado (vídeo + fallback + paused control)
+        CurriculumSection.tsx     ← Grade curricular
+        CtaSection.tsx            ← Call-to-action
+        BenefitsSection.tsx       ← Benefícios do programa
+        GallerySection.tsx        ← Galeria de imagens
+        StatsSection.tsx          ← Estatísticas
+
+  revistas/                       ← Páginas de revistas
+    page.tsx                      ← Lista de revistas
+    [slug]/page.tsx               ← Detalhe da revista
+
+  _shared/
     components/ui/
+      Modal.tsx                   ← Modal reutilizável (Escape fecha, scroll lock)
+      EnrollmentForm.tsx           ← Formulário de inscrição (campos, upload docs, checkboxes)
+      CustomSelect.tsx            ← Select com busca, portal flutuante
+      VideoBackground.tsx         ← Background de vídeo (YouTube/MP4, fallback, playback rate)
+      StatCard.tsx                ← Card de estatística com contagem animada (useCountUp)
+      ScrollReveal.tsx            ← Animação de entrada ao scroll (IntersectionObserver)
+      Button.tsx                  ← Botão reutilizável
+      AboutCards.tsx              ← Cartão de conteúdo (sobre, instituto, contato)
     hooks/
+      useAnchorNavigation.ts      ← Navegação por âncoras
+      useParallax.ts              ← Efeito parallax
+      useCountUp.ts               ← Animação de contagem
 ```
 
 ---
