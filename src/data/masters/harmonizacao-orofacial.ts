@@ -295,8 +295,19 @@ export const harmonizacaoOrofacial: Master = {
       ],
     },
   ],
-  galleryImages: Array.from({ length: 8 }, (_, i) => ({
-    src: `/images/masters/harmonizacao-orofacial/galeria-${String(i + 1).padStart(2, "0")}.webp`,
-    alt: `Mestrado em Harmonização Orofacial ${i + 1}`,
-  })),
+  galleryImages: [
+    { src: "/images/masters/harmonizacao-orofacial/galeria-01.webp", alt: "Mestrado em Harmonização Orofacial 1" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-02.webp", alt: "Mestrado em Harmonização Orofacial 2" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-03.webp", alt: "Mestrado em Harmonização Orofacial 3" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-04.webp", alt: "Mestrado em Harmonização Orofacial 4" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-05.webp", alt: "Mestrado em Harmonização Orofacial 5" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-06.webp", alt: "Mestrado em Harmonização Orofacial 6" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-07.webp", alt: "Mestrado em Harmonização Orofacial 7" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-08.webp", alt: "Mestrado em Harmonização Orofacial 8" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-09.webp", alt: "Mestrado em Harmonização Orofacial 9" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-10.webp", alt: "Mestrado em Harmonização Orofacial 10" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-11.webp", alt: "Mestrado em Harmonização Orofacial 11" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-12.webp", alt: "Mestrado em Harmonização Orofacial 12" },
+    { src: "/images/masters/harmonizacao-orofacial/galeria-13.webp", alt: "Mestrado em Harmonização Orofacial 13" },
+  ],
 };

@@ -401,12 +401,11 @@ export const direitoPenalEconomico: Master = {
   galleryImages: [
     { src: "/images/masters/direito-penal-economico/galeria-01.webp", alt: "Evento do Mestrado em Direito Penal Econômico 1" },
     { src: "/images/masters/direito-penal-economico/galeria-02.webp", alt: "Evento do Mestrado em Direito Penal Econômico 2" },
-    { src: "/images/masters/direito-penal-economico/galeria-03.webp", alt: "Evento do Mestrado em Direito Penal Econômico 3" },
-    { src: "/images/masters/direito-penal-economico/galeria-04.webp", alt: "Evento do Mestrado em Direito Penal Econômico 4" },
-    { src: "/images/masters/direito-penal-economico/galeria-05.webp", alt: "Evento do Mestrado em Direito Penal Econômico 5" },
-    { src: "/images/masters/direito-penal-economico/galeria-06.webp", alt: "Evento do Mestrado em Direito Penal Econômico 6" },
-    { src: "/images/masters/direito-penal-economico/galeria-07.webp", alt: "Evento do Mestrado em Direito Penal Econômico 7" },
-    { src: "/images/masters/direito-penal-economico/galeria-08.webp", alt: "Evento do Mestrado em Direito Penal Econômico 8" },
-    { src: "/images/masters/direito-penal-economico/galeria-09.webp", alt: "Evento do Mestrado em Direito Penal Econômico 9" },
+    { src: "/images/masters/direito-penal-economico/galeria-04.webp", alt: "Evento do Mestrado em Direito Penal Econômico 3" },
+    { src: "/images/masters/direito-penal-economico/galeria-05.webp", alt: "Evento do Mestrado em Direito Penal Econômico 4" },
+    { src: "/images/masters/direito-penal-economico/galeria-06.webp", alt: "Evento do Mestrado em Direito Penal Econômico 5" },
+    { src: "/images/masters/direito-penal-economico/galeria-07.webp", alt: "Evento do Mestrado em Direito Penal Econômico 6" },
+    { src: "/images/masters/direito-penal-economico/galeria-08.webp", alt: "Evento do Mestrado em Direito Penal Econômico 7" },
+    { src: "/images/masters/direito-penal-economico/galeria-09.webp", alt: "Evento do Mestrado em Direito Penal Econômico 8" },
   ],
 };
