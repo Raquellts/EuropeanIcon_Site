@@ -46,7 +46,6 @@ export default async function MasterPage({ params }: MasterPageProps) {
         videoUrl={master.videoUrl}
         heroImage={master.heroImage}
       >
-
         <ScrollReveal>
           <StatsSection
             totalHours={master.totalHours}
@@ -82,12 +81,13 @@ export default async function MasterPage({ params }: MasterPageProps) {
                   )}
                 </div>
                 {master.aboutImage && (
-                  <div className="relative aspect-video rounded-2xl overflow-hidden border border-border">
+                  <div className="rounded-2xl overflow-hidden border border-border">
                     <Image
                       src={master.aboutImage}
                       alt={master.title}
-                      fill
-                      className="object-cover"
+                      width={800}
+                      height={600}
+                      className="w-full h-auto"
                     />
                   </div>
                 )}
