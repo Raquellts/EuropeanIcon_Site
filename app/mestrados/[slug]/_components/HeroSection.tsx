@@ -13,6 +13,7 @@ interface HeroSectionProps {
   videoUrl?: string;
   heroImage?: string;
   onOpenEnrollment?: () => void;
+  videoPaused?: boolean;
 }
 
 export default function HeroSection({
@@ -21,6 +22,7 @@ export default function HeroSection({
   videoUrl,
   heroImage,
   onOpenEnrollment,
+  videoPaused = false,
 }: HeroSectionProps) {
   const parallaxRef = useParallax();
   const navigateTo = useAnchorNavigation();
@@ -36,7 +38,7 @@ export default function HeroSection({
         style={{ height: "120%", top: "-10%" }}
       >
         {videoUrl ? (
-          <VideoBackground videoSrc={videoUrl} fallbackImage={heroImage} />
+          <VideoBackground videoSrc={videoUrl} fallbackImage={heroImage} paused={videoPaused} />
         ) : heroImage ? (
           <div
             className="absolute inset-0 bg-cover bg-center"

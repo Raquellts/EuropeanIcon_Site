@@ -31,6 +31,7 @@ export default function MasterPageClient({
         videoUrl={videoUrl}
         heroImage={heroImage}
         onOpenEnrollment={() => setEnrollmentOpen(true)}
+        videoPaused={enrollmentOpen}
       />
       {children}
       <EnrollmentModal

@@ -7,6 +7,7 @@ interface VideoBackgroundProps {
   fallbackImage?: string;
   className?: string;
   style?: React.CSSProperties;
+  paused?: boolean;
 }
 
 function isYouTubeUrl(url: string): boolean {
@@ -29,10 +30,13 @@ export default function VideoBackground({
   fallbackImage,
   className = "",
   style,
+  paused = false,
 }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const isYouTube = isYouTubeUrl(videoSrc);
 
@@ -49,7 +53,7 @@ export default function VideoBackground({
   };
 
   useEffect(() => {
-    if (!isYouTube) return;
+    if (isYouTube) return;
     setVideoLoaded(true);
     const timer = setInterval(forceYouTubePlay, 1000);
     const timeout = setTimeout(() => clearInterval(timer), 8000);
@@ -79,8 +83,41 @@ export default function VideoBackground({
     };
   }, [videoSrc, isYouTube]);
 
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isYouTube) {
+      const command = paused || !isVisible ? "pauseVideo" : "playVideo";
+      iframeRef.current?.contentWindow?.postMessage(
+        JSON.stringify({ event: "command", func: command, args: "" }),
+        "*"
+      );
+      return;
+    }
+
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (paused || !isVisible) {
+      video.pause();
+    } else {
+      video.play().catch(() => {});
+    }
+  }, [paused, isVisible, isYouTube]);
+
   return (
-    <div className={`absolute inset-0 ${className}`} style={style}>
+    <div ref={containerRef} className={`absolute inset-0 ${className}`} style={style}>
       {isYouTube ? (
         <iframe
           ref={iframeRef}
