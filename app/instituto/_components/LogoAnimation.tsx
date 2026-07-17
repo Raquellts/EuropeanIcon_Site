@@ -1,14 +1,17 @@
 import Image from "next/image";
 
 export default function LogoAnimation() {
+  const minSize = "clamp(140px, 24vw, 300px)";
+  const maxsize = "clamp(180px, 30vw, 380px)";
+
   return (
     <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
       <div className="relative flex items-center justify-center">
         <div
           className="relative"
           style={{
-            width: "clamp(80px, 18vw, 300px)",
-            height: "clamp(80px, 18vw, 300px)",
+            width: minSize,
+            height: minSize,
           }}
         >
           <Image
@@ -22,8 +25,8 @@ export default function LogoAnimation() {
         <div
           className="absolute animate-spin-slow"
           style={{
-            width: "clamp(100px, 25vw, 380px)",
-            height: "clamp(100px, 25vw, 380px)",
+            width: maxsize,
+            height: maxsize,
           }}
         >
           <Image

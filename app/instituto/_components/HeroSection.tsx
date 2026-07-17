@@ -26,7 +26,7 @@ export default function HeroSection() {
           <VideoBackground
             videoSrc={institute.heroVideoSrc}
             fallbackImage={institute.heroImage}
-            playbackRate={0.8}
+            playbackRate={1}
           />
         ) : institute.heroImage ? (
           <div

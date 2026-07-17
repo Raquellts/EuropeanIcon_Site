@@ -49,7 +49,7 @@ export const institute: Institute = {
   heroDescription:
     "Mestrados internacionais com dupla titulação Brasil–Europa, formação baseada em evidências científicas e alianças com instituições de renome mundial.",
   heroVideoSrc:
-    "https://res.cloudinary.com/falvay2b/video/upload/v1784256988/heroinstituto_kpghgv.mp4",
+    "https://res.cloudinary.com/falvay2b/video/upload/v1784320344/herovideo_d0mmeu.mp4",
   heroImage: "/images/instituto/backgrounds/hero.webp",
   heroStats: [
     { value: 2017, suffix: "", label: "Ano de fundação" },
@@ -58,5 +58,5 @@ export const institute: Institute = {
     { value: 3, suffix: "", label: "Diplomas" },
   ],
   instituteVideo:
-    "https://res.cloudinary.com/falvay2b/video/upload/v1784295161/Bandeiras_py5rxh.mp4",
+    "https://res.cloudinary.com/falvay2b/video/upload/v1784320612/bandeiras_vdpoka.mp4",
 };
