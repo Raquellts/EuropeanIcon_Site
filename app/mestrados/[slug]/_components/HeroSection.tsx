@@ -34,11 +34,15 @@ export default function HeroSection({
     >
       <div
         ref={parallaxRef}
-        className="absolute inset-0 z-0 will-change-transform brightness-[0.8]"
+        className="absolute inset-0 z-0 will-change-transform grayscale brightness-[0.4]"
         style={{ height: "120%", top: "-10%" }}
       >
         {videoUrl ? (
-          <VideoBackground videoSrc={videoUrl} fallbackImage={heroImage} paused={videoPaused} />
+          <VideoBackground
+            videoSrc={videoUrl}
+            fallbackImage={heroImage}
+            paused={videoPaused}
+          />
         ) : heroImage ? (
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -78,11 +82,7 @@ export default function HeroSection({
         )}
 
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={onOpenEnrollment}
-          >
+          <Button variant="primary" size="lg" onClick={onOpenEnrollment}>
             Seja um Aluno
           </Button>
           <Button

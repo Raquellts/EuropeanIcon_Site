@@ -8,13 +8,6 @@ import ScrollReveal from "../../_shared/components/ui/ScrollReveal";
 import { useAnchorNavigation } from "../../_shared/hooks/useAnchorNavigation";
 import { useParallax } from "../../_shared/hooks/useParallax";
 
-const heroStats = [
-  { value: 2017, suffix: "", label: "Ano de fundação" },
-  { value: 3000, suffix: "", label: "Horas de formação" },
-  { value: 120, suffix: "", label: "ECTS - Créditos europeus" },
-  { value: 3, suffix: "", label: "Diplomas" },
-];
-
 export default function HeroSection() {
   const navigateTo = useAnchorNavigation();
   const parallaxRef = useParallax();
@@ -26,10 +19,23 @@ export default function HeroSection() {
     >
       <div
         ref={parallaxRef}
-        className="absolute inset-0 z-0 will-change-transform grayscale brightness-[0.65]"
+        className="absolute inset-0 z-0 will-change-transform grayscale brightness-[0.3]"
         style={{ height: "120%", top: "-10%" }}
       >
-        <VideoBackground videoSrc="/videos/hero-instituto.mp4" />
+        {institute.heroVideoSrc ? (
+          <VideoBackground
+            videoSrc={institute.heroVideoSrc}
+            fallbackImage={institute.heroImage}
+            playbackRate={0.8}
+          />
+        ) : institute.heroImage ? (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${institute.heroImage})` }}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-surface animate-pulse" />
+        )}
       </div>
 
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/70 via-background/40 to-background [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]" />
@@ -40,14 +46,14 @@ export default function HeroSection() {
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 backdrop-blur px-4 py-1.5 text-xs text-muted">
               <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
-              Fundado em 2017 · Sediado em Barcelona
+              {institute.heroSubtitle}
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
             <h1 className="font-bold leading-tight max-w-4xl">
               <span className="block font-serif font-thin text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight sm:mb-1 md:mb-2 text-primary">
-                Excelência Acadêmica Internacional
+                {institute.heroTitle}
               </span>
               <span className="block font-serif header-text header-text-animated text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 {institute.name}
@@ -57,9 +63,7 @@ export default function HeroSection() {
 
           <ScrollReveal delay={160}>
             <p className="max-w-2xl text-base md:text-lg text-secondary leading-relaxed text-pretty">
-              Mestrados internacionais com dupla titulação Brasil–Europa, formação
-              baseada em evidências científicas e alianças com instituições de
-              renome mundial.
+              {institute.heroDescription}
             </p>
           </ScrollReveal>
 
@@ -87,7 +91,7 @@ export default function HeroSection() {
       <div className="relative z-10">
         <ScrollReveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 px-6 py-8 border-t border-border bg-surface/50 backdrop-blur">
-            {heroStats.map((stat) => (
+            {institute.heroStats.map((stat) => (
               <StatCard
                 key={stat.label}
                 value={stat.value}

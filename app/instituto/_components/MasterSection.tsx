@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { masters } from "../../../src/data/masters";
 import {
   Clock,
@@ -8,7 +9,6 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
-import { Button } from "../../_shared/components/ui/Button";
 import ScrollReveal from "../../_shared/components/ui/ScrollReveal";
 
 export default function MasterSection() {
@@ -56,7 +56,8 @@ export default function MasterSection() {
 
             return (
               <ScrollReveal key={master.slug} delay={index * 120}>
-                <article className="group grid md:grid-cols-2 overflow-hidden rounded-3xl border border-border bg-surface transition-all duration-300 hover:border-gold/40 hover:shadow-2xl hover:shadow-black/40">
+                <Link href={`/mestrados/${master.slug}`}>
+                  <article className="group grid md:grid-cols-2 overflow-hidden rounded-3xl border border-border bg-surface transition-all duration-300 hover:border-gold/40 hover:shadow-2xl hover:shadow-black/40 cursor-pointer">
                   {/* Imagem */}
                   <div
                     className={`relative min-h-[240px] lg:min-h-[420px] overflow-hidden ${
@@ -121,16 +122,14 @@ export default function MasterSection() {
                     </div>
 
                     <div className="mt-2">
-                      <Button
-                        href={`/mestrados/${master.slug}`}
-                        variant="primary"
-                        icon={<ArrowRight size={16} />}
-                      >
-                        Ver programa completo
-                      </Button>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted group-hover:text-gold transition-colors">
+                        Saiba mais
+                        <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
                     </div>
                   </div>
                 </article>
+              </Link>
               </ScrollReveal>
             );
           })}

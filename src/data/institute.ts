@@ -15,6 +15,13 @@ export interface Institute {
       youtube: string;
     };
   };
+  heroSubtitle: string;
+  heroTitle: string;
+  heroDescription: string;
+  heroVideoSrc: string;
+  heroImage: string;
+  heroStats: { value: number; suffix: string; label: string }[];
+  instituteVideo: string;
 }
 
 export const institute: Institute = {
@@ -37,4 +44,19 @@ export const institute: Institute = {
       youtube: "https://www.youtube.com/@europeaniconinstitute",
     },
   },
+  heroSubtitle: "Fundado em 2017 · Sediado em Barcelona",
+  heroTitle: "Excelência Acadêmica Internacional",
+  heroDescription:
+    "Mestrados internacionais com dupla titulação Brasil–Europa, formação baseada em evidências científicas e alianças com instituições de renome mundial.",
+  heroVideoSrc:
+    "https://res.cloudinary.com/falvay2b/video/upload/v1784256988/heroinstituto_kpghgv.mp4",
+  heroImage: "/images/instituto/backgrounds/hero.webp",
+  heroStats: [
+    { value: 2017, suffix: "", label: "Ano de fundação" },
+    { value: 3000, suffix: "", label: "Horas de formação" },
+    { value: 120, suffix: "", label: "ECTS - Créditos europeus" },
+    { value: 3, suffix: "", label: "Diplomas" },
+  ],
+  instituteVideo:
+    "https://res.cloudinary.com/falvay2b/video/upload/v1784295161/Bandeiras_py5rxh.mp4",
 };

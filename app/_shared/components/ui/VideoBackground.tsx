@@ -8,6 +8,7 @@ interface VideoBackgroundProps {
   className?: string;
   style?: React.CSSProperties;
   paused?: boolean;
+  playbackRate?: number;
 }
 
 function isYouTubeUrl(url: string): boolean {
@@ -31,6 +32,7 @@ export default function VideoBackground({
   className = "",
   style,
   paused = false,
+  playbackRate = 1,
 }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -82,6 +84,12 @@ export default function VideoBackground({
       video.removeEventListener("error", handleError);
     };
   }, [videoSrc, isYouTube]);
+
+  useEffect(() => {
+    if (isYouTube) return;
+    const video = videoRef.current;
+    if (video) video.playbackRate = playbackRate;
+  }, [playbackRate, isYouTube]);
 
   useEffect(() => {
     const container = containerRef.current;

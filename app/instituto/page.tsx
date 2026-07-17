@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Navbar from "../_shared/components/ui/Navbar";
 import HeroSection from "./_components/HeroSection";
-import InstituteSection from "./_components/InstituteSection";
 import MasterSection from "./_components/MasterSection";
 import JournalsSection from "./_components/JournalsSection";
 import PartnersSection from "./_components/PartnersSection";
 import WhatsAppButton from "../_shared/components/ui/WhatsAppButton";
 import Footer from "../_shared/components/ui/Footer";
 import { institute } from "../../src/data/institute";
+import InstituteSection from "./_components/InstituteSection";
 
 export const metadata: Metadata = {
   title: "Instituto - European & Icon Institute",
