@@ -54,6 +54,11 @@ export const navigation: NavItem[] = [
         description: "Programas com dupla titulação",
       },
       {
+        label: "Nossa Equipe",
+        href: "/#equipe",
+        description: "Coordenadores e professores",
+      },
+      {
         label: "Parceiros",
         href: "/#parceiros",
         description: "Universidades e instituições associadas",
@@ -82,6 +87,7 @@ export const navigation: NavItem[] = [
       anchors: [
         { label: "Visão geral", href: `/mestrados/${m.slug}#hero` },
         { label: "Grade curricular", href: `/mestrados/${m.slug}#grade` },
+        { label: "Docentes", href: `/mestrados/${m.slug}#docentes` },
         { label: "Galeria", href: `/mestrados/${m.slug}#galeria` },
       ],
     })),
@@ -125,6 +131,29 @@ export const navigation: NavItem[] = [
     ),
   },
   {
+    label: "Docentes",
+    href: "/mestrados",
+    featured: {
+      title: "Corpo Docente",
+      description:
+        "Professores e pesquisadores internacionalmente reconhecidos.",
+      href: "/mestrados",
+      cta: "Ver todos",
+    },
+    anchors: [
+      {
+        label: "Direito Penal Econômico",
+        href: "/mestrados/mestrado-direito-penal-economico/docentes",
+        description: "31 docentes",
+      },
+      {
+        label: "Harmonização Orofacial",
+        href: "/mestrados/mestrado-harmonizacao-orofacial/docentes",
+        description: "30 docentes",
+      },
+    ],
+  },
+  {
     label: "Revistas",
     href: "/revistas",
     featured: {
@@ -155,6 +184,11 @@ export const navigation: NavItem[] = [
       cta: "Ir para Contato",
     },
     anchors: [
+      {
+        label: "Apresentação",
+        href: "/contato#hero",
+        description: "Conheça o Instituto",
+      },
       {
         label: "Perguntas Frequentes",
         href: "/contato#faq",

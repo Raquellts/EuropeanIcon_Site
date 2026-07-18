@@ -39,6 +39,7 @@ export default function VideoBackground({
   const containerRef = useRef<HTMLDivElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   const isYouTube = isYouTubeUrl(videoSrc);
 
@@ -105,8 +106,14 @@ export default function VideoBackground({
   }, []);
 
   useEffect(() => {
+    const handler = ((e: CustomEvent) => setIsNavbarOpen(e.detail.open)) as EventListener;
+    window.addEventListener("navbar-menu-toggle", handler);
+    return () => window.removeEventListener("navbar-menu-toggle", handler);
+  }, []);
+
+  useEffect(() => {
     if (isYouTube) {
-      const command = paused || !isVisible ? "pauseVideo" : "playVideo";
+      const command = paused || !isVisible || isNavbarOpen ? "pauseVideo" : "playVideo";
       iframeRef.current?.contentWindow?.postMessage(
         JSON.stringify({ event: "command", func: command, args: "" }),
         "*"
@@ -117,12 +124,12 @@ export default function VideoBackground({
     const video = videoRef.current;
     if (!video) return;
 
-    if (paused || !isVisible) {
+    if (paused || !isVisible || isNavbarOpen) {
       video.pause();
     } else {
       video.play().catch(() => {});
     }
-  }, [paused, isVisible, isYouTube]);
+  }, [paused, isVisible, isNavbarOpen, isYouTube]);
 
   return (
     <div ref={containerRef} className={`absolute inset-0 ${className}`} style={style}>

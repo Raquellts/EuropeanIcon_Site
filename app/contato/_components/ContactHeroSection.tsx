@@ -76,7 +76,7 @@ const contactCards = [
 
 export default function ContactHeroSection() {
   return (
-    <section className="pt-28 pb-16 md:pt-32 md:pb-20 border-t border-border relative overflow-hidden">
+    <section id="hero" className="pt-28 pb-16 md:pt-32 md:pb-20 border-t border-border relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--gold-dark)_0%,_transparent_55%)] opacity-[0.08]" />
 
       <div className="section-container relative">

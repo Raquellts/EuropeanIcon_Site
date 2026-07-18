@@ -16,7 +16,7 @@ const featuredSlugs: Record<string, string> = {
 
 export default function TeamHighlightsSection() {
   return (
-    <section className="py-20 md:py-28 border-t border-border relative overflow-hidden">
+    <section id="equipe" className="py-20 md:py-28 border-t border-border relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--gold-dark)_0%,_transparent_55%)] opacity-[0.08]" />
 
       <div className="section-container relative">
@@ -25,11 +25,11 @@ export default function TeamHighlightsSection() {
             Nossa Equipe
           </Pill>
           <h2 className="text-3xl md:text-5xl font-bold header-text mb-4">
-            Liderança e Corpo Docente
+            Conheça Nossos Coordenadores
           </h2>
           <p className="text-secondary max-w-2xl mx-auto leading-relaxed">
-            Profissionais renomados que fazem a diferença na formação de
-            novos líderes internacionais.
+            Profissionais renomados que fazem a diferença na formação de novos
+            líderes internacionais.
           </p>
           <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
         </ScrollReveal>
@@ -44,7 +44,10 @@ export default function TeamHighlightsSection() {
               : "";
             const isHof = master.slug.includes("harmonizacao");
 
-            const shortName = master.title.replace("Mestrado Internacional em ", "");
+            const shortName = master.title.replace(
+              "Mestrado Internacional em ",
+              "",
+            );
 
             return (
               <ScrollReveal key={master.slug} delay={index * 120}>

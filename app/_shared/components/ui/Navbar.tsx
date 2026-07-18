@@ -1,7 +1,14 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, ChevronRight, ExternalLink, ArrowRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  ChevronRight,
+  ExternalLink,
+  ArrowRight,
+} from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { navigation } from "../../../../src/data/navigation";
@@ -13,7 +20,9 @@ export default function Navbar() {
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const [mobileSubExpanded, setMobileSubExpanded] = useState<string | null>(null);
+  const [mobileSubExpanded, setMobileSubExpanded] = useState<string | null>(
+    null,
+  );
   const [megaOpen, setMegaOpen] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const navigateTo = useAnchorNavigation();
@@ -60,7 +69,7 @@ export default function Navbar() {
     window.dispatchEvent(
       new CustomEvent("navbar-menu-toggle", {
         detail: { open: megaOpen !== null || mobileOpen },
-      })
+      }),
     );
   }, [megaOpen, mobileOpen]);
 
@@ -171,7 +180,9 @@ export default function Navbar() {
               />
               <span className="font-serif font-thin hidden sm:flex lg:hidden xl:flex text-primary text-sm flex-col text-start leading-tight">
                 European &amp; Icon
-                <span className="text-secondary font-sans_serif">Institute</span>
+                <span className="text-secondary font-sans_serif">
+                  Institute
+                </span>
               </span>
             </button>
 
@@ -186,7 +197,13 @@ export default function Navbar() {
                     onMouseEnter={() => openMega(item.label)}
                   >
                     <button
-                      onClick={() => handleNavClick(item.href)}
+                      onClick={() => {
+                        if (megaOpen === item.label) {
+                          setMegaOpen(null);
+                        } else {
+                          openMega(item.label);
+                        }
+                      }}
                       className={`relative inline-flex items-center gap-1.5 px-3.5 py-2 text-xs uppercase tracking-wide font-bold rounded-lg transition-all duration-200 whitespace-nowrap ${
                         isOpen || active
                           ? "text-gold"
@@ -200,7 +217,9 @@ export default function Navbar() {
                       />
                       <span
                         className={`absolute left-3.5 right-3.5 -bottom-0.5 h-0.5 rounded-full bg-gold transition-all duration-300 ${
-                          isOpen || active ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
+                          isOpen || active
+                            ? "opacity-100 scale-x-100"
+                            : "opacity-0 scale-x-0"
                         }`}
                       />
                     </button>
@@ -291,7 +310,10 @@ export default function Navbar() {
                               <span className="flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:text-gold transition-colors">
                                 {anchor.label}
                                 {isExternal(anchor.href) && (
-                                  <ExternalLink size={12} className="text-muted" />
+                                  <ExternalLink
+                                    size={12}
+                                    className="text-muted"
+                                  />
                                 )}
                               </span>
                               {anchor.description && (
@@ -333,12 +355,17 @@ export default function Navbar() {
                                 {child.anchors.map((anchor) => (
                                   <button
                                     key={anchor.href}
-                                    onClick={() => handleAnchorClick(anchor.href)}
+                                    onClick={() =>
+                                      handleAnchorClick(anchor.href)
+                                    }
                                     className="inline-flex items-center gap-1 rounded-full border border-border bg-surface px-2.5 py-1 text-xs text-secondary transition-colors hover:border-gold/40 hover:text-gold"
                                   >
                                     {anchor.label}
                                     {isExternal(anchor.href) && (
-                                      <ExternalLink size={10} className="text-muted" />
+                                      <ExternalLink
+                                        size={10}
+                                        className="text-muted"
+                                      />
                                     )}
                                   </button>
                                 ))}
@@ -363,7 +390,9 @@ export default function Navbar() {
             className="absolute inset-0 bg-black/60"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="absolute top-16 left-0 right-0 bottom-0 bg-zinc-900/97 backdrop-blur-xl border-t border-border overflow-y-auto">
+          <div
+            className={`absolute left-0 right-0 bottom-0 bg-zinc-900/97 backdrop-blur-xl border-t border-border overflow-y-auto transition-all duration-500 ${scrolled ? "top-16" : "top-20"}`}
+          >
             <div className="mx-auto max-w-7xl px-4 py-4 space-y-1">
               {navigation.map((item) => {
                 const isExpanded = mobileExpanded === item.label;
@@ -379,7 +408,13 @@ export default function Navbar() {
                   >
                     <div className="flex items-stretch">
                       <button
-                        onClick={() => handleNavClick(item.href)}
+                        onClick={() => {
+                          if (hasSubItems) {
+                            setMobileExpanded(isExpanded ? null : item.label);
+                          } else {
+                            handleNavClick(item.href);
+                          }
+                        }}
                         className={`flex-1 text-left px-4 py-3.5 text-base font-semibold transition-colors ${
                           active
                             ? "text-gold"
@@ -395,7 +430,9 @@ export default function Navbar() {
                           }
                           aria-label={`Expandir ${item.label}`}
                           className={`px-4 flex items-center border-l border-border transition-colors ${
-                            isExpanded ? "text-gold bg-surface" : "text-secondary hover:bg-surface-hover"
+                            isExpanded
+                              ? "text-gold bg-surface"
+                              : "text-secondary hover:bg-surface-hover"
                           }`}
                         >
                           <ChevronDown
@@ -409,7 +446,9 @@ export default function Navbar() {
                     {hasSubItems && (
                       <div
                         className={`overflow-hidden transition-all duration-300 ${
-                          isExpanded ? "max-h-[1200px] opacity-100" : "max-h-0 opacity-0"
+                          isExpanded
+                            ? "max-h-[1200px] opacity-100"
+                            : "max-h-0 opacity-0"
                         }`}
                       >
                         <div className="px-3 pb-3 pt-1 space-y-1 bg-background/40">
@@ -420,13 +459,32 @@ export default function Navbar() {
                               onClick={() => handleAnchorClick(anchor.href)}
                               className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm text-secondary transition-colors hover:bg-surface-hover hover:text-gold"
                             >
-                              <ChevronRight size={14} className="text-muted shrink-0" />
+                              <ChevronRight
+                                size={14}
+                                className="text-muted shrink-0"
+                              />
                               {anchor.label}
                               {isExternal(anchor.href) && (
-                                <ExternalLink size={11} className="text-muted" />
+                                <ExternalLink
+                                  size={11}
+                                  className="text-muted"
+                                />
                               )}
                             </button>
                           ))}
+
+                          {/* Ver página link for items with direct anchors */}
+                          {item.href &&
+                            item.anchors &&
+                            item.anchors.length > 0 && (
+                              <button
+                                onClick={() => handleNavClick(item.href!)}
+                                className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-xs font-semibold text-gold transition-colors hover:bg-surface-hover"
+                              >
+                                Ver página
+                                <ArrowRight size={12} />
+                              </button>
+                            )}
 
                           {/* Children with their own nested anchors */}
                           {item.children?.map((child) => {
@@ -435,15 +493,17 @@ export default function Navbar() {
                             return (
                               <div
                                 key={child.label}
-                                className="rounded-lg border border-border/60 bg-surface/40"
+                                className="border-t border-border bg-surface/40"
                               >
                                 <button
                                   onClick={() =>
-                                    setMobileSubExpanded(subOpen ? null : subKey)
+                                    setMobileSubExpanded(
+                                      subOpen ? null : subKey,
+                                    )
                                   }
                                   className="flex w-full items-center justify-between gap-2 px-3 py-2.5 text-left"
                                 >
-                                  <span className="text-sm font-semibold text-primary text-balance">
+                                  <span className="text-sm font-semibold text-primary text-balance pt-1">
                                     {child.label}
                                   </span>
                                   <ChevronDown
@@ -453,32 +513,44 @@ export default function Navbar() {
                                 </button>
                                 <div
                                   className={`overflow-hidden transition-all duration-300 ${
-                                    subOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+                                    subOpen
+                                      ? "max-h-[600px] opacity-100"
+                                      : "max-h-0 opacity-0"
                                   }`}
                                 >
-                                  <div className="border-t border-border/50 px-2 py-2 space-y-0.5">
+                                  <div className="px-2 py-2 space-y-0.5 ">
+                                    {child.anchors?.map((anchor) => (
+                                      <button
+                                        key={anchor.href}
+                                        onClick={() =>
+                                          handleAnchorClick(anchor.href)
+                                        }
+                                        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm text-secondary transition-colors hover:bg-surface-hover hover:text-gold"
+                                      >
+                                        <ChevronRight
+                                          size={12}
+                                          className="text-muted shrink-0"
+                                        />
+                                        {anchor.label}
+                                        {isExternal(anchor.href) && (
+                                          <ExternalLink
+                                            size={10}
+                                            className="text-muted"
+                                          />
+                                        )}
+                                      </button>
+                                    ))}
                                     {child.href && (
                                       <button
-                                        onClick={() => handleNavClick(child.href!)}
-                                        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-xs font-semibold text-gold transition-colors hover:bg-surface-hover"
+                                        onClick={() =>
+                                          handleNavClick(child.href!)
+                                        }
+                                        className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm font-semibold text-gold transition-colors hover:bg-surface-hover"
                                       >
                                         Abrir página
                                         <ArrowRight size={12} />
                                       </button>
                                     )}
-                                    {child.anchors?.map((anchor) => (
-                                      <button
-                                        key={anchor.href}
-                                        onClick={() => handleAnchorClick(anchor.href)}
-                                        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-xs text-secondary transition-colors hover:bg-surface-hover hover:text-gold"
-                                      >
-                                        <ChevronRight size={12} className="text-muted shrink-0" />
-                                        {anchor.label}
-                                        {isExternal(anchor.href) && (
-                                          <ExternalLink size={10} className="text-muted" />
-                                        )}
-                                      </button>
-                                    ))}
                                   </div>
                                 </div>
                               </div>
