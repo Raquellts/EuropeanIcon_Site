@@ -53,3 +53,19 @@ export function journalAssetPath(journalSlug: string, file: string): string {
 export function partnerLogoPath(partnerSlug: string): string {
   return `/parceiros/${partnerSlug}.webp`;
 }
+
+/** Foto de um professor num mestrado (resolvida por slug). */
+export function masterFacultyPhotoPath(
+  masterSlug: string,
+  personSlug: string,
+): string {
+  return `/masters/${masterSlug}/professores/${personSlug}.webp`;
+}
+
+/** CV de um professor num mestrado (se existir). */
+export function masterFacultyCvPath(
+  masterSlug: string,
+  personSlug: string,
+): string {
+  return `/masters/${masterSlug}/cvs/${personSlug}.pdf`;
+}

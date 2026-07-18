@@ -7,16 +7,20 @@ interface EnrollmentModalProps {
   open: boolean;
   onClose: () => void;
   masterSlug: string;
+  editalUrl?: string;
+  contratoUrl?: string;
 }
 
 export default function EnrollmentModal({
   open,
   onClose,
   masterSlug,
+  editalUrl,
+  contratoUrl,
 }: EnrollmentModalProps) {
   return (
     <Modal open={open} onClose={onClose} title="Inscrição Mestrado">
-      <EnrollmentForm masterSlug={masterSlug} />
+      <EnrollmentForm masterSlug={masterSlug} editalUrl={editalUrl} contratoUrl={contratoUrl} />
     </Modal>
   );
 }

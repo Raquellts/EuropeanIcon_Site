@@ -24,6 +24,9 @@ export interface Master extends Partial<BaseEntity> {
   benefits?: Benefit[];
   curriculumModules?: CurriculumModule[];
   galleryImages?: GalleryImage[];
+  editalUrl?: string;
+  contratoUrl?: string;
+  instagramUrl?: string;
 }
 
 export const direitoPenalEconomico: Master = {
@@ -409,4 +412,7 @@ export const direitoPenalEconomico: Master = {
     { src: masterAssetPath("direito-penal-economico", "galeria-08.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 7" },
     { src: masterAssetPath("direito-penal-economico", "galeria-09.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 8" },
   ],
+  editalUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131807/Edital-Mestrado-em-Direito-Penal-Economico.pdf",
+  contratoUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131539/MINUTA-CONTRATO-MESTRADO-INTERNACIONAL-EM-DIREITO-PENAL-ECONOMICO.pdf",
+  instagramUrl: "https://www.instagram.com/iconinstoficial/",
 };

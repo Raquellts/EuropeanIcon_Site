@@ -97,7 +97,7 @@ const documents = [
   { id: "antecedentes", label: "7. Certificado de Antecedentes Criminais", hint: "Certificado de Antecedentes Criminais. Recentemente datado. Este documento deve ser emitido no site da Polícia Federal.", accept: ".pdf" },
 ];
 
-export default function EnrollmentForm({ masterSlug }: { masterSlug: string }) {
+export default function EnrollmentForm({ masterSlug, editalUrl, contratoUrl }: { masterSlug: string; editalUrl?: string; contratoUrl?: string }) {
   const [sent, setSent] = useState(false);
   const [especializacao, setEspecializacao] = useState<string>("");
   const [liEdital, setLiEdital] = useState(false);
@@ -227,7 +227,7 @@ export default function EnrollmentForm({ masterSlug }: { masterSlug: string }) {
       <div className="rounded-xl border border-border bg-background p-5 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <a
-            href={masterAssetPath(masterSlug, "edital.pdf")}
+            href={editalUrl || masterAssetPath(masterSlug, "edital.pdf")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-light transition-colors"
@@ -248,7 +248,7 @@ export default function EnrollmentForm({ masterSlug }: { masterSlug: string }) {
         <div className="border-t border-border pt-4 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a
-              href={masterAssetPath(masterSlug, "contrato.pdf")}
+              href={contratoUrl || masterAssetPath(masterSlug, "contrato.pdf")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-light transition-colors"

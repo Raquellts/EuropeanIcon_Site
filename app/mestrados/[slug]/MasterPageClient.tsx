@@ -10,6 +10,8 @@ interface MasterPageClientProps {
   tagline?: string;
   videoUrl?: string;
   heroImage?: string;
+  editalUrl?: string;
+  contratoUrl?: string;
   children: React.ReactNode;
 }
 
@@ -19,6 +21,8 @@ export default function MasterPageClient({
   tagline,
   videoUrl,
   heroImage,
+  editalUrl,
+  contratoUrl,
   children,
 }: MasterPageClientProps) {
   const [enrollmentOpen, setEnrollmentOpen] = useState(false);
@@ -38,6 +42,8 @@ export default function MasterPageClient({
         open={enrollmentOpen}
         onClose={() => setEnrollmentOpen(false)}
         masterSlug={slug}
+        editalUrl={editalUrl}
+        contratoUrl={contratoUrl}
       />
     </main>
   );

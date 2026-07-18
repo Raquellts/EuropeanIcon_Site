@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "../_shared/components/ui/Navbar";
+import ContactHeroSection from "./_components/ContactHeroSection";
 import FAQSection from "./_components/FAQSection";
 import ContactSection from "./_components/ContactSection";
 import Footer from "../_shared/components/ui/Footer";
@@ -17,6 +18,7 @@ export default function ContatoPage() {
     <>
       <Navbar />
       <main>
+        <ContactHeroSection />
         <FAQSection
           faqItems={faqItems}
           description="Tire suas dúvidas sobre o Fórum Internacional em Direito Penal Econômico."

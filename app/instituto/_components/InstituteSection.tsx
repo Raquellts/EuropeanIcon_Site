@@ -12,6 +12,7 @@ import {
 import ScrollReveal from "../../_shared/components/ui/ScrollReveal";
 import { useRef, useEffect } from "react";
 import LogoAnimation from "./LogoAnimation";
+import Pill from "../../_shared/components/ui/Pill";
 
 export default function InstituteSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -52,10 +53,10 @@ export default function InstituteSection() {
       <div className="lg:hidden flex flex-col">
         <div className="px-6 py-10">
           <ScrollReveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-surface/70 backdrop-blur px-4 py-1.5 text-xs text-gold mb-4">
+            <Pill variant="gold" className="mb-5">
               <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
               {institute.heroSubtitle}
-            </div>
+            </Pill>
           </ScrollReveal>
           <ScrollReveal delay={80}>
             <h2 className="text-3xl font-bold header-text mb-4">

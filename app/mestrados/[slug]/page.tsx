@@ -10,6 +10,8 @@ import BenefitsSection from "./_components/BenefitsSection";
 import CurriculumSection from "./_components/CurriculumSection";
 import GallerySection from "./_components/GallerySection";
 import CtaSection from "./_components/CtaSection";
+import FacultySection from "./_components/FacultySection";
+import InstagramFeedSection from "./_components/InstagramFeedSection";
 import MasterPageClient from "./MasterPageClient";
 import type { Metadata } from "next";
 
@@ -45,6 +47,8 @@ export default async function MasterPage({ params }: MasterPageProps) {
         tagline={master.tagline}
         videoUrl={master.videoUrl}
         heroImage={master.heroImage}
+        editalUrl={master.editalUrl}
+        contratoUrl={master.contratoUrl}
       >
         <ScrollReveal>
           <StatsSection
@@ -111,10 +115,22 @@ export default async function MasterPage({ params }: MasterPageProps) {
             </ScrollReveal>
           )}
 
+        {/* Corpo Docente */}
+        <ScrollReveal delay={100}>
+          <FacultySection masterSlug={slug} />
+        </ScrollReveal>
+
         {/* Galeria */}
         {master.galleryImages && master.galleryImages.length > 0 && (
           <ScrollReveal delay={100}>
             <GallerySection gallery={master.galleryImages} />
+          </ScrollReveal>
+        )}
+
+        {/* Instagram */}
+        {master.instagramUrl && (
+          <ScrollReveal delay={100}>
+            <InstagramFeedSection instagramUrl={master.instagramUrl} masterTitle={master.title} />
           </ScrollReveal>
         )}
 

@@ -29,6 +29,9 @@ export interface Master extends Partial<BaseEntity> {
   benefits?: Benefit[];
   curriculumModules?: CurriculumModule[];
   galleryImages?: GalleryImage[];
+  editalUrl?: string;
+  contratoUrl?: string;
+  instagramUrl?: string;
 }
 
 export const harmonizacaoOrofacial: Master = {
@@ -311,4 +314,7 @@ export const harmonizacaoOrofacial: Master = {
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-12.webp"), alt: "Mestrado em Harmonização Orofacial 12" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-13.webp"), alt: "Mestrado em Harmonização Orofacial 13" },
   ],
+  editalUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131811/Edital-de-Abertura-Mestrado-em-Harmonizacao-Orofacial.pdf",
+  contratoUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131537/MINUTA-MESTRADO-EM-HOF-ATUALIZADA-MAIO-2026.pdf",
+  instagramUrl: "https://www.instagram.com/europeaninst_oficial/",
 };

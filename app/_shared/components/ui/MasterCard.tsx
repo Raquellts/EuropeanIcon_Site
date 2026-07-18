@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Clock, Award, MapPin, UserRound, ArrowRight } from "lucide-react";
 import type { Master } from "@/src/data/masters";
+import Pill from "./Pill";
 import ScrollReveal from "./ScrollReveal";
 
 interface MasterCardProps {
@@ -65,9 +66,9 @@ export default function MasterCard({ master, index }: MasterCardProps) {
             }`}
           >
             {master.tagline && (
-              <span className="inline-flex w-fit items-center rounded-full border border-gold/30 bg-background px-3 py-1 text-xs font-medium text-gold">
+              <Pill variant="tagline" className="w-fit">
                 {master.tagline}
-              </span>
+              </Pill>
             )}
 
             <h3 className="text-2xl md:text-3xl font-bold text-primary font-serif leading-snug group-hover:text-gold transition-colors">

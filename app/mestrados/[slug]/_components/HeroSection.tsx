@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, ChevronDown } from "lucide-react";
 import VideoBackground from "../../../_shared/components/ui/VideoBackground";
 import { Button } from "../../../_shared/components/ui/Button";
+import Pill from "../../../_shared/components/ui/Pill";
 import { useParallax } from "../../../_shared/hooks/useParallax";
 import { useAnchorNavigation } from "../../../_shared/hooks/useAnchorNavigation";
 
@@ -66,10 +67,11 @@ export default function HeroSection({
           Voltar para Mestrados
         </Link>
 
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 backdrop-blur-sm px-4 py-1.5 text-xs text-muted">
-          <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
+        <Pill
+          icon={<span className="h-2 w-2 rounded-full bg-gold animate-pulse" />}
+        >
           Mestrado Internacional
-        </div>
+        </Pill>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight max-w-4xl">
           <span className="header-text header-text-animated">{title}</span>

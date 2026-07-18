@@ -302,14 +302,21 @@ export const people: Person[] = [
   {
     "slug": "marcela",
     "name": "Dra. Marcela Camargo",
-    "role": "",
+    "role": "Advogada Criminal e Professora de Direito Penal",
+    "description": "Coordenadora da Comissão de Acompanhamento da Igualdade de Direitos e Combate à Discriminação – CAIDCD, da Casa Brasil Coimbra. Diretora da ABA Coimbra. Fundadora da Comunidade Penal, em Portugal. Mentora de Advocacia Criminal. Doutoranda em Ciências Criminais na Universidade de Coimbra.",
     "email": "adv.marcelacamargo@gmail.com",
-    "areas": [],
+    "areas": [
+      "Direito Penal",
+      "Direito Penal Econômico"
+    ],
     "social": {
       "linkedin": "",
       "instagram": "https://www.instagram.com/marcelacamargo.advcriminal/"
     },
-    "contact": "+351 914 017 603"
+    "contact": "+351 914 017 603",
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
   },
   {
     "slug": "marcia",
@@ -638,6 +645,678 @@ export const people: Person[] = [
       "instagram": ""
     },
     "contact": "+351 961 945 870"
+  },
+
+  // ── MESTRADO EM HARMONIZAÇÃO OROFACIAL (HOF) ──────────────────────
+
+  {
+    "slug": "paulo-moraes",
+    "name": "Prof. Dr. Paulo Moraes",
+    "role": "Coordenador Científico do Mestrado em HOF",
+    "description": "Doutor em Cirurgia Maxilofacial (UNICAMP). Mestre em Cirurgia Maxilofacial (Universidade de Porto). Mestre em Cirurgia Maxilofacial (UNICAMP). Especialista em Cirurgia Maxilofacial (CFO). Pós Doutorado em Engenharia Mecânica (Universidade do Porto). Engenheiro de Software (IFRN).",
+    "city": "",
+    "country": "",
+    "areas": [
+      "Cirurgia Maxilofacial",
+      "Harmonização Orofacial"
+    ],
+    "social": {
+      "instagram": "https://www.instagram.com/phdemoraes/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "marcela-patera",
+    "name": "Dra. Marcela Patera",
+    "role": "Orientadora do Mestrado em HOF",
+    "description": "Graduada em enfermagem (COREN-SP 748088). Pós graduada em enfermagem estética. Bacharel em direito. Mestre em HOF pelo European Institute.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "adriana-manzoli",
+    "name": "Dra. Adriana Manzoli",
+    "role": "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    "description": "Doutoranda em Ciências Biomédicas (IUNIR/Argentina). Mestre em Harmonização Orofacial (European Face & Body Institute | UEMC). Especialista em Ortodontia (FUNORTE). Especialista em Didática do Ensino Superior (UNL).",
+    "social": {
+      "instagram": "https://www.instagram.com/adrianamanzoli/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "andrea-francoso",
+    "name": "Dra. Andrea Françoso",
+    "role": "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    "description": "Fisioterapeuta com 28 anos de experiência. Mestra em Harmonização Orofacial pelo Instituto European. Residência em Harmonização Orofacial em Harvard.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "noemi-borgas",
+    "name": "Dra. Noemi Borgas",
+    "role": "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    "description": "Doutora em Ciências da Saúde (UML). Mestre em Harmonização Orofacial (European Face & Body Institute | UEMC). Especialista em Cirurgia e traumatologia Buco Maxilo Facial (ABO | Facset).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "simone-lopes",
+    "name": "Dra. Simone Lopes",
+    "role": "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    "description": "Doutoranda em Ciências da Saúde (IUNIR). Mestrado em Odontologia Clínica (UFMS). Cirurgiã Dentista e Bióloga. Presidente da Associação Brasileira de Cirurgiões Dentistas (ABCD-MS).",
+    "social": {
+      "instagram": "https://www.instagram.com/drasimoneclopes/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "glaucia-alves",
+    "name": "Dra. Glaucia Alves",
+    "role": "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    "description": "Formada em Odontologia pela Universidade Federal de Pernambuco (UFPE). Especialização em Endodontia pela ABO de Barra Mansa. Oficial dentista formada pela Escola de Saúde do Exército (ESSEX).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "irina-bernardino",
+    "name": "Dra. Irina Bernardino",
+    "role": "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    "description": "Médica Dentista formada na Faculdade de Medicina Dentária da Universidade do Porto, Portugal. Pós-graduação em Ortodontia. Especialização em Implantologia e Reabilitação Oral. Mestrado em Harmonização Orofacial.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "raphael-bonadimen",
+    "name": "Dr. Raphael Bonadimen",
+    "role": "Coordenador de Orientação Acadêmica do Mestrado em HOF",
+    "description": "Doutorado em Ciências Biomédicas (Instituto Universitario Italiano de Rosario, IUNIR). Mestrado em Assistência Farmacêutica (Universidade Vila Velha, UVV).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "alana-lucas",
+    "name": "Dra. Alana Lucas",
+    "role": "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    "description": "Doutorado em Ciências Biomédicas (Instituto Universitario Italiano de Rosario, IUNIR). Graduação em Biomedicina (Fundação Universidade Federal de Ciências da Saúde de Porto Alegre, UFCSPA).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "ana-picolini",
+    "name": "Dra. Ana Picolini",
+    "role": "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    "description": "MBA Gestão Feminina (SONATA, Porto Alegre/RS). Doutoranda em Ciências Biomédicas (IUNIR, Rosario – Argentina). Graduação em Biomedicina Estética (UNYLEYA, Rio de Janeiro).",
+    "social": {
+      "instagram": "https://www.instagram.com/dra_ana_picolini/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "isabela-lopes",
+    "name": "Dra. Isabela Lopes",
+    "role": "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    "description": "Graduada em Odontologia pela Universidade para o Desenvolvimento do Estado e da Região do Pantanal (2016). Especialista em Harmonização Orofacial (2019) e Ortodontia (2020).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "alessandra-saab",
+    "name": "Dra. Alessandra Saab",
+    "role": "Professora do Mestrado em HOF",
+    "description": "Graduada em Odontologia (Universidade Tuiuti – Paraná). Especialista em Endodontia com Microscopia Odontológica – FUNSAP. Residência em Harmonização Orofacial. Mestre em Harmonização Orofacial (European Face & Body Institute).",
+    "social": {
+      "instagram": "https://www.instagram.com/draalesaab/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "sonia-obregon",
+    "name": "Dra. Sonia Obregón",
+    "role": "Professora do Mestrado em HOF",
+    "description": "Diretor e Fundador do Instituto CoNNatural. Especialista em Harmonização Orofacial (Faculdade FACOP). Especialista em CBMF (Faculdade FACOP). Especialista em Laser e Ozonoterapia (Faculdade FACOP).",
+    "social": {
+      "instagram": "https://www.instagram.com/dra.soniaobregon"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "walter-souza",
+    "name": "Dr. Walter de Souza",
+    "role": "Professor do Mestrado em HOF",
+    "description": "Cirurgião dentista. Especialista em Cirurgia e Traumatologia Bucomaxilofacial. Mestre em Ciências da Saúde. Coordenador dos cursos de atualização em cirurgia oral e Especialização em CTBMF da Ceepo.",
+    "social": {
+      "instagram": "https://www.instagram.com/drwalterdesouza/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "tatiana-tessari",
+    "name": "Dra. Tatiana Tessari Dall'Alba",
+    "role": "Professora do Mestrado em HOF",
+    "description": "Farmacêutica com ênfase em Farmácia Industrial (PUCRS-2003). Especialista em Farmácia Estética pela FATEC. Mestranda em Harmonização Facial (European Face & Body Institute – España).",
+    "social": {
+      "instagram": "https://www.instagram.com/dratatianadallalba/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "ana-romagnoli",
+    "name": "Dra. Ana Maria Lopes Romagnoli",
+    "role": "Professora da Residência em HOF",
+    "description": "Graduada bacharel em enfermagem (Unopar). Pós graduação em estética avançada. Residência em enfermagem estética (CTA). Habilitada no tratamento de lipólise e lifting facial e corporal com fibra óptica Fototérmica.",
+    "social": {
+      "instagram": "https://www.instagram.com/draana.romagnoli/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "alyne-souza",
+    "name": "Dra. Alynë de Souza",
+    "role": "Professora da Residência em HOF",
+    "description": "Graduação em Enfermagem pelo Centro Universitário São Camilo (2014). Residência em Enfermagem Estética pelo CTA. Pós Graduação em Enfermagem Estética pela Faculdade Famesp.",
+    "social": {
+      "instagram": "https://www.instagram.com/draalynesouza/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "andre-arashiro",
+    "name": "Dr. André Arashiro",
+    "role": "Professor do Mestrado em HOF",
+    "description": "Mestre em Harmonização Orofacial (European Face & Body Institute | UEMC). Especialista em Harmonização Facial (FUNORTE). Especialista em Ortopedia Funcional dos Maxilares (INUCASTELO).",
+    "social": {
+      "instagram": "https://www.instagram.com/dr.andrearashiro/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "caique-ferezin",
+    "name": "Dr. Caique Ferezin",
+    "role": "Professor da Residência em HOF",
+    "description": "Bacharel em Enfermagem (Faculdade de Ciências Médicas da Santa Casa de São Paulo). Saúde Pública com ênfase em Estratégia Saúde da Família (Centro Universitário São Camilo).",
+    "social": {
+      "instagram": "https://www.instagram.com/drcaiqueferezin/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "carolina-rolim",
+    "name": "Dra. Carolina Rolim",
+    "role": "Professora da Residência em HOF",
+    "description": "Graduação em Enfermagem pelo Centro Universitário São Camilo (CUSC). Mestrado pela Pontifícia Universidade Católica (PUC-SP). Pós Graduação em Enfermagem Estética (Faculdade Unyleya).",
+    "social": {
+      "instagram": "https://www.instagram.com/dracarolrolim/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "diogo-fraga",
+    "name": "Dr. Diogo de Fraga",
+    "role": "Professor do Mestrado em HOF",
+    "description": "Mestre em Gerontologia Biomédica (PUCRS). Pós-Graduado MBA Gestão em Saúde (BBI OF CHICAGO). CEO do Derma Aesthetic & Academy.",
+    "social": {
+      "instagram": "https://www.instagram.com/drdiogodefraga/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "flavio-domingues",
+    "name": "Dr. Flávio Domingues",
+    "role": "Professor do Mestrado em HOF",
+    "description": "Pós-Graduado MBA em GESTÃO DE PESSOAS e Liderança (FGV). Especialista em Marketing. Diretor de Marketing – Faculdade FACOP. CEO PW2 Comunicação.",
+    "social": {
+      "instagram": "https://www.instagram.com/flaviodomingues7/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "itagina-baiocchi",
+    "name": "Dra. Itagina Baiocchi",
+    "role": "Professora do Mestrado em HOF",
+    "description": "Doutoranda em Ciências Biomédicas (IESLA-Rosario). Mestre em Harmonização Orofacial (European Face & Body Institute | UEMC-España). Especialista em Harmonização Orofacial (Instituto Kenedy-GO).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "jacqueline-mendonca",
+    "name": "Dra. Jacqueline Mendonça",
+    "role": "Professora da Residência em HOF",
+    "description": "Graduada em Biomedicina (Universidade Barão de Mauá). Pós graduação Biomedicina Estética (IPESSP). MBA em Gestão Estratégica de Negócios (Fundação Getúlio Vargas).",
+    "social": {
+      "instagram": "https://www.instagram.com/dra.jacquelinemendonca/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "larissa-cerqueira",
+    "name": "Dra. Larissa Cerqueira",
+    "role": "Professora do Mestrado em HOF",
+    "description": "Especialista em Prescrição de Fitoterápicos e Suplementação Nutricional Clínica e Esportiva (FAVENI). Especialista em Fisioterapia Dermatofuncional (UNESA).",
+    "social": {
+      "instagram": "https://www.instagram.com/larissacerqueiraestetica/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "marcos-machado",
+    "name": "Dr. Marcos Machado",
+    "role": "Professor do Mestrado em HOF",
+    "description": "Mestre e Doutor em Odontologia (FOP | UNICAMP). Especialista em Estomatologia (São Leopoldo Mandic). Especialista em Radiologia e Imaginologia (São Leopoldo Mandic).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "milena-leao",
+    "name": "Dra. Milena Leão",
+    "role": "Professora do Mestrado em HOF",
+    "description": "Especialista em Biomedicina Estética (NEPUGA). Pós graduanda em Acupuntura (Faveni). Pós graduação em Análises Clinica (UTP). Instrumentadora Cirúrgica (Sissab).",
+    "social": {
+      "instagram": "https://www.instagram.com/milena.leao/"
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "simone-carboni",
+    "name": "Dra. Simone Carboni Pedreira",
+    "role": "Professora do Mestrado em HOF",
+    "description": "Cirurgiã Dentista – 26 anos de formada. Pós Graduada em Odontopediatria (APCD). Pós graduação em H.O.F. Docente em cursos livres de Harmonização Orofacial e mentorias.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+  {
+    "slug": "stefani-rezende",
+    "name": "Dra. Stefani Rezende",
+    "role": "Professora do Mestrado em HOF",
+    "description": "Mestra em Ciências Farmacêuticas. Especialista em Farmácia Estética. Especialista em Ciência e Tecnologia de Alimentos. Graduada em Odontologia e Farmácia-Bioquímica.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "harmonizacao-orofacial"
+    ]
+  },
+
+  // ── MESTRADO EM DIREITO PENAL ECONÔMICO (DPE) — novos ────────────
+
+  {
+    "slug": "olavo-pezzotti",
+    "name": "Dr. Olavo Evangelista Pezzotti",
+    "role": "Orientador do Mestrado em Direito Penal Econômico",
+    "description": "Doutorado em Direito Processual Penal – Universidade de São Paulo (USP). Mestrado em Direito Processual – Universidade de São Paulo (USP). Visiting Scholar – Stanford Law School (EUA).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "flavio-turessi",
+    "name": "Dr. Flávio Turessi",
+    "role": "Orientador do Mestrado em Direito Penal Econômico",
+    "description": "Pós-Doutorado – Universidad de Las Palmas de Gran Canaria (2025). Doutorado em Direito Político e Econômico – Universidade Presbiteriana Mackenzie (2019).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "eronides-santos",
+    "name": "Dr. Eronides dos Santos",
+    "role": "Orientador do Mestrado em Direito Penal Econômico",
+    "description": "Procurador de Justiça no Ministério Público do Estado de São Paulo. Doutor em Direito pela Universidade Nove de Julho – UNINOVE. Palestrante nacional e internacional em temas relacionados à insolvência empresarial.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "julia-schutt",
+    "name": "Dra. Júlia Schütt",
+    "role": "Orientadora do Mestrado em Direito Penal Econômico",
+    "description": "Membro Auxiliar da Presidência do Conselho Nacional do Ministério Público. Promotora de Justiça no MPRS. Doutorado em Direito – Compliance Criminal USAL/Espanha.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "luis-rocha",
+    "name": "Dr. Luis Fernando Rocha",
+    "role": "Orientador do Mestrado em Direito Penal Econômico",
+    "description": "Pós-doutorado em Direito – USP (2014–2016). Doutorado em Psicologia – UNESP/Assis (2012). Promotor de Justiça – Ministério Público do Estado de São Paulo.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "jose-vicente",
+    "name": "Dr. José Vicente",
+    "role": "Orientador do Mestrado em Direito Penal Econômico",
+    "description": "Graduado em psicologia, com mestrado em psicologia social na Universidade de São Paulo. Ex-secretário Nacional de Segurança Pública. Professor na Academia da Polícia Militar do Barro Branco.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "fabricio-bastos",
+    "name": "Dr. Fabrício Rocha Bastos",
+    "role": "Orientador do Mestrado em Direito Penal Econômico",
+    "description": "Doutorado em Diritto e Tutela – Università degli Studi di Roma Tor Vergata, Itália (2020–2025). Mestrado em Diritto Romano e Sistemi Giuridici Contemporanei – Università degli Studi di Roma Tor Vergata.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "claudia-bezerra",
+    "name": "Dra. Claudia Maria Da Silva Bezerra",
+    "role": "Orientadora do Mestrado em Direito Penal Econômico",
+    "description": "Pós-doutoranda em Direito – Universidade Federal do Maranhão (UFMA). Doutora em Administração – Universidade Nove de Julho (UNINOVE).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "priscila-brolio",
+    "name": "Dra. Priscila Brólio Gonçalves",
+    "role": "Orientadora do Mestrado em Direito Penal Econômico",
+    "description": "Doutorado em Direito Comercial – Universidade de São Paulo (USP). Visiting Researcher – Ph.D. – London School of Economics (LSE). Advogada e sócia no Brólio Gonçalves Advogados (BGA).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "fabiano-petean",
+    "name": "Dr. Fabiano Augusto Petean",
+    "role": "Orientador do Mestrado em Direito Penal Econômico",
+    "description": "Doutorado em Direito Político e Econômico – Universidade Presbiteriana Mackenzie. Mestrado em Direito – Instituição Toledo de Ensino (ITE). Professor – Universidade Presbiteriana Mackenzie.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "eudes-bezerra",
+    "name": "Dr. Eudes Vitor Bezerra",
+    "role": "Orientador do Mestrado em Direito Penal Econômico",
+    "description": "Secretário Adjunto dos Direitos Humanos do Maranhão. Professor Permanente do Programa de Pós-Graduação em Ciências Jurídicas (PPGCJ) da Universidade Cesumar (UNICESUMAR).",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "jamil-chaim",
+    "name": "Dr. Jamil Chaim",
+    "role": "Orientador do Mestrado em Direito Penal Econômico",
+    "description": "Juiz de Direito em São Paulo. Membro do Departamento Estadual das Execuções Criminais da 7ª Região Administrativa Judiciária de São Paulo desde 2011. Doutor e Mestre em Direito Penal pela PUC/SP.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "ernani-menezes",
+    "name": "Dr. Ernani de Menezes",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Promotor de Justiça do Estado de São Paulo desde 1990. Assessor da Subprocuradoria-Geral de Justiça Jurídica (2020 – presente). Professor da Escola Superior do Ministério Público.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "rogerio-cunha",
+    "name": "Dr. Rogério Sanches Cunha",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Promotor de Justiça no Ministério Público de São Paulo (MP/SP). Mestre em Direitos Humanos. Professor de Direito e Processo Penal. Autor de diversas obras jurídicas pela Editora Juspodivm.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "richard-encinas",
+    "name": "Dr. Richard Encinas",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Promotor de Justiça do Ministério Público do Estado de São Paulo. Ex-Policial Militar do Estado de São Paulo. Secretário Executivo do CyberGaeco – Núcleo de Investigações Cibernéticas.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "marcus-carvalho",
+    "name": "Dr. Marcus Vinicius de Carvalho",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Graduado em Ciências Contábeis e em Direito. MBA em Finanças. Pós-graduação em Direito Penal Econômico e Europeu. Especialização em Direito Societário.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "helena-calado",
+    "name": "Dra. Helena Calado",
+    "role": "Professora do Mestrado em Direito Penal Econômico",
+    "description": "Mestre em Direito – USP (2013). Mestre em Direito Político e Econômico – Mackenzie (2010). Especialista em Direito Penal – ESMP/SP (1998). Professora da ACADEPOL/SP desde 2014.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "rodrigo-cabral",
+    "name": "Dr. Rodrigo Cabral",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Doutor em Ciências Jurídicas e Políticas pela Universidad Pablo de Olavide – Espanha. Promotor de Justiça do Ministério Público do Estado do Paraná. Pesquisador-visitante no Max-Planck-Institut.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "paulo-busato",
+    "name": "Dr. Paulo Busato",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Graduação em Direito – Universidade Estadual de Londrina (1986). Especialização em Direito Penal Econômico – Universidade de Coimbra (2002). Doutorado em Problemas Atuais do Direito Penal – Universidad Pablo de Olavide.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "fernando-zonta",
+    "name": "Dr. Fernando de Oliveira Zonta",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Mestrado em Direito Penal – PUC/SP (2019–2021). Pós-graduação em Direito Penal Econômico – FGV (2016–2017). Coordenador do Grupo de Estudos Avançados em Dogmática Penal – IBCCRIM.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "alexandre-cunha",
+    "name": "Dr. Alexandre Sanches Cunha",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Mestrado em Filosofia Clássica – Universidade Estadual de Campinas (UNICAMP). Especialização em Direitos Humanos – Universidade de Coimbra (UC), Portugal. Especialização em Direito Penal – PUC Campinas.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "daniel-casagrande",
+    "name": "Dr. Daniel Alberto Casagrande",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Mestrado em Direito – Faculdade de Direito da Universidade de São Paulo (USP). Especialização em Direito Penal Econômico Europeu – Universidade de Coimbra. MBA em Direito Empresarial – FGV.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "andrea-dangelo",
+    "name": "Dra. Andréa Cristina D'Angelo",
+    "role": "Professora do Mestrado em Direito Penal Econômico",
+    "description": "Mestrado em Direito Processual – Universidade de São Paulo (USP). Especialização em Direito Penal Econômico – Universidade de Coimbra (Portugal). Especialização em Direitos Fundamentais – Universidade de Coimbra.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "mario-spinelli",
+    "name": "Dr. Mário Spinelli",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Professor do Doutorado, do Mestrado e da Graduação da EAESP/FGV. Ex-Diretor Executivo de Governança e Conformidade da Petrobras. Doutor em Administração Pública e Governo pela FGV-SP.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
+  },
+  {
+    "slug": "alexandre-noal",
+    "name": "Dr. Alexandre Daiuto Leão Noal",
+    "role": "Professor do Mestrado em Direito Penal Econômico",
+    "description": "Formado em 2005 pelas FMU. Especialista em Processo Penal pela Escola Paulista da Magistratura de São Paulo (2007). Mestre em Direito Penal Econômico pela Escola de Direito da FGV-SP.",
+    "social": {
+      "instagram": ""
+    },
+    "facultyOf": [
+      "direito-penal-economico"
+    ]
   }
 ];
 

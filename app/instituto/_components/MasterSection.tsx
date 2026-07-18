@@ -2,6 +2,7 @@ import { masters } from "../../../src/data/masters";
 import { Sparkles } from "lucide-react";
 import ScrollReveal from "../../_shared/components/ui/ScrollReveal";
 import MasterCard from "../../_shared/components/ui/MasterCard";
+import Pill from "../../_shared/components/ui/Pill";
 
 export default function MasterSection() {
   return (
@@ -14,10 +15,10 @@ export default function MasterSection() {
 
       <div className="section-container relative">
         <ScrollReveal className="text-center mb-14 md:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-surface px-4 py-1.5 text-xs text-gold mb-5">
+          <Pill variant="gold" className="mb-5">
             <Sparkles size={14} />
             Programas de destaque
-          </div>
+          </Pill>
           <h2 className="text-3xl md:text-5xl font-bold header-text mb-4">
             Mestrados Internacionais
           </h2>
