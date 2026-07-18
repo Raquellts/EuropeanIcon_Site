@@ -1,3 +1,4 @@
+import { masterAssetPath } from "../paths";
 import { Syringe } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type {
@@ -39,8 +40,8 @@ export const harmonizacaoOrofacial: Master = {
   logo: "/images/logos/logo_eurolaw.webp",
   url: "https://institutoeuropean.com",
   Icon: Syringe,
-  heroImage: "/images/masters/harmonizacao-orofacial/hero.webp",
-  aboutImage: "/images/masters/harmonizacao-orofacial/about.webp",
+  heroImage: masterAssetPath("harmonizacao-orofacial", "hero.webp"),
+  aboutImage: masterAssetPath("harmonizacao-orofacial", "about.webp"),
   tagline:
     "Formação completa em harmonização orofacial com base em evidências científicas",
   videoUrl:
@@ -296,18 +297,18 @@ export const harmonizacaoOrofacial: Master = {
     },
   ],
   galleryImages: [
-    { src: "/images/masters/harmonizacao-orofacial/galeria-01.webp", alt: "Mestrado em Harmonização Orofacial 1" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-02.webp", alt: "Mestrado em Harmonização Orofacial 2" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-03.webp", alt: "Mestrado em Harmonização Orofacial 3" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-04.webp", alt: "Mestrado em Harmonização Orofacial 4" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-05.webp", alt: "Mestrado em Harmonização Orofacial 5" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-06.webp", alt: "Mestrado em Harmonização Orofacial 6" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-07.webp", alt: "Mestrado em Harmonização Orofacial 7" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-08.webp", alt: "Mestrado em Harmonização Orofacial 8" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-09.webp", alt: "Mestrado em Harmonização Orofacial 9" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-10.webp", alt: "Mestrado em Harmonização Orofacial 10" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-11.webp", alt: "Mestrado em Harmonização Orofacial 11" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-12.webp", alt: "Mestrado em Harmonização Orofacial 12" },
-    { src: "/images/masters/harmonizacao-orofacial/galeria-13.webp", alt: "Mestrado em Harmonização Orofacial 13" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-01.webp"), alt: "Mestrado em Harmonização Orofacial 1" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-02.webp"), alt: "Mestrado em Harmonização Orofacial 2" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-03.webp"), alt: "Mestrado em Harmonização Orofacial 3" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-04.webp"), alt: "Mestrado em Harmonização Orofacial 4" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-05.webp"), alt: "Mestrado em Harmonização Orofacial 5" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-06.webp"), alt: "Mestrado em Harmonização Orofacial 6" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-07.webp"), alt: "Mestrado em Harmonização Orofacial 7" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-08.webp"), alt: "Mestrado em Harmonização Orofacial 8" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-09.webp"), alt: "Mestrado em Harmonização Orofacial 9" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-10.webp"), alt: "Mestrado em Harmonização Orofacial 10" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-11.webp"), alt: "Mestrado em Harmonização Orofacial 11" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-12.webp"), alt: "Mestrado em Harmonização Orofacial 12" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-13.webp"), alt: "Mestrado em Harmonização Orofacial 13" },
   ],
 };

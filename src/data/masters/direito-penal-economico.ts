@@ -1,3 +1,4 @@
+import { masterAssetPath } from "../paths";
 import { Landmark } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { Benefit, CurriculumModule, GalleryImage, BaseEntity } from "../types";
@@ -37,8 +38,8 @@ export const direitoPenalEconomico: Master = {
   logoStyle: {
     transform: "scale(1.5)",
   },
-  heroImage: "/images/masters/direito-penal-economico/hero.webp",
-  aboutImage: "/images/masters/direito-penal-economico/about.webp",
+  heroImage: masterAssetPath("direito-penal-economico", "hero.webp"),
+  aboutImage: masterAssetPath("direito-penal-economico", "about.webp"),
   tagline:
     "3.000 horas · 120 ECTS · Dupla Titulação Brasil-Europa",
   videoUrl: "https://res.cloudinary.com/falvay2b/video/upload/v1784237797/0716_cfkydv.mp4",
@@ -399,13 +400,13 @@ export const direitoPenalEconomico: Master = {
     },
   ],
   galleryImages: [
-    { src: "/images/masters/direito-penal-economico/galeria-01.webp", alt: "Evento do Mestrado em Direito Penal Econômico 1" },
-    { src: "/images/masters/direito-penal-economico/galeria-02.webp", alt: "Evento do Mestrado em Direito Penal Econômico 2" },
-    { src: "/images/masters/direito-penal-economico/galeria-04.webp", alt: "Evento do Mestrado em Direito Penal Econômico 3" },
-    { src: "/images/masters/direito-penal-economico/galeria-05.webp", alt: "Evento do Mestrado em Direito Penal Econômico 4" },
-    { src: "/images/masters/direito-penal-economico/galeria-06.webp", alt: "Evento do Mestrado em Direito Penal Econômico 5" },
-    { src: "/images/masters/direito-penal-economico/galeria-07.webp", alt: "Evento do Mestrado em Direito Penal Econômico 6" },
-    { src: "/images/masters/direito-penal-economico/galeria-08.webp", alt: "Evento do Mestrado em Direito Penal Econômico 7" },
-    { src: "/images/masters/direito-penal-economico/galeria-09.webp", alt: "Evento do Mestrado em Direito Penal Econômico 8" },
+    { src: masterAssetPath("direito-penal-economico", "galeria-01.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 1" },
+    { src: masterAssetPath("direito-penal-economico", "galeria-02.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 2" },
+    { src: masterAssetPath("direito-penal-economico", "galeria-04.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 3" },
+    { src: masterAssetPath("direito-penal-economico", "galeria-05.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 4" },
+    { src: masterAssetPath("direito-penal-economico", "galeria-06.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 5" },
+    { src: masterAssetPath("direito-penal-economico", "galeria-07.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 6" },
+    { src: masterAssetPath("direito-penal-economico", "galeria-08.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 7" },
+    { src: masterAssetPath("direito-penal-economico", "galeria-09.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 8" },
   ],
 };

@@ -1,27 +1,27 @@
 import {
   getPersonBySlug,
-  getProfessors,
-  getParticipants,
-  isProfessor,
-  professors,
-  participants,
-  people,
+  getAllPeople,
+  getPeopleBySlugs,
+  getFacultyByMaster,
 } from "../data/people";
-import type { Person, Professor, Participant } from "../data/people";
+import type { Person } from "../data/people";
 
-export async function getPerson(
-  slug: string,
-): Promise<Person | undefined> {
+export async function getPerson(slug: string): Promise<Person | undefined> {
   return getPersonBySlug(slug);
 }
 
-export async function getAllProfessors(): Promise<Professor[]> {
-  return getProfessors();
+export async function getPeople(): Promise<Person[]> {
+  return getAllPeople();
 }
 
-export async function getAllParticipants(): Promise<Participant[]> {
-  return getParticipants();
+/** Pessoas de uma lista de slugs (ex.: edition.professors, edition.participants). */
+export async function getPeopleForSlugs(slugs: string[]): Promise<Person[]> {
+  return getPeopleBySlugs(slugs);
 }
 
-export { isProfessor };
-export type { Person, Professor, Participant };
+/** Corpo docente de um mestrado específico. */
+export async function getMasterFaculty(masterSlug: string): Promise<Person[]> {
+  return getFacultyByMaster(masterSlug);
+}
+
+export type { Person };

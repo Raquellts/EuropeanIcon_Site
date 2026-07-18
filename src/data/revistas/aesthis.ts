@@ -1,4 +1,5 @@
 import type { BaseEntity } from "../types";
+import { journalAssetPath } from "../paths";
 
 export interface Journal extends Partial<BaseEntity> {
   slug: string;
@@ -22,9 +23,9 @@ export const aesthis: Journal = {
   description:
     "A Aesthis é um periódico científico de acesso aberto, que se dedica à divulgação do conhecimento nas áreas da saúde, com ênfase em medicina estética, medicina regenerativa, harmonização orofacial e campos correlatos. Nossa missão é promover a divulgação de evidências clínicas, avanços técnicos, inovações tecnológicas e pesquisas aplicadas que contribuam para a prática profissional qualificada e para o desenvolvimento científico dessas áreas.",
   url: "https://journals.institutoeuropean.com/aesthis",
-  logo: "/images/logos/logo_aesthis.webp",
-  icon: "/images/logos/icon_aesthis.webp",
-  coverImage: "/images/revistas/aesthis.webp",
+  logo: journalAssetPath("aesthis", "logo.webp"),
+  icon: journalAssetPath("aesthis", "icon.webp"),
+  coverImage: journalAssetPath("aesthis", "capa.webp"),
   iconStyle: {
     transform: "scale(1.4)",
   },

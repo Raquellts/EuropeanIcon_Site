@@ -14,8 +14,9 @@ import {
   User2Icon,
   Download,
 } from "lucide-react";
-import { getPersonBySlug, isProfessor } from "@/src/data/people";
+import { getPersonBySlug } from "@/src/data/people";
 import { getEditionBySlug } from "@/src/data/eventEditions";
+import { personEventPhotoPath, personCvPath } from "@/src/data/paths";
 import { Button } from "@/app/_shared/components/ui/Button";
 import SocialIconButton from "@/app/_shared/components/ui/SocialIconButton";
 import Navbar from "@/app/_shared/components/ui/Navbar";
@@ -45,16 +46,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function PersonPage({ params }: Props) {
   const person = getPersonBySlug(params.personSlug);
-  if (!person) notFound();
+  const edition = getEditionBySlug(params.serieSlug, params.edicaoSlug);
+  if (!person || !edition) notFound();
 
-  const prof = isProfessor(person);
-  const cvPath = path.join(
-    process.cwd(),
-    "public",
-    "cvs",
-    `${params.personSlug}.pdf`,
+  const prof = edition.professors.includes(params.personSlug);
+  const photoSrc = personEventPhotoPath(
+    params.serieSlug,
+    params.edicaoSlug,
+    prof ? "professor" : "participante",
+    params.personSlug,
   );
-  const hasCv = fs.existsSync(cvPath);
+  const cvUrlPath = personCvPath(
+    params.serieSlug,
+    params.edicaoSlug,
+    params.personSlug,
+  );
+  const hasCv = fs.existsSync(path.join(process.cwd(), "public", cvUrlPath));
 
   return (
     <div className="min-h-screen bg-background">
@@ -73,11 +80,7 @@ export default function PersonPage({ params }: Props) {
                   }}
                 >
                   <ImageWithFallback
-                    src={
-                      prof
-                        ? `/images/mestres/${person.slug}.webp`
-                        : `/images/participantes/${person.slug}.webp`
-                    }
+                    src={photoSrc}
                     alt={person.slug}
                     className="absolute inset-0 w-full h-full object-cover object-center"
                   />
@@ -140,7 +143,7 @@ export default function PersonPage({ params }: Props) {
 
               {hasCv && (
                 <a
-                  href={`/cvs/${params.personSlug}.pdf`}
+                  href={cvUrlPath}
                   download
                   className="mt-6 inline-flex items-center gap-2 rounded-xl border border-gold/30 bg-gold/10 px-4 py-2.5 text-sm font-medium text-gold hover:bg-gold/20 transition-all"
                 >

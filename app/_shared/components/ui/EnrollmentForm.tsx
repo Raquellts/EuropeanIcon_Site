@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { Send, FileDown, Check, Upload } from "lucide-react";
 import { Button } from "./Button";
 import CustomSelect from "./CustomSelect";
+import { masterAssetPath } from "@/src/data/paths";
 
 const parceirosOptions = [
   "ADEPPE Pernambuco",
@@ -226,7 +227,7 @@ export default function EnrollmentForm({ masterSlug }: { masterSlug: string }) {
       <div className="rounded-xl border border-border bg-background p-5 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <a
-            href={`/editais/${masterSlug}/edital.pdf`}
+            href={masterAssetPath(masterSlug, "edital.pdf")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-light transition-colors"
@@ -247,7 +248,7 @@ export default function EnrollmentForm({ masterSlug }: { masterSlug: string }) {
         <div className="border-t border-border pt-4 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a
-              href={`/contratos/${masterSlug}/contrato.pdf`}
+              href={masterAssetPath(masterSlug, "contrato.pdf")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-light transition-colors"

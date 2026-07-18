@@ -9,6 +9,10 @@ interface ParticipantCardProps {
   role: string;
   country?: string;
   countryCode?: string;
+  /** Link para a página de perfil (calculado pela página que usa o card, já que depende da série/edição). */
+  href: string;
+  /** Caminho da foto (calculado com src/data/paths.ts pela página que usa o card). */
+  photoSrc: string;
 }
 
 export default function ParticipantCard({
@@ -17,16 +21,18 @@ export default function ParticipantCard({
   role,
   country,
   countryCode,
+  href,
+  photoSrc,
 }: ParticipantCardProps) {
   return (
     <Link
       key={slug}
-      href={`/forum/${slug}`}
+      href={href}
       className="flex flex-col justify-between group rounded-xl border border-border bg-surface p-4 text-center hover:border-gold/30 transition-all duration-300"
     >
       <div className="aspect-square rounded-full bg-surface-hover mx-auto mb-3 w-20 flex items-center justify-center overflow-hidden">
         <ImageWithFallback
-          src={`/images/participantes/${slug}.webp`}
+          src={photoSrc}
           alt=""
           className="w-full h-full object-cover"
         />

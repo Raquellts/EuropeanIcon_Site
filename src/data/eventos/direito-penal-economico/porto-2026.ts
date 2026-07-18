@@ -1,4 +1,5 @@
 import type { EventEdition } from "../types";
+import { eventAssetPath } from "../../paths";
 
 export const porto2026: EventEdition = {
   seriesSlug: "direito-penal-economico",
@@ -20,7 +21,7 @@ export const porto2026: EventEdition = {
     mapEmbedUrl:
       "https://www.google.com/maps?q=The+Yeatman+Hotel+Rua+do+Choupelo+4400-088+Vila+Nova+de+Gaia&output=embed",
   },
-  heroImage: "/images/eventos/porto-2026/hero/hero.webp",
+  heroImage: eventAssetPath("direito-penal-economico", "porto-2026", "hero.webp"),
   about: {
     objective:
       "Considerando o Direito Penal Econômico contemporâneo como um campo de alta complexidade e relevância estratégica, a atuação jurídica de excelência pressupõe não apenas acompanhar, mas fomentar ativamente o desenvolvimento dogmático europeu.",
@@ -115,14 +116,14 @@ export const porto2026: EventEdition = {
     },
   ],
   gallery: [
-    { src: "/images/eventos/porto-2026/galeria/1.webp", alt: "Palestra de abertura da edição anterior", caption: "Palestra de abertura - Edição 2025" },
-    { src: "/images/eventos/porto-2026/galeria/2.webp", alt: "Painel de debates", caption: "Painel de debates com professores convidados" },
-    { src: "/images/eventos/porto-2026/galeria/3.webp", alt: "Plateia do evento", caption: "Plateia durante palestra magna" },
-    { src: "/images/eventos/porto-2026/galeria/4.webp", alt: "Coffee break e networking", caption: "Coffee break - Momento de networking" },
-    { src: "/images/eventos/porto-2026/galeria/5.webp", alt: "Cerimônia de encerramento", caption: "Cerimônia de encerramento" },
-    { src: "/images/eventos/porto-2026/galeria/6.webp", alt: "Foto oficial dos participantes", caption: "Foto oficial dos participantes" },
-    { src: "/images/eventos/porto-2026/galeria/7.webp", alt: "Sala de aula do European Institute", caption: "Sala de aula do European Institute" },
-    { src: "/images/eventos/porto-2026/galeria/8.webp", alt: "Alunos do Mestrado Internacional", caption: "Alunos do Mestrado Internacional" },
+    { src: eventAssetPath("direito-penal-economico", "porto-2026", "galeria", "1.webp"), alt: "Palestra de abertura da edição anterior", caption: "Palestra de abertura - Edição 2025" },
+    { src: eventAssetPath("direito-penal-economico", "porto-2026", "galeria", "2.webp"), alt: "Painel de debates", caption: "Painel de debates com professores convidados" },
+    { src: eventAssetPath("direito-penal-economico", "porto-2026", "galeria", "3.webp"), alt: "Plateia do evento", caption: "Plateia durante palestra magna" },
+    { src: eventAssetPath("direito-penal-economico", "porto-2026", "galeria", "4.webp"), alt: "Coffee break e networking", caption: "Coffee break - Momento de networking" },
+    { src: eventAssetPath("direito-penal-economico", "porto-2026", "galeria", "5.webp"), alt: "Cerimônia de encerramento", caption: "Cerimônia de encerramento" },
+    { src: eventAssetPath("direito-penal-economico", "porto-2026", "galeria", "6.webp"), alt: "Foto oficial dos participantes", caption: "Foto oficial dos participantes" },
+    { src: eventAssetPath("direito-penal-economico", "porto-2026", "galeria", "7.webp"), alt: "Sala de aula do European Institute", caption: "Sala de aula do European Institute" },
+    { src: eventAssetPath("direito-penal-economico", "porto-2026", "galeria", "8.webp"), alt: "Alunos do Mestrado Internacional", caption: "Alunos do Mestrado Internacional" },
   ],
   testimonials: [
     {

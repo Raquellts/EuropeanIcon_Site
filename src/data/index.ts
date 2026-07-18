@@ -8,15 +8,13 @@ export { journals, getJournalBySlug } from "./revistas/index";
 export type { Journal } from "./revistas/index";
 
 export {
-  professors,
-  participants,
   people,
   getPersonBySlug,
-  getProfessors,
-  getParticipants,
-  isProfessor,
+  getAllPeople,
+  getPeopleBySlugs,
+  getFacultyByMaster,
 } from "./people";
-export type { Person, Professor, Participant } from "./people";
+export type { Person } from "./people";
 
 export { eventSeries, getEventSeriesBySlug } from "./eventos/series";
 export type { EventSeries } from "./eventos/series";

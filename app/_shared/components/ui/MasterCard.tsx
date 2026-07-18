@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, Award, MapPin, UserRound, ArrowRight } from "lucide-react";
-import type { Master } from "../../../src/data/masters";
+import type { Master } from "@/src/data/masters";
 import ScrollReveal from "./ScrollReveal";
 
 interface MasterCardProps {

@@ -13,7 +13,7 @@ export const eventSeries: EventSeries[] = [
     category: "direito",
     description:
       "Série de eventos internacionais dedicados ao debate, à análise e ao aprofundamento do Direito Penal Econômico, reunindo especialistas de Portugal, Brasil, Espanha e toda a Europa.",
-    coverImage: "/images/eventos/porto-2026/hero/hero.webp",
+    coverImage: "/eventos/direito-penal-economico/porto-2026/hero.webp",
   },
 ];
 

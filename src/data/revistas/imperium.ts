@@ -1,4 +1,5 @@
 import type { BaseEntity } from "../types";
+import { journalAssetPath } from "../paths";
 
 export interface Journal extends Partial<BaseEntity> {
   slug: string;
@@ -22,9 +23,9 @@ export const imperium: Journal = {
   description:
     "A Imperium é um periódico científico internacional e interdisciplinar focado no Direito Penal Econômico, abordando temas como responsabilidade penal de pessoas jurídicas, crimes financeiros e compliance. A revista publica trabalhos acadêmicos originais submetidos a dupla revisão cega, visando o desenvolvimento teórico e empírico da área para um público de pesquisadores e profissionais do Direito.",
   url: "https://journals.institutoeuropean.com/imperium",
-  logo: "/images/logos/logo_imperium.webp",
-  icon: "/images/logos/icon_imperium.webp",
-  coverImage: "/images/revistas/imperium.webp",
+  logo: journalAssetPath("imperium", "logo.webp"),
+  icon: journalAssetPath("imperium", "icon.webp"),
+  coverImage: journalAssetPath("imperium", "capa.webp"),
   logoStyle: {
     transform: "scale(1.4)",
     marginRight: "2.5rem",

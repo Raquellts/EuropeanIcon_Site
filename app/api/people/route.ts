@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { getPeople } from "@/src/services/people";
 
 export async function GET() {
-  return NextResponse.json({ message: "People API - Not implemented" }, { status: 501 });
+  const people = await getPeople();
+  return NextResponse.json(people);
 }

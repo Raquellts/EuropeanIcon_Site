@@ -1,3 +1,4 @@
+import { partnerLogoPath } from "./paths";
 export interface Partner {
   name: string;
   logo: string;
@@ -10,7 +11,7 @@ export interface Partner {
 export const partners: Partner[] = [
   {
     name: "ADEPPE — Associação dos Delegados de Polícia Civil de PE",
-    logo: "/images/parceiros/adeppe.webp",
+    logo: partnerLogoPath("adeppe"),
     url: "https://adeppe.com.br",
     category: "Associação",
     country: "Brasil",
@@ -18,7 +19,7 @@ export const partners: Partner[] = [
   },
   {
     name: "AMPPE — Associação do Ministério Público de PE",
-    logo: "/images/parceiros/amppe.webp",
+    logo: partnerLogoPath("amppe"),
     url: "https://amppe.com.br",
     category: "Associação",
     country: "Brasil",
@@ -26,7 +27,7 @@ export const partners: Partner[] = [
   },
   {
     name: "ASAMP/TO — Associação dos Servidores Administrativos do MP/TO",
-    logo: "/images/parceiros/asampto.webp",
+    logo: partnerLogoPath("asampto"),
     url: "https://www.asamp.com.br",
     category: "Associação",
     country: "Brasil",
@@ -34,7 +35,7 @@ export const partners: Partner[] = [
   },
   {
     name: "EUNEIZ Universidad Vitoria-Gasteiz",
-    logo: "/images/parceiros/euneiz.webp",
+    logo: partnerLogoPath("euneiz"),
     url: "https://www.euneiz.com",
     category: "Universidade",
     country: "Espanha",
@@ -42,7 +43,7 @@ export const partners: Partner[] = [
   },
   {
     name: "FAEPOL — Fundação de Apoio ao Ensino, Pesquisa e Desenvolvimento da Polícia Civil do RJ",
-    logo: "/images/parceiros/faepol.webp",
+    logo: partnerLogoPath("faepol"),
     url: "https://www.faepol.org.br",
     category: "Fundação",
     country: "Brasil",
@@ -50,7 +51,7 @@ export const partners: Partner[] = [
   },
   {
     name: "Faculdade FGE",
-    logo: "/images/parceiros/fge.webp",
+    logo: partnerLogoPath("fge"),
     url: "https://portalfge.com.br",
     category: "Faculdade",
     country: "Brasil",
@@ -58,7 +59,7 @@ export const partners: Partner[] = [
   },
   {
     name: "MPSP — Ministério Público do Estado de São Paulo",
-    logo: "/images/parceiros/mpsp.webp",
+    logo: partnerLogoPath("mpsp"),
     url: "https://www.mpsp.mp.br",
     category: "Órgão Público",
     country: "Brasil",
@@ -66,7 +67,7 @@ export const partners: Partner[] = [
   },
   {
     name: "MUST University (Florida)",
-    logo: "/images/parceiros/mustuniversity.webp",
+    logo: partnerLogoPath("mustuniversity"),
     url: "https://mustedu.com",
     category: "Universidade",
     country: "EUA",
@@ -74,7 +75,7 @@ export const partners: Partner[] = [
   },
   {
     name: "OAB Tatuapé — 101ª Subseção da OAB/SP",
-    logo: "/images/parceiros/oabtatuape.webp",
+    logo: partnerLogoPath("oabtatuape"),
     url: "https://oabtatuape.org.br",
     category: "Ordem",
     country: "Brasil",
@@ -82,7 +83,7 @@ export const partners: Partner[] = [
   },
   {
     name: "SINDPESP — Sindicato dos Delegados de Polícia do Estado de SP",
-    logo: "/images/parceiros/sindpesp.webp",
+    logo: partnerLogoPath("sindpesp"),
     url: "https://sindpesp.org.br",
     category: "Sindicato",
     country: "Brasil",
@@ -90,7 +91,7 @@ export const partners: Partner[] = [
   },
   {
     name: "Faculdade Van Gogh (São Paulo)",
-    logo: "/images/parceiros/vangogh.webp",
+    logo: partnerLogoPath("vangogh"),
     url: "https://www.faculdadevangogh.edu.br",
     category: "Faculdade",
     country: "Brasil",

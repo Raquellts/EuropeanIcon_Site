@@ -126,6 +126,7 @@ export default function InstituteSection() {
               {institute.heroSubtitle}
             </div>
           </ScrollReveal>
+
           <ScrollReveal delay={80}>
             <h2 className="text-4xl xl:text-5xl font-bold header-text">
               {institute.name}
@@ -142,7 +143,7 @@ export default function InstituteSection() {
             muted
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover  opacity-25"
           >
             <source src={institute.instituteVideo} type="video/mp4" />
           </video>
