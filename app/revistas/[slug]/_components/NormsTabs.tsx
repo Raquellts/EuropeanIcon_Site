@@ -45,36 +45,46 @@ export default function NormsTabs({ norms }: NormsTabsProps) {
   }
 
   return (
-    <div className="grid md:grid-cols-[192px_1fr] gap-8">
-      {/* Sidebar */}
-      <nav className="md:sticky md:top-24 md:self-start">
-        <ul className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
-          {norms.map((section) => (
-            <li key={section.id}>
-              <button
-                onClick={() => scrollTo(section.id)}
-                className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap md:whitespace-normal ${
-                  activeSection === section.id
-                    ? "bg-gold/10 text-gold border border-gold/30"
-                    : "text-secondary hover:text-primary hover:bg-surface border border-transparent"
-                }`}
+    <div className="flex flex-col gap-6 md:grid md:grid-cols-[192px_1fr] md:gap-8">
+      {/* Tabs — horizontal scroll no mobile, sidebar sticky no desktop */}
+      <nav className="sticky top-14 z-10 bg-background border-b border-border py-3 md:border-b-0 md:py-0 md:top-24 md:z-auto md:bg-transparent md:self-start">
+        <div className="relative">
+          <ul className="flex gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory px-1 pb-2 md:flex-col md:overflow-visible md:snap-none md:px-0 md:pb-0">
+            {norms.map((section) => (
+              <li
+                key={section.id}
+                className="snap-start shrink-0 md:shrink md:snap-none"
               >
-                <span className="flex items-center gap-2">
-                  <span
-                    className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
-                      activeSection === section.id ? "bg-gold" : "bg-muted"
-                    }`}
-                  />
-                  {section.label}
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
+                <button
+                  onClick={() => scrollTo(section.id)}
+                  className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap md:whitespace-normal ${
+                    activeSection === section.id
+                      ? "bg-gold/10 text-gold border border-gold/30"
+                      : "text-secondary hover:text-primary hover:bg-surface border border-transparent"
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
+                        activeSection === section.id ? "bg-gold" : "bg-muted"
+                      }`}
+                    />
+                    {section.label}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          {/* Fade na borda direita — só mobile */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-background to-transparent md:hidden" />
+        </div>
       </nav>
 
       {/* Content */}
-      <div ref={contentRef} className="space-y-8 min-w-0">
+      <div
+        ref={contentRef}
+        className="w-full overflow-hidden space-y-8 md:min-w-0"
+      >
         {norms.map((section) => (
           <div
             key={section.id}
@@ -94,13 +104,13 @@ export default function NormsTabs({ norms }: NormsTabsProps) {
                   key={gi}
                   className="border border-border rounded-2xl bg-background overflow-hidden hover:border-gold/20 transition-colors"
                 >
-                  <div className="px-6 py-4 border-b border-border bg-surface/30">
+                  <div className="px-4 py-3 sm:px-6 sm:py-4 border-b border-border bg-surface/30">
                     <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">
                       {group.title}
                     </h4>
                   </div>
 
-                  <div className="px-6 py-4 space-y-3">
+                  <div className="px-4 py-3 sm:px-6 sm:py-4 space-y-3">
                     {group.items.map((item, ii) => (
                       <div key={ii} className="flex flex-col gap-1">
                         {item.label && (
@@ -109,9 +119,9 @@ export default function NormsTabs({ norms }: NormsTabsProps) {
                           </span>
                         )}
                         <p
-                          className={`text-sm leading-relaxed ${
+                          className={`text-sm leading-relaxed break-words ${
                             item.highlight
-                              ? "text-secondary bg-gold/5 border border-gold/20 rounded-lg px-4 py-3"
+                              ? "text-secondary bg-gold/5 border border-gold/20 rounded-lg px-3 py-2 sm:px-4 sm:py-3"
                               : "text-secondary/80"
                           }`}
                         >
