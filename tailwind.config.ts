@@ -18,13 +18,13 @@ const config: Config = {
         secondary: "var(--secondary)",
         muted: "var(--muted)",
         gold: {
-          light: "var(--gold-light)",
-          DEFAULT: "var(--gold)",
+          light: "rgb(var(--gold-rgb) / <alpha-value>)",
+          DEFAULT: "rgb(var(--gold-rgb) / <alpha-value>)",
           dark: "var(--gold-dark)",
         },
-        success: "var(--success)",
-        warning: "var(--warning)",
-        danger: "var(--danger)",
+        success: "rgb(var(--success-rgb) / <alpha-value>)",
+        warning: "rgb(var(--warning-rgb) / <alpha-value>)",
+        danger: "rgb(var(--danger-rgb) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
@@ -35,6 +35,7 @@ const config: Config = {
         "slide-up": "slideUp 0.6s ease-out forwards",
         "slide-down": "slideDown 0.3s ease-out forwards",
         "spin-slow": "spin-slow 15s linear infinite",
+        marquee: "marquee 40s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -51,6 +52,10 @@ const config: Config = {
         },
         "spin-slow": {
           to: { transform: "rotate(360deg)" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
     },

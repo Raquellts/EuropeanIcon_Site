@@ -17,7 +17,9 @@ export default function FAQSection({ faqItems, description }: FAQSectionProps) {
   };
 
   return (
-    <section id="faq" className="mt-6 py-20 md:py-28 border-t border-border">
+    <section className="py-20 md:py-28 border-t border-border relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--gold-dark)_0%,_transparent_55%)] opacity-[0.08]" />
+
       <div className="section-container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold header-text mb-4">
@@ -52,7 +54,7 @@ export default function FAQSection({ faqItems, description }: FAQSectionProps) {
                   openIndex === idx ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <p className="px-5 pb-5 text-sm text-secondary leading-relaxed">
+                <p className="px-5 pb-5 text-sm text-secondary leading-relaxed mt-2 mx-2">
                   {item.answer}
                 </p>
               </div>

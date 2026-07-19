@@ -21,7 +21,7 @@ export default function ContatoPage() {
         <ContactHeroSection />
         <FAQSection
           faqItems={faqItems}
-          description="Tire suas dúvidas sobre o Fórum Internacional em Direito Penal Econômico."
+          description="Tire suas dúvidas sobre os Mestrados Internacionais do European & Icon Institute."
         />
         <ContactSection />
       </main>

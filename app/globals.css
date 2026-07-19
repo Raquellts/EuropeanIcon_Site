@@ -18,10 +18,14 @@
   --muted: #8b919d;
   --gold-ultralight: #ffecae;
   --gold-light: #ffe387;
+  --gold-rgb: 231 182 67;
   --gold: #e7b643;
   --gold-dark: #996d1c;
+  --success-rgb: 71 184 129;
   --success: #47b881;
+  --warning-rgb: 240 181 74;
   --warning: #f0b54a;
+  --danger-rgb: 227 93 106;
   --danger: #e35d6a;
 }
 

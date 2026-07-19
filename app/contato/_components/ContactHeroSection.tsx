@@ -16,6 +16,25 @@ import InstagramIcon from "../../_shared/components/ui/InstagramIcon";
 
 const { contact } = institute;
 
+const accentMap: Record<string, { card: string; icon: string }> = {
+  "green-500": {
+    card: "border-green-500/30 bg-green-500/5 hover:bg-green-500/10 hover:border-green-500/50",
+    icon: "bg-green-500/20 text-green-400",
+  },
+  "pink-500": {
+    card: "border-pink-500/30 bg-pink-500/5 hover:bg-pink-500/10 hover:border-pink-500/50",
+    icon: "bg-pink-500/20 text-pink-400",
+  },
+  "blue-500": {
+    card: "border-blue-500/30 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/50",
+    icon: "bg-blue-500/20 text-blue-400",
+  },
+  "red-500": {
+    card: "border-red-500/30 bg-red-500/5 hover:bg-red-500/10 hover:border-red-500/50",
+    icon: "bg-red-500/20 text-red-400",
+  },
+};
+
 const contactCards = [
   {
     icon: <Mail size={18} />,
@@ -34,31 +53,35 @@ const contactCards = [
     label: "WhatsApp",
     value: "Fale conosco",
     href: `https://wa.me/${contact.whatsapp}`,
-    accent: true,
+    accentColor: "green-500",
   },
   {
     icon: <InstagramIcon size={18} />,
     label: "Instagram European",
     value: "@europeaninst_oficial",
     href: contact.social.instagram,
+    accentColor: "pink-500",
   },
   {
     icon: <InstagramIcon size={18} />,
     label: "Instagram Direito",
     value: "@iconinstoficial",
     href: "https://www.instagram.com/iconinstoficial/",
+    accentColor: "pink-500",
   },
   {
     icon: <Briefcase size={18} />,
     label: "LinkedIn",
     value: "Rose Magina",
     href: contact.social.linkedin,
+    accentColor: "blue-500",
   },
   {
     icon: <Play size={18} />,
     label: "YouTube",
     value: "European & Icon Institute",
     href: contact.social.youtube,
+    accentColor: "red-500",
   },
   {
     icon: <Globe size={18} />,
@@ -104,15 +127,17 @@ export default function ContactHeroSection() {
                   <Wrapper
                     key={card.label}
                     {...wrapperProps}
-                    className={`flex items-center gap-3 rounded-xl border p-4 transition-all duration-200 ${
-                      card.accent
-                        ? "border-green-500/30 bg-green-500/5 hover:bg-green-500/10 hover:border-green-500/50 cursor-pointer"
-                        : "border-border bg-background hover:border-gold/30 hover:bg-gold/5 cursor-pointer"
+                    className={`flex items-center gap-3 rounded-xl border p-4 transition-all duration-200 cursor-pointer ${
+                      card.accentColor
+                        ? accentMap[card.accentColor].card
+                        : "border-gold/10 bg-gold/[0.03] hover:border-gold/30 hover:bg-gold/10"
                     }`}
                   >
                     <div
                       className={`shrink-0 rounded-lg p-2.5 ${
-                        card.accent ? "bg-green-500/20 text-green-400" : "bg-gold/10 text-gold"
+                        card.accentColor
+                          ? accentMap[card.accentColor].icon
+                          : "bg-gold/10 text-gold"
                       }`}
                     >
                       {card.icon}

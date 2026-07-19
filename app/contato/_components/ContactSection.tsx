@@ -39,6 +39,16 @@ export default function ContactSection() {
 
         <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
           <div className="space-y-8">
+            <div className="rounded-2xl border border-border overflow-hidden">
+              <iframe
+                title="Localização do Instituto"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1900%2C41.3880%2C-0.1820%2C41.3920&layer=mapnik&marker=41.3900%2C-0.1860"
+                className="w-full h-64"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
             <div className="space-y-6">
               <ContactItem
                 icon={<Mail size={18} />}
@@ -53,7 +63,7 @@ export default function ContactSection() {
               <ContactItem
                 icon={<MapPin size={18} />}
                 label="Endereço"
-                value={`${event.location.address}, ${event.location.city} - ${event.location.state}`}
+                value={`${institute.address.street}, ${institute.address.cep}, ${institute.address.city} - ${institute.address.country}`}
               />
             </div>
 

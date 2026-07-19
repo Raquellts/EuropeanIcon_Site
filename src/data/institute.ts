@@ -5,6 +5,12 @@ export interface Institute {
   mission: string;
   focus: string;
   link: string;
+  address: {
+    street: string;
+    city: string;
+    country: string;
+    cep: string;
+  };
   contact: {
     email: string;
     phone: string;
@@ -34,6 +40,12 @@ export const institute: Institute = {
   focus:
     "Atuar como uma instituição dedicada ao desenvolvimento e à gestão de programas educacionais internacionais, com foco na qualidade acadêmica, na inovação metodológica e na ampliação de parcerias institucionais.",
   link: "https://institutoeuropean.com",
+  address: {
+    street: "Calle Lepanto, 270",
+    city: "Barcelona",
+    country: "Espanha",
+    cep: "08013",
+  },
   contact: {
     email: "atendimento@institutoeuropean.com",
     phone: "+351 916 637 124",
