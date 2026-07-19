@@ -1,20 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { partners } from "../../../src/data/partners";
 import FlagFind from "../../_shared/components/ui/FlagFind";
-
-function getInitials(name: string): string {
-  return name
-    .split(" ")
-    .map((w) => w.charAt(0))
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
 
 export default function PartnersSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -23,37 +14,18 @@ export default function PartnersSection() {
     dragFree: true,
   });
 
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setCanScrollPrev(emblaApi.canScrollPrev());
-    setCanScrollNext(emblaApi.canScrollNext());
-  }, [emblaApi]);
-
   useEffect(() => {
     if (!emblaApi) return;
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    onSelect();
-  }, [emblaApi, onSelect]);
-
-  useEffect(() => {
-    if (!emblaApi || isHovering) return;
     const interval = setInterval(() => {
       emblaApi.scrollNext();
     }, 4000);
     return () => clearInterval(interval);
-  }, [emblaApi, isHovering]);
+  }, [emblaApi]);
 
   return (
     <section
       id="parceiros"
       className="py-12 md:py-16 border-t border-border"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
     >
       <div className="section-container">
         <div className="text-center mb-10">
@@ -108,15 +80,13 @@ export default function PartnersSection() {
 
           <button
             onClick={() => emblaApi?.scrollPrev()}
-            disabled={!canScrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-9 h-9 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:text-primary hover:border-gold/30 transition-all opacity-0 group-hover/controls:opacity-100 disabled:opacity-0 disabled:cursor-not-allowed"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-9 h-9 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:text-primary hover:border-gold/30 transition-all opacity-0 group-hover/controls:opacity-100"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={() => emblaApi?.scrollNext()}
-            disabled={!canScrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-9 h-9 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:text-primary hover:border-gold/30 transition-all opacity-0 group-hover/controls:opacity-100 disabled:opacity-0 disabled:cursor-not-allowed"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-9 h-9 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:text-primary hover:border-gold/30 transition-all opacity-0 group-hover/controls:opacity-100"
           >
             <ChevronRight size={18} />
           </button>

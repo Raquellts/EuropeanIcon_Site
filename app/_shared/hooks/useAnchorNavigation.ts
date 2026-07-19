@@ -7,7 +7,8 @@ export function useAnchorNavigation() {
     const el = document.getElementById(id)
     if (!el) return
 
-    el.scrollIntoView({ behavior: 'auto' })
+    const top = el.getBoundingClientRect().top + window.scrollY - 80
+    window.scrollTo({ top, behavior: 'auto' })
 
     el.classList.add('section-fade-in')
     setTimeout(() => {

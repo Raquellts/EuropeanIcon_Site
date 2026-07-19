@@ -40,7 +40,8 @@ export default function NormsTabs({ norms }: NormsTabsProps) {
     setActiveSection(id);
     const el = sectionRefs.current.get(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const top = el.getBoundingClientRect().top + window.scrollY - 160;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   }
 
@@ -92,6 +93,7 @@ export default function NormsTabs({ norms }: NormsTabsProps) {
               if (el) sectionRefs.current.set(section.id, el);
             }}
             data-norms-section={section.id}
+            className="scroll-mt-32 md:scroll-mt-20"
           >
             <h3 className="text-lg font-bold header-text mb-4 flex items-center gap-2">
               <BookOpen size={18} className="text-gold" />
