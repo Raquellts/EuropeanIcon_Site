@@ -5,7 +5,22 @@
 // se a convenção de pastas mudar no futuro (ex.: ao migrar para um bucket
 // de um ADM panel/API), só este arquivo precisa mudar.
 
-/** Assets de uma edição específica de evento (ex.: hero, galeria, professores, cvs). */
+/**
+ * Foto e CV de uma pessoa: UM único lugar por pessoa, reaproveitado em
+ * qualquer contexto (mestrado, evento, revista, etc.) em que ela apareça.
+ * Nunca gerar um caminho de foto/CV "por edição" ou "por mestrado" — isso
+ * é o que causava duplicidade quando a mesma pessoa era, ao mesmo tempo,
+ * corpo docente de um mestrado e palestrante/participante de um evento.
+ */
+export function personPhotoPath(personSlug: string): string {
+  return `/pessoas/${personSlug}/foto.webp`;
+}
+
+export function personCvPath(personSlug: string): string {
+  return `/pessoas/${personSlug}/cv.pdf`;
+}
+
+/** Assets de uma edição específica de evento (hero, galeria — NÃO fotos de pessoas). */
 export function eventAssetPath(
   seriesSlug: string,
   editionSlug: string,
@@ -14,32 +29,7 @@ export function eventAssetPath(
   return `/eventos/${seriesSlug}/${editionSlug}/${parts.join("/")}`;
 }
 
-/**
- * Foto de uma pessoa NUMA edição específica, no papel de professor(a) ou
- * participante. A mesma pessoa pode ter fotos diferentes em edições
- * diferentes — por isso a foto não fica salva em people.ts, e sim resolvida
- * por convenção a partir do slug.
- */
-export function personEventPhotoPath(
-  seriesSlug: string,
-  editionSlug: string,
-  role: "professor" | "participante",
-  personSlug: string,
-): string {
-  const folder = role === "professor" ? "professores" : "participantes";
-  return eventAssetPath(seriesSlug, editionSlug, folder, `${personSlug}.webp`);
-}
-
-/** CV enviado por uma pessoa para uma edição específica. */
-export function personCvPath(
-  seriesSlug: string,
-  editionSlug: string,
-  personSlug: string,
-): string {
-  return eventAssetPath(seriesSlug, editionSlug, "cvs", `${personSlug}.pdf`);
-}
-
-/** Assets de um programa de mestrado (hero, about, galeria, edital, contrato). */
+/** Assets de um programa de mestrado (hero, about, galeria, edital, contrato — NÃO fotos de pessoas). */
 export function masterAssetPath(masterSlug: string, file: string): string {
   return `/masters/${masterSlug}/${file}`;
 }
@@ -52,20 +42,4 @@ export function journalAssetPath(journalSlug: string, file: string): string {
 /** Logo de um parceiro institucional. */
 export function partnerLogoPath(partnerSlug: string): string {
   return `/parceiros/${partnerSlug}.webp`;
-}
-
-/** Foto de um professor num mestrado (resolvida por slug). */
-export function masterFacultyPhotoPath(
-  masterSlug: string,
-  personSlug: string,
-): string {
-  return `/masters/${masterSlug}/professores/${personSlug}.webp`;
-}
-
-/** CV de um professor num mestrado (se existir). */
-export function masterFacultyCvPath(
-  masterSlug: string,
-  personSlug: string,
-): string {
-  return `/masters/${masterSlug}/cvs/${personSlug}.pdf`;
 }

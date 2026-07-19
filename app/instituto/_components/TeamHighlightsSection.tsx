@@ -2,7 +2,7 @@
 
 import { Users, ArrowRight } from "lucide-react";
 import { getPersonBySlug } from "@/src/data/people";
-import { masterFacultyPhotoPath } from "@/src/data/paths";
+import { personPhotoPath } from "@/src/data/paths";
 import { masters } from "@/src/data/masters";
 import { Button } from "../../_shared/components/ui/Button";
 import FacultyCard from "../../_shared/components/ui/FacultyCard";
@@ -10,13 +10,16 @@ import Pill from "../../_shared/components/ui/Pill";
 import ScrollReveal from "../../_shared/components/ui/ScrollReveal";
 
 const featuredSlugs: Record<string, string> = {
-  "direito-penal-economico": "arthur",
+  "direito-penal-economico": "arthur-pinto-de-lemos-junior",
   "harmonizacao-orofacial": "paulo-moraes",
 };
 
 export default function TeamHighlightsSection() {
   return (
-    <section id="equipe" className="py-20 md:py-28 border-t border-border relative overflow-hidden">
+    <section
+      id="equipe"
+      className="py-20 md:py-28 border-t border-border relative overflow-hidden"
+    >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--gold-dark)_0%,_transparent_55%)] opacity-[0.08]" />
 
       <div className="section-container relative">
@@ -39,9 +42,7 @@ export default function TeamHighlightsSection() {
             const masterKey = master.slug.replace("mestrado-", "");
             const featuredSlug = featuredSlugs[masterKey];
             const person = featuredSlug ? getPersonBySlug(featuredSlug) : null;
-            const photoSrc = featuredSlug
-              ? masterFacultyPhotoPath(masterKey, featuredSlug)
-              : "";
+            const photoSrc = featuredSlug ? personPhotoPath(featuredSlug) : "";
             const isHof = master.slug.includes("harmonizacao");
 
             const shortName = master.title.replace(
@@ -71,7 +72,7 @@ export default function TeamHighlightsSection() {
                   {/* Botão */}
                   <Button
                     variant="gold"
-                    href={`/mestrados/${master.slug}#docentes`}
+                    href={`/mestrados/${master.slug}/docentes`}
                     icon={<ArrowRight size={16} />}
                   >
                     Ver todos os professores

@@ -16,7 +16,7 @@ import {
   getPersonBySlug,
   type Person,
 } from "@/src/data/people";
-import { personEventPhotoPath } from "@/src/data/paths";
+import { personPhotoPath } from "@/src/data/paths";
 import { institute } from "@/src/data/institute";
 import { Button } from "@/app/_shared/components/ui/Button";
 import AboutCard from "@/app/_shared/components/ui/AboutCards";
@@ -256,12 +256,7 @@ export default function EdicaoPage({ params }: Props) {
                   >
                     <div className="aspect-[1/1] bg-gradient-to-br from-surface to-surface-hover overflow-hidden">
                       <ImageWithFallback
-                        src={personEventPhotoPath(
-                          params.serieSlug,
-                          params.edicaoSlug,
-                          "professor",
-                          prof.slug,
-                        )}
+                        src={personPhotoPath(prof.slug)}
                         alt=""
                         className="w-full h-full object-cover"
                       />
@@ -324,12 +319,7 @@ export default function EdicaoPage({ params }: Props) {
                     country={p.country}
                     countryCode={p.countryCode}
                     href={`/eventos/${params.serieSlug}/${params.edicaoSlug}/participantes/${p.slug}`}
-                    photoSrc={personEventPhotoPath(
-                      params.serieSlug,
-                      params.edicaoSlug,
-                      "participante",
-                      p.slug,
-                    )}
+                    photoSrc={personPhotoPath(p.slug)}
                   />
                 );
               })}

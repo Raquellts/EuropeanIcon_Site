@@ -2,7 +2,7 @@
 
 import { User, ArrowRight } from "lucide-react";
 import { getFacultyByMaster } from "@/src/data/people";
-import { masterFacultyPhotoPath } from "@/src/data/paths";
+import { personPhotoPath } from "@/src/data/paths";
 import { Button } from "../../../_shared/components/ui/Button";
 import FacultyCard from "../../../_shared/components/ui/FacultyCard";
 import Pill from "../../../_shared/components/ui/Pill";
@@ -89,7 +89,7 @@ export default function FacultySection({
                   <FacultyCard
                     key={person.slug}
                     person={person}
-                    photoSrc={masterFacultyPhotoPath(masterSlug, person.slug)}
+                    photoSrc={personPhotoPath(person.slug)}
                     showPlaceholder={isHof}
                   />
                 ))}
@@ -121,7 +121,7 @@ export default function FacultySection({
                   <FacultyCard
                     key={person.slug}
                     person={person}
-                    photoSrc={masterFacultyPhotoPath(masterSlug, person.slug)}
+                    photoSrc={personPhotoPath(person.slug)}
                     showPlaceholder={isHof}
                   />
                 ))}
@@ -153,7 +153,7 @@ export default function FacultySection({
                   <FacultyCard
                     key={person.slug}
                     person={person}
-                    photoSrc={masterFacultyPhotoPath(masterSlug, person.slug)}
+                    photoSrc={personPhotoPath(person.slug)}
                     showPlaceholder={isHof}
                   />
                 ))}

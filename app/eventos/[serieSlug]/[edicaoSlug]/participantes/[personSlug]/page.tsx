@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 import { getPersonBySlug } from "@/src/data/people";
 import { getEditionBySlug } from "@/src/data/eventEditions";
-import { personEventPhotoPath, personCvPath } from "@/src/data/paths";
+import { personPhotoPath, personCvPath } from "@/src/data/paths";
 import Navbar from "@/app/_shared/components/ui/Navbar";
 import PersonProfileContent from "@/app/_shared/components/ui/PersonProfileContent";
 
@@ -34,17 +34,8 @@ export default function PersonPage({ params }: Props) {
   if (!person || !edition) notFound();
 
   const prof = edition.professors.includes(params.personSlug);
-  const photoSrc = personEventPhotoPath(
-    params.serieSlug,
-    params.edicaoSlug,
-    prof ? "professor" : "participante",
-    params.personSlug,
-  );
-  const cvUrlPath = personCvPath(
-    params.serieSlug,
-    params.edicaoSlug,
-    params.personSlug,
-  );
+  const photoSrc = personPhotoPath(params.personSlug);
+  const cvUrlPath = personCvPath(params.personSlug);
   const hasCv = fs.existsSync(path.join(process.cwd(), "public", cvUrlPath));
 
   return (

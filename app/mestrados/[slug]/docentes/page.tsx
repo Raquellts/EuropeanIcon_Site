@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { ArrowLeft, Search } from "lucide-react";
 import { getFacultyByMaster } from "@/src/data/people";
-import { masterFacultyPhotoPath } from "@/src/data/paths";
+import { personPhotoPath } from "@/src/data/paths";
 import FacultyCard from "@/app/_shared/components/ui/FacultyCard";
 import Navbar from "@/app/_shared/components/ui/Navbar";
 import Footer from "@/app/_shared/components/ui/Footer";
@@ -146,7 +146,7 @@ export default function DocentesPage({ params }: PageProps) {
               <ScrollReveal key={person.slug} delay={index * 40}>
                 <FacultyCard
                   person={person}
-                  photoSrc={masterFacultyPhotoPath(masterSlug, person.slug)}
+                  photoSrc={personPhotoPath(person.slug)}
                   showPlaceholder={isHof}
                 />
               </ScrollReveal>

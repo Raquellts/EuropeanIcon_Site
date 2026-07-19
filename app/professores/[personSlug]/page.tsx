@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
 import { getPersonBySlug } from "@/src/data/people";
-import { masterFacultyPhotoPath, masterFacultyCvPath } from "@/src/data/paths";
+import { personPhotoPath, personCvPath } from "@/src/data/paths";
 import Navbar from "@/app/_shared/components/ui/Navbar";
 import PersonProfileContent from "@/app/_shared/components/ui/PersonProfileContent";
 
@@ -28,9 +28,8 @@ export default async function PersonPage({ params }: Props) {
   const person = getPersonBySlug(personSlug);
   if (!person) notFound();
 
-  const masterSlug = person.facultyOf?.[0] || "direito-penal-economico";
-  const photoSrc = masterFacultyPhotoPath(masterSlug, personSlug);
-  const cvPath = masterFacultyCvPath(masterSlug, personSlug);
+  const photoSrc = personPhotoPath(personSlug);
+  const cvPath = personCvPath(personSlug);
   const hasCv = fs.existsSync(path.join(process.cwd(), "public", cvPath));
 
   return (
