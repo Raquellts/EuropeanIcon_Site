@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { User, ArrowRight, Briefcase } from "lucide-react";
 import ImageWithFallback from "./ImageWithFallback";
@@ -20,6 +21,8 @@ interface FacultyCardPerson {
 interface FacultyCardProps {
   person: FacultyCardPerson;
   photoSrc: string;
+  /** Força o placeholder mesmo sem tentar carregar a foto. Normalmente
+   * desnecessário: o card já detecta sozinho quando a foto não existe. */
   showPlaceholder?: boolean;
   horizontal?: boolean;
 }
@@ -30,16 +33,20 @@ export default function FacultyCard({
   showPlaceholder = false,
   horizontal = false,
 }: FacultyCardProps) {
+  const [photoFailed, setPhotoFailed] = useState(false);
+  const usePlaceholder = showPlaceholder || photoFailed;
+
   if (horizontal) {
     return (
       <Link href={`/professores/${person.slug}`}>
         <article className="group/person flex items-center gap-5 rounded-xl border border-border bg-background p-5 transition-all duration-300 hover:border-gold/30 hover:bg-gold/5 cursor-pointer">
           <div className="shrink-0 w-20 h-20 rounded-full overflow-hidden bg-surface-hover flex items-center justify-center">
-            {!showPlaceholder ? (
+            {!usePlaceholder ? (
               <ImageWithFallback
                 src={photoSrc}
                 alt={person.name}
                 className="w-full h-full object-cover"
+                onError={() => setPhotoFailed(true)}
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-gold/5">
@@ -74,11 +81,12 @@ export default function FacultyCard({
       <article className="group relative flex flex-col rounded-2xl border border-border bg-surface overflow-hidden transition-all duration-300 hover:border-gold/40 hover:shadow-xl hover:shadow-black/20 cursor-pointer h-full">
         {/* Foto */}
         <div className="relative aspect-[3/4] min-h-[280px] overflow-hidden">
-          {!showPlaceholder ? (
+          {!usePlaceholder ? (
             <ImageWithFallback
               src={photoSrc}
               alt={person.name}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              onError={() => setPhotoFailed(true)}
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center bg-gold/5">

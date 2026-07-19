@@ -43,7 +43,6 @@ export default function TeamHighlightsSection() {
             const featuredSlug = featuredSlugs[masterKey];
             const person = featuredSlug ? getPersonBySlug(featuredSlug) : null;
             const photoSrc = featuredSlug ? personPhotoPath(featuredSlug) : "";
-            const isHof = master.slug.includes("harmonizacao");
 
             const shortName = master.title.replace(
               "Mestrado Internacional em ",
@@ -64,7 +63,6 @@ export default function TeamHighlightsSection() {
                       <FacultyCard
                         person={person}
                         photoSrc={photoSrc}
-                        showPlaceholder={isHof}
                       />
                     </div>
                   )}
@@ -72,7 +70,7 @@ export default function TeamHighlightsSection() {
                   {/* Botão */}
                   <Button
                     variant="gold"
-                    href={`/mestrados/${master.slug}/docentes`}
+                    href={`/mestrados/docentes?mestrado=${masterKey}`}
                     icon={<ArrowRight size={16} />}
                   >
                     Ver todos os professores

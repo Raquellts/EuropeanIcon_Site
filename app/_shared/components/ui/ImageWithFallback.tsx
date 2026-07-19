@@ -7,7 +7,7 @@ interface ImageWithFallbackProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string
 }
 
-export default function ImageWithFallback({ src, alt, className, loading = 'lazy', ...rest }: ImageWithFallbackProps) {
+export default function ImageWithFallback({ src, alt, className, loading = 'lazy', onError, ...rest }: ImageWithFallbackProps) {
   const [error, setError] = useState(false)
 
   if (error) return null
@@ -18,7 +18,10 @@ export default function ImageWithFallback({ src, alt, className, loading = 'lazy
       alt={alt || ''}
       className={className}
       loading={loading}
-      onError={() => setError(true)}
+      onError={(e) => {
+        setError(true)
+        onError?.(e)
+      }}
       {...rest}
     />
   )

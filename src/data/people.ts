@@ -92,7 +92,7 @@ export const people: Person[] = [
   {
     slug: "arthur-pinto-de-lemos-junior",
     name: "Prof. Dr. Arthur Pinto de Lemos Junior",
-    role: "Procurador de Justiça do Ministério Público de São Paulo (MPSP)",
+    role: "Coordenador Científico do Mestrado em Direito Penal Econômico · Procurador de Justiça do MPSP",
     description:
       "Procurador de Justiça do MPSP. Mestre em Ciências Jurídico-Criminais e Especialista em Direito Penal Econômico pela Universidade de Coimbra. Subprocurador-Geral de Justiça de Relações Institucionais do MPSP.",
     city: "São Paulo",
@@ -1274,4 +1274,32 @@ export function getPeopleBySlugs(slugs: string[]): Person[] {
 /** Corpo docente de um mestrado específico. */
 export function getFacultyByMaster(masterSlug: string): Person[] {
   return people.filter((p) => p.facultyOf?.includes(masterSlug));
+}
+
+/** Todo mundo que é corpo docente de pelo menos um mestrado, de qualquer curso. */
+export function getAllFaculty(): Person[] {
+  return people.filter((p) => (p.facultyOf?.length ?? 0) > 0);
+}
+
+export type RoleCategory = "coordenador" | "orientador" | "docente";
+
+export const ROLE_CATEGORY_LABEL: Record<RoleCategory, string> = {
+  coordenador: "Coordenador",
+  orientador: "Orientador",
+  docente: "Professor",
+};
+
+/**
+ * Categoriza a função de uma pessoa a partir do texto livre em `role`
+ * (ex.: "Coordenadora Acadêmica" -> "coordenador"). É uma heurística —
+ * assim que existir um campo estruturado de função, trocar por ele aqui
+ * é a única mudança necessária, todo o resto do site continua igual.
+ */
+export function getRoleCategory(role: string): RoleCategory {
+  const lower = role.toLowerCase();
+  if (lower.includes("coordenador") || lower.includes("coordenadora"))
+    return "coordenador";
+  if (lower.includes("orientador") || lower.includes("orientadora"))
+    return "orientador";
+  return "docente";
 }

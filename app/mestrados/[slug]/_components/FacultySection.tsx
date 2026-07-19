@@ -1,7 +1,7 @@
 "use client";
 
 import { User, ArrowRight } from "lucide-react";
-import { getFacultyByMaster } from "@/src/data/people";
+import { getFacultyByMaster, getRoleCategory } from "@/src/data/people";
 import { personPhotoPath } from "@/src/data/paths";
 import { Button } from "../../../_shared/components/ui/Button";
 import FacultyCard from "../../../_shared/components/ui/FacultyCard";
@@ -13,17 +13,6 @@ interface FacultySectionProps {
   maxCoordinators?: number;
   maxOrientadores?: number;
   maxDocentes?: number;
-}
-
-function getRoleCategory(
-  role: string,
-): "coordenador" | "orientador" | "docente" {
-  const lower = role.toLowerCase();
-  if (lower.includes("coordenador") || lower.includes("coordenadora"))
-    return "coordenador";
-  if (lower.includes("orientador") || lower.includes("orientadora"))
-    return "orientador";
-  return "docente";
 }
 
 export default function FacultySection({
@@ -51,8 +40,6 @@ export default function FacultySection({
     ? orientadores.slice(0, maxOrientadores)
     : [];
   const visibleDocentes = docentes.slice(0, maxDocentes);
-
-  const isHof = masterSlug.includes("harmonizacao");
 
   return (
     <section
@@ -90,14 +77,13 @@ export default function FacultySection({
                     key={person.slug}
                     person={person}
                     photoSrc={personPhotoPath(person.slug)}
-                    showPlaceholder={isHof}
                   />
                 ))}
               </div>
               <div className="text-center mt-8">
                 <Button
                   variant="gold"
-                  href={`/mestrados/${rawMasterSlug}/docentes`}
+                  href={`/mestrados/docentes?mestrado=${masterSlug}`}
                   icon={<ArrowRight size={16} />}
                 >
                   Ver todos os coordenadores
@@ -122,14 +108,13 @@ export default function FacultySection({
                     key={person.slug}
                     person={person}
                     photoSrc={personPhotoPath(person.slug)}
-                    showPlaceholder={isHof}
                   />
                 ))}
               </div>
               <div className="text-center mt-8">
                 <Button
                   variant="gold"
-                  href={`/mestrados/${rawMasterSlug}/docentes`}
+                  href={`/mestrados/docentes?mestrado=${masterSlug}`}
                   icon={<ArrowRight size={16} />}
                 >
                   Ver todos os orientadores
@@ -154,14 +139,13 @@ export default function FacultySection({
                     key={person.slug}
                     person={person}
                     photoSrc={personPhotoPath(person.slug)}
-                    showPlaceholder={isHof}
                   />
                 ))}
               </div>
               <div className="text-center mt-8">
                 <Button
                   variant="gold"
-                  href={`/mestrados/${rawMasterSlug}/docentes`}
+                  href={`/mestrados/docentes?mestrado=${masterSlug}`}
                   icon={<ArrowRight size={16} />}
                 >
                   Ver todos os professores

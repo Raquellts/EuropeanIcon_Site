@@ -7,6 +7,8 @@ interface PillProps {
   icon?: ReactNode;
   children: ReactNode;
   className?: string;
+  type?: string;
+  onClick?: () => void;
 }
 
 const variantStyles: Record<PillVariant, string> = {
@@ -23,8 +25,19 @@ export default function Pill({
   icon,
   children,
   className = "",
+  type = "button",
+  ...buttonRest
 }: PillProps) {
-  return (
+  return type === "button" ? (
+    <button
+      {...buttonRest}
+      type="button"
+      className={`inline-flex items-center gap-2 rounded-full ${variantStyles[variant]} ${className}`}
+    >
+      {icon && <span className="shrink-0">{icon}</span>}
+      {children}
+    </button>
+  ) : (
     <span
       className={`inline-flex items-center gap-2 rounded-full ${variantStyles[variant]} ${className}`}
     >

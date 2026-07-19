@@ -5,6 +5,8 @@ import Footer from "../../_shared/components/ui/Footer";
 import WhatsAppButton from "../../_shared/components/ui/WhatsAppButton";
 import ScrollReveal from "../../_shared/components/ui/ScrollReveal";
 import { getMaster } from "../../../src/services/masterApi";
+import { getFacultyByMaster, getRoleCategory } from "../../../src/data/people";
+import { masterAssetPath } from "../../../src/data/paths";
 import StatsSection from "./_components/StatsSection";
 import BenefitsSection from "./_components/BenefitsSection";
 import CurriculumSection from "./_components/CurriculumSection";
@@ -38,6 +40,10 @@ export default async function MasterPage({ params }: MasterPageProps) {
 
   if (!master) notFound();
 
+  const coordinator = getFacultyByMaster(slug.replace("mestrado-", "")).find(
+    (p) => getRoleCategory(p.role) === "coordenador",
+  );
+
   return (
     <>
       <Navbar />
@@ -65,14 +71,14 @@ export default async function MasterPage({ params }: MasterPageProps) {
             <div className="section-container">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  <p className="text-secondary leading-relaxed text-lg">
-                    {master.description}
-                  </p>
-                  {master.coordinator && (
-                    <p className="text-sm text-muted mt-6">
-                      Coordenador: {master.coordinator}
+                  {master.description.split("\n\n").map((paragraph, i) => (
+                    <p
+                      key={i}
+                      className={`text-secondary leading-relaxed lg:text-lg text-sm${i > 0 ? " mt-6" : ""}`}
+                    >
+                      {paragraph}
                     </p>
-                  )}
+                  ))}
                   {master.certification && (
                     <div className="mt-6 p-4 bg-surface/50 rounded-xl border border-border">
                       <p className="text-xs text-muted uppercase tracking-wider mb-1">
@@ -85,14 +91,49 @@ export default async function MasterPage({ params }: MasterPageProps) {
                   )}
                 </div>
                 {master.aboutImage && (
-                  <div className="rounded-2xl overflow-hidden border border-border">
-                    <Image
-                      src={master.aboutImage}
-                      alt={master.title}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto"
-                    />
+                  <div className="relative rounded-2xl overflow-hidden border border-border">
+                    {master.aboutVideo ? (
+                      <video
+                        src={master.aboutVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-auto"
+                      />
+                    ) : (
+                      <Image
+                        src={master.aboutImage}
+                        alt={master.title}
+                        width={800}
+                        height={600}
+                        className="w-full h-auto"
+                      />
+                    )}
+                    {coordinator && (
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6">
+                        <div className="flex items-center gap-4">
+                          <Image
+                            src={masterAssetPath(
+                              slug.replace("mestrado-", ""),
+                              "coordinator.webp",
+                            )}
+                            alt={coordinator.name}
+                            width={48}
+                            height={48}
+                            className="w-12 h-12 rounded-full object-cover border-2 border-white/30"
+                          />
+                          <div>
+                            <p className="text-white font-semibold">
+                              {coordinator.name}
+                            </p>
+                            <p className="text-white/80 text-sm">
+                              {coordinator.role}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -108,12 +149,11 @@ export default async function MasterPage({ params }: MasterPageProps) {
         )}
 
         {/* Currículo */}
-        {master.curriculumModules &&
-          master.curriculumModules.length > 0 && (
-            <ScrollReveal delay={100}>
-              <CurriculumSection curriculum={master.curriculumModules} />
-            </ScrollReveal>
-          )}
+        {master.curriculumModules && master.curriculumModules.length > 0 && (
+          <ScrollReveal delay={100}>
+            <CurriculumSection curriculum={master.curriculumModules} />
+          </ScrollReveal>
+        )}
 
         {/* Corpo Docente */}
         <ScrollReveal delay={100}>
@@ -130,7 +170,10 @@ export default async function MasterPage({ params }: MasterPageProps) {
         {/* Instagram */}
         {master.instagramUrl && (
           <ScrollReveal delay={100}>
-            <InstagramFeedSection instagramUrl={master.instagramUrl} masterTitle={master.title} />
+            <InstagramFeedSection
+              instagramUrl={master.instagramUrl}
+              masterTitle={master.title}
+            />
           </ScrollReveal>
         )}
 

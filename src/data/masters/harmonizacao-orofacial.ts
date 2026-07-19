@@ -20,6 +20,7 @@ export interface Master extends Partial<BaseEntity> {
   logoStyle?: Record<string, string>;
   heroImage?: string;
   aboutImage?: string;
+  aboutVideo?: string;
   tagline?: string;
   videoUrl?: string;
   totalHours?: string;
@@ -45,6 +46,7 @@ export const harmonizacaoOrofacial: Master = {
   Icon: Syringe,
   heroImage: masterAssetPath("harmonizacao-orofacial", "hero.webp"),
   aboutImage: masterAssetPath("harmonizacao-orofacial", "about.webp"),
+  aboutVideo: "https://res.cloudinary.com/falvay2b/video/upload/v1784477520/hofcoordinator_qmrimt.mp4",
   tagline:
     "Formação completa em harmonização orofacial com base em evidências científicas",
   videoUrl:

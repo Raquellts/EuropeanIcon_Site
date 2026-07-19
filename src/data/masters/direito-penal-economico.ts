@@ -1,7 +1,12 @@
 import { masterAssetPath } from "../paths";
 import { Landmark } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import type { Benefit, CurriculumModule, GalleryImage, BaseEntity } from "../types";
+import type {
+  Benefit,
+  CurriculumModule,
+  GalleryImage,
+  BaseEntity,
+} from "../types";
 
 export interface Master extends Partial<BaseEntity> {
   slug: string;
@@ -15,6 +20,7 @@ export interface Master extends Partial<BaseEntity> {
   logoStyle?: Record<string, string>;
   heroImage?: string;
   aboutImage?: string;
+  aboutVideo?: string;
   tagline?: string;
   videoUrl?: string;
   totalHours?: string;
@@ -33,7 +39,7 @@ export const direitoPenalEconomico: Master = {
   slug: "mestrado-direito-penal-economico",
   title: "Mestrado Internacional em Direito Penal Econômico",
   description:
-    "O primeiro programa internacional do Brasil com 3.000 horas de formação, 120 ECTS e possibilidade de dupla titulação de Mestre no Brasil e na Europa. A criminalidade econômica contemporânea já não pode ser compreendida a partir de uma perspectiva exclusivamente nacional. Lavagem de capitais, corrupção transnacional, crimes contra o sistema financeiro, responsabilidade penal empresarial e recuperação de ativos são fenômenos que ultrapassam fronteiras e desafiam os modelos tradicionais de investigação, defesa e julgamento.",
+    "O primeiro programa internacional do Brasil com 3.000 horas de formação, 120 ECTS e possibilidade de dupla titulação de Mestre no Brasil e na Europa. A criminalidade econômica contemporânea já não pode ser compreendida a partir de uma perspectiva exclusivamente nacional. Lavagem de capitais, corrupção transnacional, crimes contra o sistema financeiro, responsabilidade penal empresarial e recuperação de ativos são fenômenos que ultrapassam fronteiras e desafiam os modelos tradicionais de investigação, defesa e julgamento.\n\nA Sua Carreira Jurídica em Novo Patamar: Junte-se ao Instituto Europeu que mais Cresce no Mundo. Imagine estudar no Instituto Europeu de Pós-Graduação, a maior referência mundial em cursos de especialização e mestrado. Agora, torne isso uma realidade com um programa que combina excelência acadêmica, reconhecimento global e experiência internacional incomparável. Sua carreira internacional começa agora!",
   coordinator: "Prof. Dr. Arthur Pinto de Lemos Junior",
   logo: "/images/logos/logo_eurolaw.webp",
   url: "https://institutoeuropean.com",
@@ -43,9 +49,11 @@ export const direitoPenalEconomico: Master = {
   },
   heroImage: masterAssetPath("direito-penal-economico", "hero.webp"),
   aboutImage: masterAssetPath("direito-penal-economico", "about.webp"),
-  tagline:
-    "3.000 horas · 120 ECTS · Dupla Titulação Brasil-Europa",
-  videoUrl: "https://res.cloudinary.com/falvay2b/video/upload/v1784237797/0716_cfkydv.mp4",
+  aboutVideo:
+    "https://res.cloudinary.com/falvay2b/video/upload/v1784477522/direitocoordinator_z4vxsl.mp4",
+  tagline: "3.000 horas · 120 ECTS · Dupla Titulação Brasil-Europa",
+  videoUrl:
+    "https://res.cloudinary.com/falvay2b/video/upload/v1784237797/0716_cfkydv.mp4",
   totalHours: "3.000",
   ects: "120",
   locations: ["Brasil", "Portugal", "Espanha"],
@@ -403,16 +411,42 @@ export const direitoPenalEconomico: Master = {
     },
   ],
   galleryImages: [
-    { src: masterAssetPath("direito-penal-economico", "galeria-01.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 1" },
-    { src: masterAssetPath("direito-penal-economico", "galeria-02.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 2" },
-    { src: masterAssetPath("direito-penal-economico", "galeria-04.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 3" },
-    { src: masterAssetPath("direito-penal-economico", "galeria-05.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 4" },
-    { src: masterAssetPath("direito-penal-economico", "galeria-06.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 5" },
-    { src: masterAssetPath("direito-penal-economico", "galeria-07.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 6" },
-    { src: masterAssetPath("direito-penal-economico", "galeria-08.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 7" },
-    { src: masterAssetPath("direito-penal-economico", "galeria-09.webp"), alt: "Evento do Mestrado em Direito Penal Econômico 8" },
+    {
+      src: masterAssetPath("direito-penal-economico", "galeria-01.webp"),
+      alt: "Evento do Mestrado em Direito Penal Econômico 1",
+    },
+    {
+      src: masterAssetPath("direito-penal-economico", "galeria-02.webp"),
+      alt: "Evento do Mestrado em Direito Penal Econômico 2",
+    },
+    {
+      src: masterAssetPath("direito-penal-economico", "galeria-04.webp"),
+      alt: "Evento do Mestrado em Direito Penal Econômico 3",
+    },
+    {
+      src: masterAssetPath("direito-penal-economico", "galeria-05.webp"),
+      alt: "Evento do Mestrado em Direito Penal Econômico 4",
+    },
+    {
+      src: masterAssetPath("direito-penal-economico", "galeria-06.webp"),
+      alt: "Evento do Mestrado em Direito Penal Econômico 5",
+    },
+    {
+      src: masterAssetPath("direito-penal-economico", "galeria-07.webp"),
+      alt: "Evento do Mestrado em Direito Penal Econômico 6",
+    },
+    {
+      src: masterAssetPath("direito-penal-economico", "galeria-08.webp"),
+      alt: "Evento do Mestrado em Direito Penal Econômico 7",
+    },
+    {
+      src: masterAssetPath("direito-penal-economico", "galeria-09.webp"),
+      alt: "Evento do Mestrado em Direito Penal Econômico 8",
+    },
   ],
-  editalUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131807/Edital-Mestrado-em-Direito-Penal-Economico.pdf",
-  contratoUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131539/MINUTA-CONTRATO-MESTRADO-INTERNACIONAL-EM-DIREITO-PENAL-ECONOMICO.pdf",
+  editalUrl:
+    "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131807/Edital-Mestrado-em-Direito-Penal-Economico.pdf",
+  contratoUrl:
+    "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131539/MINUTA-CONTRATO-MESTRADO-INTERNACIONAL-EM-DIREITO-PENAL-ECONOMICO.pdf",
   instagramUrl: "https://www.instagram.com/iconinstoficial/",
 };

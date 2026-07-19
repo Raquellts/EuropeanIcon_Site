@@ -2,6 +2,7 @@ import { masters } from "./masters/index";
 import { eventSeries } from "./eventos/series";
 import { getEditionsBySeries, formatEventDate } from "./eventos/index";
 import { journals } from "./revistas/index";
+import { getFacultyByMaster } from "./people";
 
 export interface NavAnchor {
   label: string;
@@ -132,25 +133,20 @@ export const navigation: NavItem[] = [
   },
   {
     label: "Docentes",
-    href: "/mestrados",
+    href: "/mestrados/docentes",
     featured: {
       title: "Corpo Docente",
       description:
         "Professores e pesquisadores internacionalmente reconhecidos.",
-      href: "/mestrados",
+      href: "/mestrados/docentes",
       cta: "Ver todos",
     },
     anchors: [
-      {
-        label: "Direito Penal Econômico",
-        href: "/mestrados/mestrado-direito-penal-economico/docentes",
-        description: "31 docentes",
-      },
-      {
-        label: "Harmonização Orofacial",
-        href: "/mestrados/mestrado-harmonizacao-orofacial/docentes",
-        description: "30 docentes",
-      },
+      ...masters.map((m) => ({
+        label: m.title,
+        href: `/mestrados/docentes?mestrado=${m.slug.replace("mestrado-", "")}`,
+        description: `${getFacultyByMaster(m.slug.replace("mestrado-", "")).length} docentes`,
+      })),
     ],
   },
   {
