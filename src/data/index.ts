@@ -5,7 +5,7 @@ export { masters, getMasterBySlug } from "./masters/index";
 export type { Master } from "./masters/index";
 
 export { journals, getJournalBySlug } from "./revistas/index";
-export type { Journal } from "./revistas/index";
+export type { Journal, NormsSection } from "./revistas/index";
 
 export {
   people,

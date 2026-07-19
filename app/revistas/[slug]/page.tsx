@@ -4,10 +4,12 @@ import Navbar from "@/app/_shared/components/ui/Navbar";
 import Footer from "@/app/_shared/components/ui/Footer";
 import WhatsAppButton from "@/app/_shared/components/ui/WhatsAppButton";
 import VideoBackground from "@/app/_shared/components/ui/VideoBackground";
+import ScrollReveal from "@/app/_shared/components/ui/ScrollReveal";
 import { getJournalBySlug, journals } from "@/src/data/journals";
 import { Button } from "@/app/_shared/components/ui/Button";
 import ImageWithFallback from "@/app/_shared/components/ui/ImageWithFallback";
 import { ExternalLink } from "lucide-react";
+import NormsTabs from "./_components/NormsTabs";
 
 interface Props {
   params: { slug: string };
@@ -44,7 +46,7 @@ export default function JournalPage({ params }: Props) {
         <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-20">
           <div className="absolute inset-0 z-0 grayscale brightness-[0.3]">
             <VideoBackground
-              videoSrc="/videos/hero-revistas.mp4"
+              videoSrc={journal.heroVideo || "/videos/hero-revistas.mp4"}
               fallbackImage={journal.coverImage}
             />
           </div>
@@ -67,33 +69,80 @@ export default function JournalPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Content */}
-        <section className="py-20 md:py-28 border-t border-border">
-          <div className="section-container">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl font-bold header-text mb-6">
-                Sobre a Revista
-              </h2>
-              <p className="text-secondary leading-relaxed text-lg mb-8">
-                {journal.description}
-              </p>
+        {/* Sobre a Revista — Capa + Info Lateral */}
+        <ScrollReveal>
+          <section className="py-20 md:py-28 border-t border-border">
+            <div className="section-container">
+              <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+                {/* Capa */}
+                <div className="group relative rounded-2xl overflow-hidden border border-border hover:border-gold/30 transition-all duration-500 hover:shadow-xl hover:shadow-black/20">
+                  <ImageWithFallback
+                    src={journal.coverImage}
+                    alt={journal.name}
+                    className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  href={journal.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  icon={<ExternalLink size={16} />}
-                >
-                  Acessar periódico
-                </Button>
-                <Button href="/revistas" variant="secondary">
-                  Ver todas as revistas
-                </Button>
+                {/* Info */}
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <p className="text-xs font-semibold text-gold uppercase tracking-widest mb-2">
+                      Revista Científica
+                    </p>
+                    <div className="h-1 w-12 gradient-gold rounded-full mb-4" />
+                    <h2 className="text-2xl md:text-3xl font-bold header-text mb-3">
+                      {journal.name}
+                    </h2>
+                    <div className="flex items-center gap-2 mb-6">
+                      <span className="w-2 h-2 rounded-full bg-gold" />
+                      <span className="text-sm text-secondary">{journal.subject}</span>
+                    </div>
+                    <p className="text-secondary leading-relaxed text-base">
+                      {journal.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button
+                      href={journal.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      icon={<ExternalLink size={16} />}
+                    >
+                      Acessar periódico
+                    </Button>
+                    <Button href="/revistas" variant="secondary">
+                      Ver todas as revistas
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </ScrollReveal>
+
+        {/* Normas */}
+        {journal.norms && journal.norms.length > 0 && (
+          <ScrollReveal>
+            <section className="py-20 md:py-28 border-t border-border">
+              <div className="section-container">
+                <div className="max-w-5xl mx-auto">
+                  <div className="text-center mb-12">
+                    <h2 className="text-2xl md:text-3xl font-bold header-text mb-3">
+                      Normas de Publicação e Política Editorial
+                    </h2>
+                    <p className="text-secondary/60 max-w-2xl mx-auto">
+                      Diretrizes para submissão de trabalhos acadêmicos.
+                    </p>
+                    <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+                  </div>
+                  <NormsTabs norms={journal.norms} />
+                </div>
+              </div>
+            </section>
+          </ScrollReveal>
+        )}
       </main>
       <WhatsAppButton />
       <Footer />

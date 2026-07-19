@@ -19,7 +19,7 @@
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.23.0",
     "next": "13.5.1",
-    "pdf-parse": "^2.4.5",
+    "pdf-parse": "^1.1.1",
     "pdfkit": "^0.19.1",
     "postcss": "8.4.30",
     "react": "18.2.0",
@@ -35,5 +35,19 @@
   ],
   "devDependencies": {
     "sharp": "^0.35.3"
-  }
+  },
+  "description": "Plataforma digital do European & Icon Institute — programas de mestrado internacional, eventos acadêmicos, periódicos científicos e informações institucionais.",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raquellts/EuropeanIcon_Site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Raquellts/EuropeanIcon_Site/issues"
+  },
+  "homepage": "https://github.com/Raquellts/EuropeanIcon_Site#readme"
 }
