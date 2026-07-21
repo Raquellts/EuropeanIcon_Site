@@ -57,11 +57,17 @@ export const harmonizacaoOrofacial: Master = {
   certification:
     "Máster en Armonización Orofacial (European Face & Body Institute | UEMC, Espanha)",
   benefits: [
-    {
+        {
       icon: "Stethoscope",
-      title: "Prática clínica supervisionada",
+      title: "Módulos Presenciais no Brasil",
       description:
         "Hands-on com pacientes reais em ambiente controlado com orientação de especialistas.",
+    },
+    {
+      icon: "Stethoscope",
+      title: "Módulos Presenciais Portugal e Barcelona",
+      description:
+        "Estudos de aparatologia, casos clínicos, hand-on e networking internacional",
     },
     {
       icon: "Globe",
@@ -311,8 +317,7 @@ export const harmonizacaoOrofacial: Master = {
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-07.webp"), alt: "Mestrado em Harmonização Orofacial 7" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-08.webp"), alt: "Mestrado em Harmonização Orofacial 8" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-09.webp"), alt: "Mestrado em Harmonização Orofacial 9" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-10.webp"), alt: "Mestrado em Harmonização Orofacial 10" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-11.webp"), alt: "Mestrado em Harmonização Orofacial 11" },
+
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-12.webp"), alt: "Mestrado em Harmonização Orofacial 12" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-13.webp"), alt: "Mestrado em Harmonização Orofacial 13" },
   ],

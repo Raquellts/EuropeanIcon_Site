@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Clock, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import type { CurriculumModule } from "../../../../src/data/masters";
 
 interface CurriculumSectionProps {
@@ -12,16 +12,6 @@ export default function CurriculumSection({
   curriculum,
 }: CurriculumSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const totalWorkload = curriculum.reduce((acc, mod) => {
-    return (
-      acc +
-      mod.disciplines.reduce((dAcc, disc) => {
-        const hours = parseInt(disc.workload);
-        return dAcc + (isNaN(hours) ? 0 : hours);
-      }, 0)
-    );
-  }, 0);
 
   return (
     <section id="grade" className="py-24 bg-surface/50">
@@ -34,21 +24,11 @@ export default function CurriculumSection({
             Estrutura do programa com módulos e disciplinas detalhadas.
           </p>
           <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
-          {totalWorkload > 0 && (
-            <p className="text-sm text-muted mt-4">
-              Carga horária total:{" "}
-              <span className="text-gold font-semibold">{totalWorkload}h</span>
-            </p>
-          )}
         </div>
 
         <div className="space-y-4 max-w-4xl mx-auto">
           {curriculum.map((mod, modIdx) => {
             const isOpen = openIndex === modIdx;
-            const moduleWorkload = mod.disciplines.reduce((acc, disc) => {
-              const hours = parseInt(disc.workload);
-              return acc + (isNaN(hours) ? 0 : hours);
-            }, 0);
 
             return (
               <div
@@ -65,7 +45,7 @@ export default function CurriculumSection({
                         {mod.name}
                       </h3>
                       <p className="text-sm text-muted">
-                        {mod.disciplines.length} disciplinas · {moduleWorkload}h
+                        {mod.disciplines.length} disciplinas
                       </p>
                     </div>
                   </div>
@@ -101,10 +81,6 @@ export default function CurriculumSection({
                               {disc.description}
                             </p>
                           )}
-                        </div>
-                        <div className="flex items-center gap-1.5 text-gold text-sm font-medium shrink-0">
-                          <Clock size={14} />
-                          {disc.workload}
                         </div>
                       </div>
                     ))}

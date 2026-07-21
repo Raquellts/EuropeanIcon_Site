@@ -75,7 +75,7 @@ export const navigation: NavItem[] = [
     label: "Mestrados",
     href: "/mestrados",
     featured: {
-      title: "Dupla Titulação Brasil–Europa",
+      title: "formação intensiva",
       description:
         "Programas internacionais com créditos ECTS reconhecidos no Espaço Europeu de Ensino Superior.",
       href: "/mestrados",
@@ -90,6 +90,7 @@ export const navigation: NavItem[] = [
         { label: "Grade curricular", href: `/mestrados/${m.slug}#grade` },
         { label: "Docentes", href: `/mestrados/${m.slug}#docentes` },
         { label: "Galeria", href: `/mestrados/${m.slug}#galeria` },
+        { label: "Valores", href: `/mestrados/${m.slug}/valores` },
       ],
     })),
   },

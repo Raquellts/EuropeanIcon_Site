@@ -30,6 +30,7 @@ export default function MasterPageClient({
   return (
     <main>
       <HeroSection
+        slug={slug}
         title={title}
         tagline={tagline}
         videoUrl={videoUrl}

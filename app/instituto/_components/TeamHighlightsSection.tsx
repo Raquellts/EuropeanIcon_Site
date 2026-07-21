@@ -45,7 +45,7 @@ export default function TeamHighlightsSection() {
             const photoSrc = featuredSlug ? personPhotoPath(featuredSlug) : "";
 
             const shortName = master.title.replace(
-              "Mestrado Internacional em ",
+              /Mestrado Internacional em |Mestrado em /i,
               "",
             );
 

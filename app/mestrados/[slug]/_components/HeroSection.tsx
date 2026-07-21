@@ -9,6 +9,7 @@ import { useParallax } from "../../../_shared/hooks/useParallax";
 import { useAnchorNavigation } from "../../../_shared/hooks/useAnchorNavigation";
 
 interface HeroSectionProps {
+  slug: string;
   title: string;
   tagline?: string;
   videoUrl?: string;
@@ -18,6 +19,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({
+  slug,
   title,
   tagline,
   videoUrl,
@@ -70,7 +72,7 @@ export default function HeroSection({
         <Pill
           icon={<span className="h-2 w-2 rounded-full bg-gold animate-pulse" />}
         >
-          Mestrado Internacional
+          Formações internacionais de alto nível
         </Pill>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight max-w-4xl">
@@ -93,6 +95,13 @@ export default function HeroSection({
             onClick={() => navigateTo("grade")}
           >
             Grade Curricular
+          </Button>
+          <Button
+            variant="secondary"
+            size="lg"
+            href={`/mestrados/${slug}/valores`}
+          >
+            Valores
           </Button>
         </div>
 

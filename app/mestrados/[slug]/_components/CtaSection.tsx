@@ -10,9 +10,9 @@ interface CtaSectionProps {
 }
 
 export default function CtaSection({
-  title = "Garanta sua vaga no Mestrado Internacional",
+  title = "Garanta sua vaga na Formação Internacional",
   subtitle = "Fale conosco pelo WhatsApp e tire todas as suas dúvidas",
-  whatsappMessage = "Olá! Gostaria de saber mais sobre o Mestrado Internacional.",
+  whatsappMessage = "Olá! Gostaria de saber mais sobre a Formação Internacional.",
 }: CtaSectionProps) {
   const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(whatsappMessage)}`;
 

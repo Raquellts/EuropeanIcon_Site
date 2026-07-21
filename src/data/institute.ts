@@ -34,7 +34,7 @@ export const institute: Institute = {
   name: "European & Icon Institute",
   logo: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2025/11/24141358/NOVOLOGO1--1024x881.png",
   description:
-    "O European & Icon Institute foi fundado em 2017 com o propósito de oferecer uma formação acadêmica de excelência internacional nas áreas da Saúde, Estética e Direito. Atualmente sediado em Barcelona, Espanha, o instituto reforça sua presença no cenário europeu, conectando alunos a um dos principais polos educacionais e culturais do mundo. Desde o início, a proposta foi clara: unir rigor técnico, produção científica relevante e uma visão ética que forma líderes capazes de atuar além das fronteiras. Somos pioneiros ao oferecer o Mestrado em Harmonização Orofacial (HOF) e o novo Mestrado Internacional em Direito Penal Econômico, com dupla titulação Brasil-Europa. Programas únicos, estruturados com base em evidências científicas e alianças com instituições de renome mundial.",
+    "O European & Icon Institute foi fundado em 2017 com o propósito de oferecer uma formação acadêmica de excelência internacional nas áreas da Saúde, Estética e Direito. Atualmente sediado em Barcelona, Espanha, o instituto reforça sua presença no cenário europeu, conectando alunos a um dos principais polos educacionais e culturais do mundo. Desde o início, a proposta foi clara: unir rigor técnico, produção científica relevante e uma visão ética que forma líderes capazes de atuar além das fronteiras. Somos pioneiros ao oferecer o Mestrado em Harmonização Orofacial (HOF) e o novo Mestrado Internacional em Direito Penal Econômico, com formação intensiva. Programas únicos, estruturados com base em evidências científicas e alianças com instituições de renome mundial.",
   mission:
     "Promover o desenvolvimento acadêmico e profissional por meio de programas educacionais estruturados, com base em rigor técnico, pensamento crítico e abordagem ética. Contribuir para a formação de profissionais qualificados, capazes de atuar de forma responsável em seus respectivos contextos.",
   focus:
@@ -59,7 +59,7 @@ export const institute: Institute = {
   heroSubtitle: "Fundado em 2017 · Sediado em Barcelona",
   heroTitle: "Excelência Acadêmica Internacional",
   heroDescription:
-    "Mestrados internacionais com dupla titulação Brasil–Europa, formação baseada em evidências científicas e alianças com instituições de renome mundial.",
+    "Mestrados internacionais com formação intensiva, formação baseada em evidências científicas e alianças com instituições de renome mundial.",
   heroVideoSrc:
     "https://res.cloudinary.com/falvay2b/video/upload/v1784320344/herovideo_d0mmeu.mp4",
   heroImage: "/images/instituto/backgrounds/hero.webp",

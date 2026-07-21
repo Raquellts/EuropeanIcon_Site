@@ -112,7 +112,7 @@ export default function InstituteSection() {
           <MissionCard
             icon={<GraduationCap size={18} />}
             title="Excelência Acadêmica"
-            text="Programas únicos com dupla titulação Brasil–Europa, estruturados com base em evidências científicas e alianças com instituições de renome mundial."
+            text="Programas únicos com formação intensiva, estruturados com base em evidências científicas e alianças com instituições de renome mundial."
           />
         </div>
       </div>
@@ -211,7 +211,7 @@ export default function InstituteSection() {
                   Excelência Acadêmica
                 </h3>
                 <p className="text-secondary text-xs leading-relaxed">
-                  Programas únicos com dupla titulação Brasil–Europa,
+                  Programas únicos com formação intensiva,
                   estruturados com base em evidências científicas e alianças com
                   instituições de renome mundial.
                 </p>

@@ -42,6 +42,7 @@ export interface Benefit {
   icon: string;
   title: string;
   description: string;
+  href?: string;
 }
 
 export interface CurriculumDiscipline {

@@ -58,7 +58,7 @@ export const direitoPenalEconomico: Master = {
   ects: "120",
   locations: ["Brasil", "Portugal", "Espanha"],
   certification:
-    "Dupla titulação: Máster en Derecho Penal Económico (Universidad EUNEIZ, Espanha) + Mestre em Direito Penal Econômico (FACAMP, Brasil)",
+    "Máster en Derecho Penal Económico (Universidad EUNEIZ, Espanha) + Mestre em Direito Penal Econômico (FACAMP, Brasil)",
   benefits: [
     {
       icon: "Clock",
@@ -72,12 +72,7 @@ export const direitoPenalEconomico: Master = {
       description:
         "Matriz curricular construída entre dois continentes, com contato direto com diferentes sistemas jurídicos.",
     },
-    {
-      icon: "GraduationCap",
-      title: "Dupla titulação",
-      description:
-        "Possibilidade de obter diploma espanhol (EUNEIZ) e brasileiro (FACAMP) em um único programa.",
-    },
+
     {
       icon: "Users",
       title: "Corpo docente internacional",
@@ -101,6 +96,7 @@ export const direitoPenalEconomico: Master = {
       title: "Revista Científica IMPERIUM",
       description:
         "Periódico internacional para divulgação de pesquisas de excelência em Direito Penal Econômico.",
+      href: "/revistas",
     },
     {
       icon: "Search",
