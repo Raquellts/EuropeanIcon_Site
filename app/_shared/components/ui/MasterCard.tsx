@@ -22,7 +22,7 @@ export default function MasterCard({ master, index }: MasterCardProps) {
     },
     master.locations && {
       icon: MapPin,
-      label: master.locations.join(" · "),
+      label: `Presenciais · ${master.locations.join(" · ")}`,
     },
   ].filter(Boolean) as { icon: typeof Clock; label: string }[];
 

@@ -53,7 +53,7 @@ export const harmonizacaoOrofacial: Master = {
     "https://res.cloudinary.com/falvay2b/video/upload/v1784237890/0716_2_nnigay.mp4",
   totalHours: "3.000",
   ects: "120",
-  locations: ["Brasil", "Espanha"],
+  locations: ["Brasil", "Portugal", "Espanha"],
   certification:
     "Máster en Armonización Orofacial (European Face & Body Institute | UEMC, Espanha)",
   benefits: [
@@ -61,7 +61,7 @@ export const harmonizacaoOrofacial: Master = {
       icon: "Stethoscope",
       title: "Módulos Presenciais no Brasil",
       description:
-        "Hands-on com pacientes reais em ambiente controlado com orientação de especialistas.",
+        "Hands-on com pacientes reais em ambiente controlado com owrientação de especialistas.",
     },
     {
       icon: "Stethoscope",

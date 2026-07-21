@@ -20,10 +20,10 @@ export default function MasterSection() {
             Programas de destaque
           </Pill>
           <h2 className="text-3xl md:text-5xl font-bold header-text mb-4">
-            Formações internacionais de alto nível
+            Mestrados Internacionais
           </h2>
           <p className="text-secondary max-w-2xl mx-auto leading-relaxed text-pretty">
-            Desenvolvidas em parceria com instituições de ensino superior de
+            Formações internacionais de alto nível, Desenvolvidas em parceria com instituições de ensino superior de
             referência, unindo excelência acadêmica, inovação e reconhecimento
             internacional.
           </p>
