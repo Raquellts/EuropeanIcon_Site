@@ -121,7 +121,12 @@ export default function PricingToggle({
         )}
 
         {/* CTA */}
-        <Button variant="primary" size="lg" href={whatsappUrl} external>
+        <Button
+          variant="primary"
+          size="lg"
+          href="https://institutoeuropean.com/mestrado-em-direito/"
+          external
+        >
           Inscreva-se Agora
         </Button>
       </div>

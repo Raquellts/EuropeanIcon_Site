@@ -309,7 +309,6 @@ export const harmonizacaoOrofacial: Master = {
   ],
   galleryImages: [
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-01.webp"), alt: "Mestrado em Harmonização Orofacial 1" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-02.webp"), alt: "Mestrado em Harmonização Orofacial 2" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-03.webp"), alt: "Mestrado em Harmonização Orofacial 3" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-04.webp"), alt: "Mestrado em Harmonização Orofacial 4" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-05.webp"), alt: "Mestrado em Harmonização Orofacial 5" },
@@ -317,9 +316,9 @@ export const harmonizacaoOrofacial: Master = {
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-07.webp"), alt: "Mestrado em Harmonização Orofacial 7" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-08.webp"), alt: "Mestrado em Harmonização Orofacial 8" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-09.webp"), alt: "Mestrado em Harmonização Orofacial 9" },
-
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-10.webp"), alt: "Mestrado em Harmonização Orofacial 10" },
+    { src: masterAssetPath("harmonizacao-orofacial", "galeria-11.webp"), alt: "Mestrado em Harmonização Orofacial 11" },
     { src: masterAssetPath("harmonizacao-orofacial", "galeria-12.webp"), alt: "Mestrado em Harmonização Orofacial 12" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-13.webp"), alt: "Mestrado em Harmonização Orofacial 13" },
   ],
   editalUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131811/Edital-de-Abertura-Mestrado-em-Harmonizacao-Orofacial.pdf",
   contratoUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131537/MINUTA-MESTRADO-EM-HOF-ATUALIZADA-MAIO-2026.pdf",

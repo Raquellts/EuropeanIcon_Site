@@ -86,7 +86,12 @@ export default function HeroSection({
         )}
 
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <Button variant="primary" size="lg" onClick={onOpenEnrollment}>
+          <Button
+            variant="primary"
+            size="lg"
+            href="https://institutoeuropean.com/mestrado-em-direito/"
+            external
+          >
             Seja um Aluno
           </Button>
           <Button
