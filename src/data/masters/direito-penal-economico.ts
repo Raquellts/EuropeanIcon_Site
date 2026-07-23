@@ -33,6 +33,7 @@ export interface Master extends Partial<BaseEntity> {
   editalUrl?: string;
   contratoUrl?: string;
   instagramUrl?: string;
+  instagramEmbeds?: string[];
 }
 
 export const direitoPenalEconomico: Master = {
@@ -92,10 +93,16 @@ export const direitoPenalEconomico: Master = {
         "Créditos no sistema europeu, reconhecidos em todo o Espaço Europeu de Ensino Superior.",
     },
     {
+      icon: "ShieldCheck",
+      title: "Reconhecido pelo MEC",
+      description:
+        "Mestrado reconhecido pelo Ministério da Educação, Cultura, Ciência e Tecnologia.",
+    },
+    {
       icon: "FileText",
       title: "Revista Científica IMPERIUM",
       description:
-        "Periódico internacional para divulgação de pesquisas de excelência em Direito Penal Econômico.",
+        "Periódico internacional para divulgação de pesquisas de excelência na area de direito.",
       href: "/revistas",
     },
     {
@@ -445,4 +452,5 @@ export const direitoPenalEconomico: Master = {
   contratoUrl:
     "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131539/MINUTA-CONTRATO-MESTRADO-INTERNACIONAL-EM-DIREITO-PENAL-ECONOMICO.pdf",
   instagramUrl: "https://www.instagram.com/iconinstoficial/",
+  instagramEmbeds: ["https://www.instagram.com/reel/DbF-KOhiFOD/"],
 };

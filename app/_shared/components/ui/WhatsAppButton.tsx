@@ -14,7 +14,8 @@ export default function WhatsAppButton() {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-white font-medium shadow-lg hover:scale-105 transition-transform"
+      data-whatsapp
+      className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-white font-medium shadow-lg hover:scale-105 transition-transform no-print"
       aria-label="Fale conosco pelo WhatsApp"
     >
       <MessageCircle size={22} />

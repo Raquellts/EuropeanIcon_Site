@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "../_shared/components/ui/Navbar";
-import MasterSection from "../instituto/_components/MasterSection";
+import MasterSection from "../_sections/MasterSection";
 import WhatsAppButton from "../_shared/components/ui/WhatsAppButton";
 import Footer from "../_shared/components/ui/Footer";
 import ScrollReveal from "../_shared/components/ui/ScrollReveal";

@@ -25,6 +25,8 @@ interface FacultyCardProps {
    * desnecessário: o card já detecta sozinho quando a foto não existe. */
   showPlaceholder?: boolean;
   horizontal?: boolean;
+  banner?: boolean;
+  bannerPhotoSrc?: string;
 }
 
 export default function FacultyCard({
@@ -32,6 +34,8 @@ export default function FacultyCard({
   photoSrc,
   showPlaceholder = false,
   horizontal = false,
+  banner = false,
+  bannerPhotoSrc,
 }: FacultyCardProps) {
   const [photoFailed, setPhotoFailed] = useState(false);
   const usePlaceholder = showPlaceholder || photoFailed;
@@ -76,11 +80,69 @@ export default function FacultyCard({
     );
   }
 
+  if (banner) {
+    const bgSrc = bannerPhotoSrc || photoSrc;
+    return (
+      <Link href={`/professores/${person.slug}`}>
+        <article className="group relative flex flex-col rounded-2xl border border-border bg-surface overflow-hidden transition-all duration-300 hover:border-gold/40 hover:shadow-xl hover:shadow-black/20 cursor-pointer h-[300px] md:h-[360px]">
+          {!usePlaceholder ? (
+            <ImageWithFallback
+              src={bgSrc}
+              alt={person.name}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              onError={() => setPhotoFailed(true)}
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-gold/5">
+              <div className="w-20 h-20 rounded-full bg-gold/10 flex items-center justify-center">
+                <User size={36} className="text-gold" />
+              </div>
+            </div>
+          )}
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+            <h4 className="font-bold text-primary group-hover:text-gold transition-colors text-xl md:text-2xl leading-tight">
+              {person.name}
+            </h4>
+            <p className="text-sm text-gold font-medium uppercase tracking-wide mt-1">
+              {person.role}
+            </p>
+            {person.description && (
+              <p className="text-sm text-secondary mt-2 line-clamp-3 max-w-2xl">
+                {person.description}
+              </p>
+            )}
+            <div className="flex items-center gap-4 mt-3">
+              {person.social?.instagram && (
+                <span className="inline-flex items-center gap-1.5 text-xs text-white/70">
+                  <InstagramIcon size={14} />
+                  Instagram
+                </span>
+              )}
+              {person.social?.linkedin && (
+                <span className="inline-flex items-center gap-1.5 text-xs text-white/70">
+                  <Briefcase size={14} />
+                  LinkedIn
+                </span>
+              )}
+              <span className="inline-flex items-center gap-1.5 text-xs text-white/70 group-hover:text-gold transition-colors ml-auto">
+                Saiba mais
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              </span>
+            </div>
+          </div>
+        </article>
+      </Link>
+    );
+  }
+
   return (
     <Link href={`/professores/${person.slug}`}>
       <article className="group relative flex flex-col rounded-2xl border border-border bg-surface overflow-hidden transition-all duration-300 hover:border-gold/40 hover:shadow-xl hover:shadow-black/20 cursor-pointer h-full">
         {/* Foto */}
-        <div className="relative aspect-[3/4] min-h-[280px] overflow-hidden">
+        <div className="relative aspect-[3/4] min-h-[180px] overflow-hidden">
           {!usePlaceholder ? (
             <ImageWithFallback
               src={photoSrc}
@@ -90,8 +152,8 @@ export default function FacultyCard({
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center bg-gold/5">
-              <div className="w-24 h-24 rounded-full bg-gold/10 flex items-center justify-center">
-                <User size={40} className="text-gold" />
+              <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center">
+                <User size={28} className="text-gold" />
               </div>
             </div>
           )}
@@ -100,8 +162,8 @@ export default function FacultyCard({
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/70 to-transparent" />
 
           {/* Info sobreposta */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1.5">
-            <h4 className="font-bold text-primary group-hover:text-gold transition-colors leading-snug text-base">
+          <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-1.5">
+            <h4 className="font-bold text-primary group-hover:text-gold transition-colors leading-snug text-sm">
               {person.name}
             </h4>
             <p className="text-xs text-gold font-medium uppercase tracking-wide">

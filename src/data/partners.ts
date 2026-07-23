@@ -90,6 +90,14 @@ export const partners: Partner[] = [
     countryCode: "br",
   },
   {
+    name: "FACAMP — Faculdade de Campinas",
+    logo: partnerLogoPath("facamp"),
+    url: "https://www.facamp.com.br",
+    category: "Faculdade",
+    country: "Brasil",
+    countryCode: "br",
+  },
+  {
     name: "Faculdade Van Gogh (São Paulo)",
     logo: partnerLogoPath("vangogh"),
     url: "https://www.faculdadevangogh.edu.br",

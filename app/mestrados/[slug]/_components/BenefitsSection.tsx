@@ -14,6 +14,9 @@ import {
   Syringe,
   Languages,
   MapPin,
+  ShieldCheck,
+  Plane,
+  Building2,
 } from "lucide-react";
 import type { Benefit } from "../../../../src/data/masters";
 
@@ -30,6 +33,9 @@ const iconMap: Record<string, any> = {
   Syringe,
   Languages,
   MapPin,
+  ShieldCheck,
+  Plane,
+  Building2,
 };
 
 const defaultBenefits: Benefit[] = [
@@ -92,8 +98,10 @@ export default function BenefitsSection({ benefits }: BenefitsSectionProps) {
     benefits && benefits.length > 0 ? benefits : defaultBenefits;
 
   return (
-    <section className="py-20 md:py-28">
-      <div className="section-container">
+    <section className="py-20 md:py-28 border-t border-border relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--gold-dark)_0%,_transparent_55%)] opacity-[0.08]" />
+
+      <div className="section-container relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold header-text mb-4">
             Por que escolher a Formação Internacional?

@@ -1,7 +1,7 @@
 "use client";
 
-import Modal from "../../../_shared/components/ui/Modal";
-import EnrollmentForm from "../../../_shared/components/ui/EnrollmentForm";
+import Modal from "./Modal";
+import EnrollmentForm from "./EnrollmentForm";
 
 interface EnrollmentModalProps {
   open: boolean;

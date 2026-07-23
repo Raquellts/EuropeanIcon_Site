@@ -7,6 +7,7 @@ const nextConfig = {
       "www.worldometers.info",
       "journals.institutoeuropean.com",
       "res.cloudinary.com",
+      "images.unsplash.com",
     ],
   },
   async redirects() {

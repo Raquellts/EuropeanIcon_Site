@@ -3,15 +3,18 @@
 import { ExternalLink } from "lucide-react";
 import ScrollReveal from "../../../_shared/components/ui/ScrollReveal";
 import InstagramIcon from "../../../_shared/components/ui/InstagramIcon";
+import InstagramCarousel from "../../../_shared/components/ui/InstagramCarousel";
 
 interface InstagramFeedSectionProps {
   instagramUrl: string;
   masterTitle: string;
+  instagramEmbeds?: string[];
 }
 
 export default function InstagramFeedSection({
   instagramUrl,
   masterTitle,
+  instagramEmbeds,
 }: InstagramFeedSectionProps) {
   const handle = instagramUrl
     .replace("https://www.instagram.com/", "@")
@@ -33,6 +36,12 @@ export default function InstagramFeedSection({
             aulas, eventos e depoimentos.
           </p>
         </ScrollReveal>
+
+        {instagramEmbeds && instagramEmbeds.length > 0 && (
+          <ScrollReveal className="mb-12">
+            <InstagramCarousel urls={instagramEmbeds} />
+          </ScrollReveal>
+        )}
 
         <ScrollReveal>
           <div className="max-w-lg mx-auto">

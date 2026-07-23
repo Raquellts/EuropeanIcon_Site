@@ -33,6 +33,7 @@ export interface Master extends Partial<BaseEntity> {
   editalUrl?: string;
   contratoUrl?: string;
   instagramUrl?: string;
+  instagramEmbeds?: string[];
 }
 
 export const harmonizacaoOrofacial: Master = {
@@ -46,7 +47,8 @@ export const harmonizacaoOrofacial: Master = {
   Icon: Syringe,
   heroImage: masterAssetPath("harmonizacao-orofacial", "hero.webp"),
   aboutImage: masterAssetPath("harmonizacao-orofacial", "about.webp"),
-  aboutVideo: "https://res.cloudinary.com/falvay2b/video/upload/v1784477520/hofcoordinator_qmrimt.mp4",
+  aboutVideo:
+    "https://res.cloudinary.com/falvay2b/video/upload/v1784477520/hofcoordinator_qmrimt.mp4",
   tagline:
     "Formação completa em harmonização orofacial com base em evidências científicas",
   videoUrl:
@@ -57,14 +59,14 @@ export const harmonizacaoOrofacial: Master = {
   certification:
     "Máster en Armonización Orofacial (European Face & Body Institute | UEMC, Espanha)",
   benefits: [
-        {
-      icon: "Stethoscope",
+    {
+      icon: "Building2",
       title: "Módulos Presenciais no Brasil",
       description:
         "Hands-on com pacientes reais em ambiente controlado com owrientação de especialistas.",
     },
     {
-      icon: "Stethoscope",
+      icon: "Plane",
       title: "Módulos Presenciais Portugal e Barcelona",
       description:
         "Estudos de aparatologia, casos clínicos, hand-on e networking internacional",
@@ -80,6 +82,13 @@ export const harmonizacaoOrofacial: Master = {
       title: "Técnicas avançadas",
       description:
         "Toxina botulínica, preenchimentos, fios, laser, ultrassom e dispositivos de última geração.",
+    },
+    {
+      icon: "FileText",
+      title: "Revista Científica AESTHIS",
+      description:
+        "Periódico internacional para divulgação de pesquisas de excelência na area de saúde.",
+      href: "/revistas",
     },
     {
       icon: "BookOpen",
@@ -308,19 +317,55 @@ export const harmonizacaoOrofacial: Master = {
     },
   ],
   galleryImages: [
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-01.webp"), alt: "Mestrado em Harmonização Orofacial 1" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-03.webp"), alt: "Mestrado em Harmonização Orofacial 3" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-04.webp"), alt: "Mestrado em Harmonização Orofacial 4" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-05.webp"), alt: "Mestrado em Harmonização Orofacial 5" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-06.webp"), alt: "Mestrado em Harmonização Orofacial 6" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-07.webp"), alt: "Mestrado em Harmonização Orofacial 7" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-08.webp"), alt: "Mestrado em Harmonização Orofacial 8" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-09.webp"), alt: "Mestrado em Harmonização Orofacial 9" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-10.webp"), alt: "Mestrado em Harmonização Orofacial 10" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-11.webp"), alt: "Mestrado em Harmonização Orofacial 11" },
-    { src: masterAssetPath("harmonizacao-orofacial", "galeria-12.webp"), alt: "Mestrado em Harmonização Orofacial 12" },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-01.webp"),
+      alt: "Mestrado em Harmonização Orofacial 1",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-03.webp"),
+      alt: "Mestrado em Harmonização Orofacial 3",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-04.webp"),
+      alt: "Mestrado em Harmonização Orofacial 4",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-05.webp"),
+      alt: "Mestrado em Harmonização Orofacial 5",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-06.webp"),
+      alt: "Mestrado em Harmonização Orofacial 6",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-07.webp"),
+      alt: "Mestrado em Harmonização Orofacial 7",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-08.webp"),
+      alt: "Mestrado em Harmonização Orofacial 8",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-09.webp"),
+      alt: "Mestrado em Harmonização Orofacial 9",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-10.webp"),
+      alt: "Mestrado em Harmonização Orofacial 10",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-11.webp"),
+      alt: "Mestrado em Harmonização Orofacial 11",
+    },
+    {
+      src: masterAssetPath("harmonizacao-orofacial", "galeria-12.webp"),
+      alt: "Mestrado em Harmonização Orofacial 12",
+    },
   ],
-  editalUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131811/Edital-de-Abertura-Mestrado-em-Harmonizacao-Orofacial.pdf",
-  contratoUrl: "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131537/MINUTA-MESTRADO-EM-HOF-ATUALIZADA-MAIO-2026.pdf",
+  editalUrl:
+    "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131811/Edital-de-Abertura-Mestrado-em-Harmonizacao-Orofacial.pdf",
+  contratoUrl:
+    "https://european-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2026/05/15131537/MINUTA-MESTRADO-EM-HOF-ATUALIZADA-MAIO-2026.pdf",
   instagramUrl: "https://www.instagram.com/europeaninst_oficial/",
+  instagramEmbeds: ["https://www.instagram.com/reel/DZu1wRmge--/"],
 };

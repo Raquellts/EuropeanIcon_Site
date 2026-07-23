@@ -14,9 +14,10 @@ Plataforma digital do European & Icon Institute — programas de mestrado intern
 | Ícones | lucide-react |
 | Imagens | next/image + domínios externos configurados |
 | Build | `next build` (SSG + SSR) |
-| Animações | Tailwind custom keyframes (`fade-in`, `slide-up`, `slide-down`, `spin-slow`) |
-| Vídeos | Cloudinary + VideoBackground component (YouTube e MP4 nativo, com playbac rate e fallback image) |
+| Animações | Tailwind custom keyframes (`fade-in`, `slide-up`, `slide-down`, `spin-slow`, `marquee`) |
+| Vídeos | Cloudinary + VideoBackground component (YouTube e MP4 nativo, com playback rate e fallback image) |
 | Upload de arquivos | Formulário de inscrição com upload de documentos (imagem e PDF) |
+| Instagram | Embeds de Instagram via `instagram-media` blockquotes + Instagram embed.js |
 
 ---
 
@@ -26,6 +27,7 @@ Plataforma digital do European & Icon Institute — programas de mestrado intern
 src/
   data/                          ← Dados estáticos organizados por domínio
     types.ts                     ← Tipos compartilhados entre domínios
+    paths.ts                     ← Funções de montagem de paths de assets (FONTE ÚNICA)
     institute.ts                 ← Dados institucionais (inclui hero e vídeos)
     navigation.ts                ← Configuração da navegação (mega-menu)
     partners.ts                  ← Parceiros institucionais
@@ -60,30 +62,50 @@ public/
     hero-instituto.mp4
     hero-eventos.mp4
     hero-revistas.mp4
-  cvs/                            ← Currículos em PDF (slug.pdf)
-  images/
-    eventos/                      ← Assets organizados por edição
+  pessoas/                        ← Assets por pessoa (foto)
+    {slug}/
+      foto.webp                   ← Foto da pessoa
+  masters/                        ← Assets por master
+    {slug}/
+      hero.webp                   ← Imagem do hero
+      about.webp                  ← Imagem "sobre"
+      galeria-01.webp...          ← Galeria
+      coordinator-banner.webp     ← Banner do coordenador (foto diferente da padrão)
+      coordinator.webp            ← Foto do coordenador
+      edital.pdf                  ← Edital do programa
+      contrato.pdf                ← Contrato de prestação de serviços
+  parceiros/                      ← Logos de parceiros (por slug)
+    {slug}.webp                   ← ex: facamp.webp, euneiz.webp
+  eventos/{slug-da-edicao}/
+    hero/hero.webp
+    galeria/1.webp, 2.webp...
+  revistas/                       ← Capas de revistas
+  images/                         ← Assets legados (migração em andamento)
+    eventos/
       porto-2026/
         hero/hero.webp
         galeria/1-8.webp
     instituto/
       backgrounds/
-        hero.webp                 ← Imagem de fallback do hero do instituto
+        hero.webp
       logos/
-        logo_camada_1.png         ← Camada de fundo do logo animado
-        logo_camada_2.png         ← Camada da frente do logo animado (gira)
-    masters/                      ← Assets organizados por master
-      direito-penal-economico/
-        hero.webp, about.webp, galeria-01.webp...
-      harmonizacao-orofacial/
-        hero.webp, about.webp, galeria-01.webp...
-    parceiros/                    ← Logos de parceiros
-    participantes/                ← Fotos de participantes
-    mestres/                      ← Fotos de professores (slug.webp)
-    revistas/                     ← Capas de revistas
-    logos/                        ← Logotipos diversos
+        logo_camada_1.png
+        logo_camada_2.png
+    mestres/                      ← Fotos legadas (migrando para pessoas/{slug}/)
+    participantes/                ← Fotos legadas
+    revistas/
+    logos/
 
 app/
+  _sections/                      ← Seções compartilhadas entre páginas (home, instituto, mestrados)
+    HeroSection.tsx               ← Hero com vídeo Cloudinary + parallax + stats
+    InstituteSection.tsx          ← Seção "Sobre o Instituto" (info + vídeo + logo animado)
+    MasterSection.tsx             ← Cards de mestrados (clicáveis, "Saiba mais →")
+    CeoSection.tsx                ← Seção da CEO (Rose Magina)
+    TeamHighlightsSection.tsx     ← Destaque dos coordenadores por mestrado
+    JournalsSection.tsx           ← Seção de revistas/periódicos
+    PartnersSection.tsx           ← Seção de parceiros
+
   admin/                          ← Painel administrativo (placeholder — preparado para API futura)
     masters/
       page.tsx                    ← Listar mestrados
@@ -110,6 +132,7 @@ app/
 
   contato/                        ← Página de contato e FAQ
     _components/
+      ContactHeroSection.tsx      ← Hero da página de contato
       ContactSection.tsx          ← Seção de contato
       FAQSection.tsx              ← Seção de perguntas frequentes
 
@@ -119,48 +142,88 @@ app/
       page.tsx                    ← Eventos de uma série
       [edicaoSlug]/
         _components/
+          AboutCards.tsx           ← Cartão de conteúdo (sobre, instituto) — colocado aqui (só usado por eventos)
           EventSubNav.tsx         ← Sub-navegação do evento
+          EventHeroSection.tsx    ← Hero do evento
+          EventAboutSection.tsx   ← Seção "Sobre o evento"
+          EventProfessorsSection.tsx ← Professores do evento
+          EventParticipantsSection.tsx ← Participantes do evento
+          EventGallerySection.tsx ← Galeria de fotos do evento
+          EventLocationSection.tsx ← Local e mapa do evento
+          EventScheduleSection.tsx ← Programação do evento
+          EventTestimonialsSection.tsx ← Depoimentos do evento
+          ParticipantCard.tsx     ← Card de participante — colocado aqui (só usado por eventos)
         page.tsx                  ← Página da edição
         participantes/
           [personSlug]/page.tsx   ← Detalhe da pessoa
 
-  instituto/                      ← Páginas do instituto (home e rota /instituto)
+  instituto/                      ← Páginas do instituto
     _components/
-      HeroSection.tsx             ← Hero com vídeo Cloudinary + fallback image + playback lento
-      InstituteSection.tsx        ← Seção "Sobre o Instituto" (info + vídeo + logo animado)
       LogoAnimation.tsx           ← Animação do logotipo (logo_camada_1 + logo_camada_2 girando)
-      MasterSection.tsx           ← Cards de mestrados (clicáveis, "Saiba mais →")
-      JournalsSection.tsx         ← Seção de revistas/ periódicos
-      PartnersSection.tsx         ← Seção de parceiros
-      InstituteSectionA.tsx       ← Layout alternativo para teste (Split Screen)
-      InstituteSectionB.tsx       ← Layout alternativo para teste (Editorial)
-      InstituteSectionC.tsx       ← Layout alternativo para teste (Mosaico)
 
   mestrados/
+    page.tsx                      ← Lista de mestrados
+    docentes/
+      page.tsx                    ← Galeria de todos os docentes (cross-master, com filtros e busca)
     [slug]/
       _components/
         EnrollmentModal.tsx       ← Modal de inscrição com formulário completo
+        EnrollmentForm.tsx        ← Formulário de inscrição (campos, upload docs, checkboxes) — colocado aqui (só usado por mestrados)
+        CustomSelect.tsx          ← Select com busca, portal flutuante — colocado aqui (só usado por mestrados)
+        Modal.tsx                 ← Modal reutilizável (Escape fecha, scroll lock) — colocado aqui (só usado por mestrados)
         HeroSection.tsx           ← Hero do mestrado (vídeo + fallback + paused control)
         CurriculumSection.tsx     ← Grade curricular
-        CtaSection.tsx            ← Call-to-action
+        DescriptionSection.tsx    ← Descrição do programa (extraído inline do page.tsx)
+        CtaSection.tsx            ← Call-to-action (full-width glow, "Vagas limitadas")
         BenefitsSection.tsx       ← Benefícios do programa
         GallerySection.tsx        ← Galeria de imagens
         StatsSection.tsx          ← Estatísticas
+        FacultySection.tsx        ← Corpo docente (coordenador banner + grid orientadores + docentes)
+        InstagramFeedSection.tsx  ← Seção de embeds Instagram (carrossel integrado)
+        MasterPageClient.tsx      ← Wrapper client-side do mestrado
+        valores/
+          valoresData.ts          ← Dados compartilhados (iconMap, pricingByMaster, masterMeta, locationDescriptions)
+          HeroSection.tsx         ← Hero com badge, título, tagline, barra de stats
+          WhyChooseSection.tsx    ← "Por que escolher este mestrado?" — grid 2 colunas
+          InternationalModulesSection.tsx ← Seções full-width com fotos Unsplash + overlay + border-b
+          CertificationSection.tsx ← Certificação + nota de risco + taxa de inscrição
+          PricingToggle.tsx       ← Toggle R$/€ com indicador deslizante e ícone ArrowLeftRight
+          PricingSection.tsx      ← PricingToggle envolto em layout com glow
+      docentes/
+        page.tsx                  ← Docentes filtrados por mestrado (busca + filtros de categoria)
+      valores/
+        page.tsx                  ← Página de valores/preços do mestrado
+      page.tsx                    ← Página do mestrado (composição de todas as seções)
+
+  professores/                    ← Páginas de professores
+    [personSlug]/
+      page.tsx                    ← Perfil do professor
 
   revistas/                       ← Páginas de revistas
     page.tsx                      ← Lista de revistas
-    [slug]/page.tsx               ← Detalhe da revista
+    [slug]/
+      _components/
+        NormsTabs.tsx             ← Tabs de normas/publicação da revista
+      page.tsx                    ← Detalhe da revista
 
   _shared/
     components/ui/
-      Modal.tsx                   ← Modal reutilizável (Escape fecha, scroll lock)
-      EnrollmentForm.tsx           ← Formulário de inscrição (campos, upload docs, checkboxes)
-      CustomSelect.tsx            ← Select com busca, portal flutuante
       VideoBackground.tsx         ← Background de vídeo (YouTube/MP4, fallback, playback rate)
       StatCard.tsx                ← Card de estatística com contagem animada (useCountUp)
       ScrollReveal.tsx            ← Animação de entrada ao scroll (IntersectionObserver)
       Button.tsx                  ← Botão reutilizável
-      AboutCards.tsx              ← Cartão de conteúdo (sobre, instituto, contato)
+      FacultyCard.tsx             ← Card de professor (3 modos: default/vertical, horizontal, banner)
+      InstagramCarousel.tsx       ← Carrossel de embeds Instagram reutilizável
+      InstagramIcon.tsx           ← Ícone do Instagram
+      PersonProfileContent.tsx    ← Conteúdo do perfil de pessoa (sidebar + main + Instagram carousel)
+      MasterCard.tsx              ← Card de mestrado
+      Pill.tsx                    ← Badge/pill reutilizável
+      FlagFind.tsx                ← Bandeira por código de país
+      Navbar.tsx                  ← Navegação principal (mega-menu)
+      Footer.tsx                  ← Rodapé
+      WhatsAppButton.tsx          ← Botão flutuante do WhatsApp
+      SocialIconButton.tsx        ← Botão de rede social
+      ImageWithFallback.tsx       ← Imagem com fallback (trata erro de carregamento)
     hooks/
       useAnchorNavigation.ts      ← Navegação por âncoras
       useParallax.ts              ← Efeito parallax
@@ -240,6 +303,7 @@ interface Master extends Partial<BaseEntity> {
   logoStyle?: Record<string, string>;   // Estilos CSS inline para o logo (ex: scale, margin)
   heroImage?: string;                   // Caminho da imagem do hero
   aboutImage?: string;                  // Caminho da imagem "sobre"
+  aboutVideo?: string;                  // URL do vídeo do coordenador (Cloudinary)
   tagline?: string;                     // Subtítulo resumido (ex: "3.000h · 120 ECTS · Dupla Titulação")
   videoUrl?: string;                    // URL do YouTube para vídeo de apresentação
   totalHours?: string;                  // Carga horária total (ex: "3.000")
@@ -249,6 +313,10 @@ interface Master extends Partial<BaseEntity> {
   benefits?: Benefit[];                // Lista de benefícios do programa
   curriculumModules?: CurriculumModule[];  // Grade curricular
   galleryImages?: GalleryImage[];          // Galeria de imagens
+  editalUrl?: string;                      // URL do edital
+  contratoUrl?: string;                    // URL do contrato
+  instagramUrl?: string;                   // URL do perfil Instagram do mestrado
+  instagramEmbeds?: string[];              // URLs de embeds Instagram (reels/posts)
 }
 
 interface CurriculumModule {
@@ -267,6 +335,7 @@ interface Benefit {
   icon: string;                         // Nome do ícone lucide-react (ex: "Clock", "Globe")
   title: string;                        // Título do benefício
   description: string;                  // Descrição detalhada
+  href?: string;                        // Link externo (opcional)
 }
 ```
 
@@ -284,7 +353,7 @@ export const novoMaster: Master = {
 import { novoMaster } from "./novo-master";
 export const masters: Master[] = [direitoPenalEconomico, harmonizacaoOrofacial, novoMaster];
 
-// 3. Assets em public/images/masters/novo-master/
+// 3. Assets em public/masters/novo-master/
 //    hero.webp, about.webp, galeria-01.webp...
 ```
 
@@ -411,7 +480,7 @@ interface ScheduleItem {
 // 2. Criar src/data/eventos/nova-serie/nova-edicao.ts
 //    Exportar o objeto completo com schedule, gallery, testimonials, faq inline
 
-// 3. Assets em public/images/eventos/nova-edicao/
+// 3. Assets em public/masters/{slug}/ ou public/eventos/{slug}/
 //    hero/hero.webp, galeria/1-8.webp...
 
 // 4. Pessoas: adicionar slugs em professors[] e participants[]
@@ -425,7 +494,7 @@ interface ScheduleItem {
 **Arquivo:** `src/data/people.ts`
 
 ```typescript
-interface PersonBase {
+interface Person extends Partial<BaseEntity> {
   slug: string;                   // Identificador único (ex: "carlos")
   name: string;                   // Nome completo
   role: string;                   // Cargo/função (ex: "Catedrático de Direito Penal")
@@ -434,6 +503,8 @@ interface PersonBase {
   city?: string;                  // Cidade
   country?: string;               // País
   countryCode?: string;           // Código do país (ex: "es", "pt", "br")
+  curriculum?: string;            // Currículo completo (texto longo)
+  areas?: string[];               // Áreas de atuação (ex: ["Direito Penal Econômico"])
   social?: {
     instagram?: string;           // URL do Instagram
     linkedin?: string;            // URL do LinkedIn
@@ -441,29 +512,18 @@ interface PersonBase {
     lattes?: string;              // URL do Lattes
   };
   contact?: string;               // Informação de contato adicional
+  facultyOf?: string[];           // Slugs de mestrados em que é corpo docente
+  instagramEmbeds?: string[];     // URLs de embeds Instagram (reels/posts) para carrossel
 }
-
-interface Professor extends PersonBase {
-  photo: string;                   // Caminho da foto (OBRIGATÓRIO)
-  curriculum: string;              // Currículo completo (texto longo)
-  areas: string[];                 // Áreas de atuação (ex: ["Direito Penal Econômico"])
-}
-
-interface Participant extends PersonBase {
-  curriculum?: string;             // Currículo (OPCIONAL para participantes)
-  areas?: string[];                // Áreas de atuação (OPCIONAL)
-}
-
-type Person = Professor | Participant;
 ```
 
 **Regras de uso:**
+- `facultyOf` vincula uma pessoa como corpo docente de mestrados (slugs)
 - Professores são vinculados a eventos via `EventEdition.professors[]` (slugs)
 - Participantes são vinculados a eventos via `EventEdition.participants[]` (slugs)
-- Palestrantes na programação são vinculados via `ScheduleItem.slugs[]`
-- A função `isProfessor(person)` determina se é professor ou participante
-- Fotos de professores: `/images/mestres/{slug}.webp`
-- Fotos de participantes: `/images/participantes/{slug}.webp`
+- A função `getRoleCategory(role)` categoriza a pessoa em: `coordenador`, `orientador`, ou `docente`
+- A função `getFacultyByMaster(masterSlug)` retorna todas as pessoas com `facultyOf` contendo o slug
+- Fotos: via `personPhotoPath(slug)` → `/pessoas/{slug}/foto.webp`
 
 ---
 
@@ -474,13 +534,15 @@ type Person = Professor | Participant;
 ```typescript
 interface Partner {
   name: string;            // Nome do parceiro
-  logo: string;            // Caminho do logo
+  logo: string;            // Caminho do logo (via partnerLogoPath)
   url?: string;            // Site do parceiro (opcional)
-  category?: string;       // Categoria (ex: "Universidade", "Associação")
+  category?: string;       // Categoria (ex: "Universidade", "Associação", "Faculdade")
   country?: string;        // País
   countryCode?: string;    // Código do país (ex: "br", "es")
 }
 ```
+
+**Parceiros atuais:** ADEPPE, AMPPE, ASAMP/TO, EUNEIZ, FAEPOL, FACAMP, Faculdade FGE, Faculdade Van Gogh, MPSP, MUST University, OAB Tatuapé, SINDPESP.
 
 ---
 
@@ -568,6 +630,68 @@ eventSeries.flatMap((s) =>
 
 ---
 
+### 10. Path Functions
+
+**Arquivo:** `src/data/paths.ts`
+
+Funções puras que montam caminhos de assets em `/public`. **Nenhum componente ou arquivo de dados deve escrever um caminho de imagem ou documento "na mão"** — sempre usar uma destas funções.
+
+```typescript
+/** Foto de uma pessoa */
+function personPhotoPath(personSlug: string): string
+// → /pessoas/{slug}/foto.webp
+
+/** Assets de uma edição de evento (hero, galeria) */
+function eventAssetPath(seriesSlug: string, editionSlug: string, ...parts: string[]): string
+// → /eventos/{seriesSlug}/{editionSlug}/{parts}
+
+/** Assets de um master (hero, about, galeria, edital, contrato) */
+function masterAssetPath(masterSlug: string, file: string): string
+// → /masters/{masterSlug}/{file}
+
+/** Banner do coordenador */
+function masterBannerPath(masterSlug: string, file: string): string
+// → /masters/{masterSlug}/{file}
+
+/** Logo de um parceiro */
+function partnerLogoPath(partnerSlug: string): string
+// → /parceiros/{slug}.webp
+
+/** Assets de uma revista */
+function journalAssetPath(journalSlug: string, file: string): string
+// → /revistas/{journalSlug}/{file}
+```
+
+---
+
+### 11. Role Categories (People)
+
+**Arquivo:** `src/data/people.ts`
+
+```typescript
+type RoleCategory = "coordenador" | "orientador" | "docente";
+
+const ROLE_CATEGORY_LABEL: Record<RoleCategory, string> = {
+  coordenador: "Coordenador",
+  orientador: "Orientador",
+  docente: "Professor",
+};
+
+/** Heurística baseada no texto livre de `role` */
+function getRoleCategory(role: string): RoleCategory {
+  const lower = role.toLowerCase();
+  if (lower.includes("coordenador") || lower.includes("coordenadora"))
+    return "coordenador";
+  if (lower.includes("orientador") || lower.includes("orientadora"))
+    return "orientador";
+  return "docente";
+}
+```
+
+**Nota:** Atualmente, para o mestrado de Harmonização Orofacial, Paulo Moraes é o único coordenador. Todos os demais professores foram reclassificados como "Orientador(a)" ou "Docente" (anteriormente marcados como "Coordenador(a)").
+
+---
+
 ## Service Layer
 
 **Arquivo:** `src/services/`
@@ -614,31 +738,43 @@ const masters = await getMasters();
 
 ### Regra geral
 
-Cada entidade que possui assets visuais (imagens, vídeos) tem sua própria pasta nomeada pelo `slug`.
+Cada entidade que possui assets visuais (imagens, vídeos) tem sua própria pasta nomeada pelo `slug`. Usar sempre as funções de `src/data/paths.ts` para montar caminhos.
+
+### Estrutura atual
 
 ```
-public/images/
-  eventos/{slug-da-edicao}/
+public/
+  pessoas/{slug}/
+    foto.webp                   ← Foto da pessoa
+
+  masters/{slug}/
+    hero.webp                   ← Imagem do hero
+    about.webp                  ← Imagem "sobre"
+    galeria-01.webp...          ← Galeria
+    coordinator-banner.webp     ← Banner do coordenador
+    coordinator.webp            ← Foto do coordenador
+
+  parceiros/{slug}.webp         ← Logo do parceiro (facamp.webp, euneiz.webp...)
+
+  eventos/{seriesSlug}/{editionSlug}/
     hero/hero.webp
     galeria/1.webp, 2.webp...
-    palestrantes/
-    participantes/
 
-  masters/{slug-do-master}/
-    hero.webp
-    about.webp
-    galeria-01.webp, galeria-02.webp...
+  revistas/{slug}/
+    capa.webp
+    logo.webp
 ```
 
-### Mapeamento de paths atuais
+### Mapeamento de paths
 
-| Entity | Slug | Path dos assets |
-|--------|------|----------------|
-| Master | `mestrado-direito-penal-economico` | `images/masters/direito-penal-economico/` |
-| Master | `mestrado-harmonizacao-orofacial` | `images/masters/harmonizacao-orofacial/` |
-| Event | `porto-2026` | `images/eventos/porto-2026/` |
-| Professor | `carlos` | `images/mestres/{slug}.webp` |
-| Participant | `bruno` | `images/participantes/{slug}.webp` |
+| Entidade | Slug | Path dos assets |
+|----------|------|----------------|
+| Master | `direito-penal-economico` | `masters/direito-penal-economico/` |
+| Master | `harmonizacao-orofacial` | `masters/harmonizacao-orofacial/` |
+| Event | `porto-2026` | `eventos/direito-penal-economico/porto-2026/` |
+| Pessoa | `carlos-martinez-bujan-perez` | `pessoas/carlos-martinez-bujan-perez/` |
+| Parceiro | `facamp` | `parceiros/facamp.webp` |
+| Revista | `imperium` | `revistas/imperium/` |
 
 ### Vídeos
 
@@ -648,10 +784,6 @@ Todos em `public/videos/`. Referenciados diretamente nos componentes:
 <VideoBackground videoSrc="/videos/hero-instituto.mp4" />
 ```
 
-### Currículos (CVs)
-
-Em `public/cvs/{slug}.pdf`. Servidos dinamicamente na página de detalhe da pessoa.
-
 ---
 
 ## Rotas da Aplicação
@@ -659,8 +791,13 @@ Em `public/cvs/{slug}.pdf`. Servidos dinamicamente na página de detalhe da pess
 | Rota | Tipo | Descrição |
 |------|------|-----------|
 | `/` | SSG | Home (Instituto) |
+| `/instituto` | SSG | Página institucional |
 | `/mestrados` | SSG | Lista de mestrados |
 | `/mestrados/[slug]` | SSG | Detalhe do mestrado |
+| `/mestrados/[slug]/valores` | SSG | Página de valores/preços do mestrado |
+| `/mestrados/[slug]/docentes` | CSR | Docentes filtrados por mestrado (com filtros e busca) |
+| `/mestrados/docentes` | CSR | Galeria de todos os docentes (cross-master, com filtros e busca) |
+| `/professores/[personSlug]` | SSG | Perfil do professor |
 | `/eventos` | SSG | Lista de eventos |
 | `/eventos/[serieSlug]` | SSG | Eventos de uma série |
 | `/eventos/[serieSlug]/[edicaoSlug]` | SSG | Página da edição |
@@ -682,7 +819,250 @@ Em `public/cvs/{slug}.pdf`. Servidos dinamicamente na página de detalhe da pess
 | `/api/people` | API | Listar pessoas |
 | `/api/partners` | API | Listar parceiros |
 
-**Legenda:** SSG = Static Site Generation, SSR = Server-Side Rendering, API = API Route
+**Legenda:** SSG = Static Site Generation, SSR = Server-Side Rendering, CSR = Client-Side Rendering, API = API Route
+
+---
+
+## Página de Valores (`/mestrados/[slug]/valores`)
+
+Página dedicada a exibir preços, condições de pagamento, certificação e módulos internacionais de cada mestrado.
+
+### Estrutura de componentes
+
+```
+app/mestrados/[slug]/_components/valores/
+  valoresData.ts                  ← Dados compartilhados
+  HeroSection.tsx                 ← Hero com badge (ex: "Turma 2025/2026"), título, tagline, stats bar
+  InternationalModulesSection.tsx ← Módulos presenciais com fotos Unsplash + overlay
+  CertificationSection.tsx        ← Certificação, nota de risco cambial, taxa de inscrição
+  PricingToggle.tsx               ← Toggle R$/€ com indicador deslizante e ícone ArrowLeftRight
+  PricingSection.tsx              ← PricingToggle com glow background
+  WhyChooseSection.tsx            ← Grid 2 colunas de benefícios ("Por que escolher este mestrado?")
+```
+
+### Dados compartilhados (`valoresData.ts`)
+
+```typescript
+// Ícones para benefícios (mapeamento nome → componente lucide-react)
+const iconMap: Record<string, any> = { Clock, Globe, GraduationCap, ... };
+
+// Descriptions de cada localização por mestrado
+const locationDescriptions: Record<string, Record<string, string>> = {
+  "direito-penal-economico": {
+    Brasil: "Sede principal com aulas, pesquisa e produção científica",
+    Portugal: "Contato direto com o sistema jurídico europeu",
+    Espanha: "Módulo internacional com experiência em diferentes sistemas jurídicos",
+  },
+  // ...
+};
+
+// Dados de preço por mestrado
+const pricingByMaster: Record<string, PricingData> = {
+  "direito-penal-economico": {
+    basePrice: "€16.150",
+    discount: "Até 50% de desconto para últimas vagas",
+    registrationFee: "R$ 1.450,00",
+    // ...
+  },
+};
+
+// Meta por mestrado (subtitle = badge, tagline = frase destaque)
+const masterMeta: Record<string, { tagline: string; subtitle: string }> = { ... };
+```
+
+### Comportamento
+
+- Se `pricingByMaster[slug]` existir, exibe o `PricingToggle` (via `PricingSection`)
+- Se não existir (ex: HOF), exibe "Informações sobre valores e condições de pagamento serão disponibilizadas em breve."
+- `InternationalModulesSection` usa fotos Unsplash como background com overlay escuro gradiente e separadores `border-b`
+
+---
+
+## Componentes Compartilhados
+
+### Componentes globalmente reutilizáveis (`app/_shared/components/ui/`)
+
+Estes componentes são usados por **múltiplas seções/rotas** e permanecem em `_shared/`:
+
+- `VideoBackground.tsx` — Background de vídeo (YouTube/MP4, fallback, playback rate)
+- `StatCard.tsx` — Card de estatística com contagem animada (useCountUp)
+- `ScrollReveal.tsx` — Animação de entrada ao scroll (IntersectionObserver)
+- `Button.tsx` — Botão reutilizável
+- `FacultyCard.tsx` — Card de professor (3 modos: default/vertical, horizontal, banner)
+- `InstagramCarousel.tsx` — Carrossel de embeds Instagram reutilizável
+- `InstagramIcon.tsx` — Ícone do Instagram
+- `PersonProfileContent.tsx` — Conteúdo do perfil de pessoa (sidebar + main + Instagram carousel)
+- `MasterCard.tsx` — Card de mestrado
+- `Pill.tsx` — Badge/pill reutilizável
+- `FlagFind.tsx` — Bandeira por código de país
+- `Navbar.tsx` — Navegação principal (mega-menu)
+- `Footer.tsx` — Rodapé
+- `WhatsAppButton.tsx` — Botão flutuante do WhatsApp
+- `SocialIconButton.tsx` — Botão de rede social
+- `ImageWithFallback.tsx` — Imagem com fallback (trata erro de carregamento)
+
+### Seções compartilhadas entre páginas (`app/_sections/`)
+
+Componentes de seção-level usados por **múltiplas rotas** (home, instituto, mestrados):
+
+- `HeroSection.tsx` — Hero com vídeo Cloudinary + parallax + stats
+- `InstituteSection.tsx` — Seção "Sobre o Instituto" (info + vídeo + logo animado)
+- `MasterSection.tsx` — Cards de mestrados (clicáveis, "Saiba mais →")
+- `CeoSection.tsx` — Seção da CEO (Rose Magina)
+- `TeamHighlightsSection.tsx` — Destaque dos coordenadores por mestrado
+- `JournalsSection.tsx` — Seção de revistas/periódicos
+- `PartnersSection.tsx` — Seção de parceiros
+
+**Consumidores:** `app/page.tsx` (home), `app/instituto/page.tsx`, `app/mestrados/page.tsx`
+
+### Componentes colocalizados por rota (`app/{route}/_components/`)
+
+Componentes usados **apenas por uma rota** ficam colocalizados com ela:
+
+- `app/contato/_components/` — ContactHeroSection, ContactSection, FAQSection
+- `app/eventos/[serieSlug]/[edicaoSlug]/_components/` — EventHeroSection, EventAboutSection, EventProfessorsSection, EventParticipantsSection, EventGallerySection, EventLocationSection, EventScheduleSection, EventTestimonialsSection, EventSubNav, AboutCards, ParticipantCard
+- `app/mestrados/[slug]/_components/` — EnrollmentModal, EnrollmentForm, CustomSelect, Modal, HeroSection, CurriculumSection, DescriptionSection, CtaSection, BenefitsSection, GallerySection, StatsSection, FacultySection, InstagramFeedSection, MasterPageClient
+- `app/mestrados/[slug]/_components/valores/` — HeroSection, WhyChooseSection, InternationalModulesSection, CertificationSection, PricingToggle, PricingSection, valoresData
+- `app/instituto/_components/` — LogoAnimation
+- `app/revistas/[slug]/_components/` — NormsTabs
+
+### FacultyCard
+
+Card de professor com **três modos de exibição**:
+
+```tsx
+// Modo padrão (vertical) — aspect 3/4, foto + info sobreposta
+<FacultyCard person={person} photoSrc={personPhotoPath(person.slug)} />
+
+// Modo horizontal — inline, foto circular + nome + seta
+<FacultyCard person={person} photoSrc={...} horizontal />
+
+// Modo banner — foto full-bleed como background, info no rodapé
+<FacultyCard person={person} photoSrc={photoSrc} banner bannerPhotoSrc={bannerSrc} />
+```
+
+**Props:**
+- `person`: `{ slug, name, role, description?, areas?, social? }`
+- `photoSrc`: caminho via `personPhotoPath()`
+- `showPlaceholder`: força placeholder sem tentar carregar foto
+- `horizontal`: layout horizontal compacto
+- `banner`: layout banner full-width com background image
+- `bannerPhotoSrc`: foto de background alternativa (usado para coordinator-banner.webp)
+
+### InstagramCarousel
+
+Carrossel reutilizável de embeds Instagram. Injeta o script `instagram/embed.js` uma única vez e renderiza os embeds em cards com snap scroll.
+
+```tsx
+<InstagramCarousel
+  urls={[
+    "https://www.instagram.com/reel/ABC123/",
+    "https://www.instagram.com/p/XYZ789/",
+  ]}
+/>
+```
+
+**Props:**
+- `urls`: array de URLs de posts/reels do Instagram
+- `className?`: classes CSS adicionais
+
+### PersonProfileContent
+
+Componente de perfil de pessoa com sidebar + conteúdo principal + carrossel Instagram.
+
+```tsx
+<PersonProfileContent
+  person={person}
+  photoSrc={personPhotoPath(person.slug)}
+  backHref="/mestrados"
+  backLabel="Voltar"
+  extraSections={<InstagramCarousel urls={person.instagramEmbeds} />}
+/>
+```
+
+Inclui botão "Imprimir página" que usa `window.print()`. CSS `@media print` esconde header, nav, footer e botão do WhatsApp ao imprimir.
+
+---
+
+## Componentes de Mestrado (`app/mestrados/[slug]/_components/`)
+
+### CtaSection
+
+Call-to-action redesigned com full-width radial glow (sem card), badge "Vagas limitadas", e dois CTAs:
+
+```tsx
+<CtaSection
+  masterSlug="mestrado-direito-penal-economico"
+  title="Garanta sua vaga na Formação Internacional"
+  subtitle="Invista na sua carreira com um mestrado reconhecido internacionalmente"
+/>
+```
+
+- **Primary button** → "Ver valores" → `/mestrados/{slug}/valores`
+- **Secondary button** → "Fale conosco" → `/contato`
+- Recebe `masterSlug` como prop necessária
+
+### PricingToggle
+
+Toggle de preços R$/€ com indicador deslizante:
+
+- Dois botões `w-32 justify-center` (R$ Reais / € Euros)
+- Ícone `ArrowLeftRight` flutuante entre os botões (círculo `bg-background border border-gold/30 z-30`)
+- Indicador deslizante `bg-gold rounded-2xl` com `transition-transform duration-300`
+- Container de preço com `min-h-[200px]` para evitar pulo de layout
+- "Pagamento Pontual" e "Taxa de Inscrição" ambos `max-w-sm mx-auto`
+
+### FacultySection
+
+Grid de corpo docente responsivo com seções por categoria:
+
+- **Coordenador(es)**: `FacultyCard` em modo `banner` com `coordinator-banner.webp`
+- **Orientadores**: `grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4`
+- **Corpo Docente**: mesmo grid responsivo
+- Defaults: `maxCoordinators=1`, `maxOrientadores=4`, `maxDocentes=4`
+- Usa `getRoleCategory()` para filtrar pessoas por tipo
+
+### InstagramFeedSection
+
+Seção de feed Instagram no mestrado, usando `InstagramCarousel`:
+
+```tsx
+<InstagramFeedSection
+  instagramUrl={master.instagramUrl}
+  masterTitle={master.title}
+  instagramEmbeds={master.instagramEmbeds}
+/>
+```
+
+---
+
+## Padrões de Design
+
+### Tema
+
+- Dark theme com acentos dourados
+- Gold: `--gold: #e7b643` (via CSS variable, com variações `--gold-light`, `--gold-dark`, `--gold-rgb`)
+- Background: `--background`, `--surface`, `--surface-hover`, `--border`
+
+### Animações
+
+| Animação | Tailwind class | Keyframe |
+|----------|---------------|----------|
+| Fade in | `animate-fade-in` | `fadeIn 0.6s ease-out forwards` |
+| Slide up | `animate-slide-up` | `slideUp 0.6s ease-out forwards` |
+| Slide down | `animate-slide-down` | `slideDown 0.3s ease-out forwards` |
+| Spin slow | `animate-spin-slow` | `spin-slow 15s linear infinite` |
+| Marquee | `animate-marquee` | `marquee 40s linear infinite` |
+
+### Padrões visuais
+
+- **Radial glows**: `bg-[radial-gradient(ellipse_at_top,_var(--gold-dark)_0%,_transparent_55%)] opacity-[0.08]`
+- **Section separators**: `border-t border-border`
+- **Gold gradient**: `gradient-gold` (linear-gradient 135deg)
+- **Headers**: `header-text` (classe para textos de cabeçalho)
+- **Containers**: `section-container` (padding horizontal responsivo)
+- **Pills/badges**: `border border-gold/30 bg-gold/5 px-4 py-1.5 rounded-full text-gold`
+- **ScrollReveal**: `IntersectionObserver` com delays escalonados (`delay={index * 40}`)
 
 ---
 
@@ -696,10 +1076,16 @@ src/data/masters/novo-master.ts     # + export const novoMaster: Master = { ... 
 src/data/masters/index.ts           # + import + adicionar ao array
 
 # 2. Assets
-public/images/masters/novo-master/
+public/masters/novo-master/
   hero.webp
   about.webp
   galeria-01.webp ...
+  coordinator-banner.webp
+  coordinator.webp
+
+# 3. Professores (em src/data/people.ts)
+# Adicionar facultyOf: ["novo-master"] nos professores relevantes
+# Usar getRoleCategory() para classificar como coordenador/orientador/docente
 ```
 
 ### Novo Evento
@@ -717,7 +1103,7 @@ src/data/eventos/nova-serie/index.ts            # + import + adicionar ao array
 src/data/eventos/index.ts                       # + import + adicionar a allEditions
 
 # 4. Assets
-public/images/eventos/nova-edicao/
+public/eventos/nova-serie/nova-edicao/
   hero/
   galeria/
 ```
@@ -730,17 +1116,26 @@ src/data/revistas/nova-revista.ts    # + export const novaRevista: Journal = { .
 src/data/revistas/index.ts          # + import + adicionar ao array
 
 # 2. Assets
-public/images/revistas/capa.webp
-public/images/logos/logo_nova.webp
-public/images/logos/icon_nova.webp
+public/revistas/nova-revista/
+  capa.webp
+  logo.webp
 ```
 
 ### Nova Pessoa
 
 ```bash
 # Adicionar ao array em src/data/people.ts
-# Foto em public/images/mestres/{slug}.webp (professor)
-# Foto em public/images/participantes/{slug}.webp (participante)
+# Adicionar facultyOf: ["direito-penal-economico"] se for docente
+# Adicionar instagramEmbeds: ["https://www.instagram.com/reel/..."] se houver
+
+# Foto em public/pessoas/{slug}/foto.webp
+```
+
+### Novo Parceiro
+
+```bash
+# Adicionar ao array em src/data/partners.ts usando partnerLogoPath("slug")
+# Logo em public/parceiros/{slug}.webp
 ```
 
 ---
@@ -756,6 +1151,12 @@ import { masters } from "@/src/data";
 // OU do service layer (preparado para API futura)
 import { getMasters } from "@/src/services";
 
+// Funções de paths — sempre usar para assets
+import { personPhotoPath, masterAssetPath } from "@/src/data/paths";
+
+// Funções de people — usar para queries de faculty
+import { getFacultyByMaster, getRoleCategory } from "@/src/data/people";
+
 // Evitar imports de arquivos específicos
 // ❌ import { masters } from "@/src/data/masters/masters";
 ```
@@ -763,19 +1164,21 @@ import { getMasters } from "@/src/services";
 ### Slugs
 
 - **Masters:** prefixo `mestrado-` (ex: `mestrado-direito-penal-economico`)
+- **Masters (para `facultyOf` e paths):** sem prefixo (ex: `direito-penal-economico`)
 - **Eventos (série):** nome curto (ex: `direito-penal-economico`)
 - **Eventos (edição):** `{cidade}-{ano}` (ex: `porto-2026`)
 - **Pessoas:** primeiro nome sem acentos (ex: `carlos`, `maria-joao`)
 - **Revistas:** nome único (ex: `imperium`, `aesthis`)
-- **Parceiros:** nome sem acentos (ex: `euneiz`, `mpsp`)
+- **Parceiros:** nome sem acentos (ex: `euneiz`, `facamp`)
 
 ### Assets paths
 
 ```typescript
-// Professores: /images/mestres/{slug}.webp
-// Participantes: /images/participantes/{slug}.webp
-// Masters: /images/masters/{slug}/hero.webp
-// Eventos: /images/eventos/{slug}/hero/hero.webp
-// Parceiros: /images/parceiros/{slug}.webp
-// Revistas: /images/revistas/{slug}.webp
+// Usar SEMPRE as funções de paths.ts:
+import { personPhotoPath, masterAssetPath, partnerLogoPath, masterBannerPath } from "@/src/data/paths";
+
+// Pessoa:  personPhotoPath("carlos") → /pessoas/carlos/foto.webp
+// Master:   masterAssetPath("direito-penal-economico", "hero.webp") → /masters/direito-penal-economico/hero.webp
+// Banner:   masterBannerPath("direito-penal-economico", "coordinator-banner.webp")
+// Parceiro: partnerLogoPath("facamp") → /parceiros/facamp.webp
 ```

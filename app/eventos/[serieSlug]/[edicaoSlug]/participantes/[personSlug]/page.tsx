@@ -1,10 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import fs from "fs";
-import path from "path";
 import { getPersonBySlug } from "@/src/data/people";
 import { getEditionBySlug } from "@/src/data/eventEditions";
-import { personPhotoPath, personCvPath } from "@/src/data/paths";
+import { personPhotoPath } from "@/src/data/paths";
 import Navbar from "@/app/_shared/components/ui/Navbar";
 import PersonProfileContent from "@/app/_shared/components/ui/PersonProfileContent";
 
@@ -35,8 +33,6 @@ export default function PersonPage({ params }: Props) {
 
   const prof = edition.professors.includes(params.personSlug);
   const photoSrc = personPhotoPath(params.personSlug);
-  const cvUrlPath = personCvPath(params.personSlug);
-  const hasCv = fs.existsSync(path.join(process.cwd(), "public", cvUrlPath));
 
   return (
     <div className="min-h-screen bg-background">
@@ -44,10 +40,6 @@ export default function PersonPage({ params }: Props) {
       <PersonProfileContent
         person={person}
         photoSrc={photoSrc}
-        cvUrlPath={hasCv ? cvUrlPath : undefined}
-        hasCv={hasCv}
-        backHref={`/eventos/${params.serieSlug}/${params.edicaoSlug}`}
-        backLabel="Voltar para o evento"
         extraSections={
           prof ? (
             <section className="rounded-2xl border border-gold/20 bg-gold/5 p-6">

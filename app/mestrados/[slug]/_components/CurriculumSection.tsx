@@ -14,7 +14,7 @@ export default function CurriculumSection({
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="grade" className="py-24 bg-surface/50">
+    <section id="grade" className="py-24 bg-surface/50 border-t border-border">
       <div className="section-container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold header-text mb-4">

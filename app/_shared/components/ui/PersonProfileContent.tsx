@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  ArrowLeft,
   MapPin,
   Globe,
   Mail,
@@ -10,7 +9,7 @@ import {
   FileText,
   InfoIcon,
   User2Icon,
-  Download,
+  Printer,
   ExternalLink,
 } from "lucide-react";
 import type { Person } from "@/src/data/people";
@@ -21,28 +20,31 @@ import FlagFind from "./FlagFind";
 import Link from "next/link";
 import { Button } from "./Button";
 import Pill from "./Pill";
+import InstagramCarousel from "./InstagramCarousel";
 
 interface PersonProfileContentProps {
   person: Person;
   photoSrc: string;
-  cvUrlPath?: string;
-  hasCv?: boolean;
-  backHref: string;
-  backLabel: string;
   extraSections?: React.ReactNode;
 }
 
 export default function PersonProfileContent({
   person,
   photoSrc,
-  cvUrlPath,
-  hasCv = false,
-  backHref,
-  backLabel,
   extraSections,
 }: PersonProfileContentProps) {
   return (
     <div className="min-h-screen bg-background">
+      <style>{`
+        @media print {
+          header, nav, footer, [data-whatsapp], .no-print { display: none !important; }
+          .min-h-screen { min-height: auto !important; }
+          .mt-20 { margin-top: 0 !important; }
+          .section-container { max-width: 100% !important; padding-left: 1rem !important; padding-right: 1rem !important; }
+          body { background: white !important; color: black !important; }
+          * { color: black !important; border-color: #ccc !important; }
+        }
+      `}</style>
       <div className="section-container py-10 md:py-16 mt-20">
         <div className="grid md:grid-cols-3 gap-10">
           {/* Sidebar */}
@@ -118,16 +120,14 @@ export default function PersonProfileContent({
                 )}
               </div>
 
-              {hasCv && cvUrlPath && (
-                <Button
-                  variant="primary"
-                  href={cvUrlPath}
-                  icon={<Download size={16} />}
-                  className="mt-6"
-                >
-                  Baixar CV
-                </Button>
-              )}
+              <Button
+                variant="primary"
+                onClick={() => window.print()}
+                icon={<Printer size={16} />}
+                className="mt-6 no-print"
+              >
+                Imprimir página
+              </Button>
 
               {person.contact && (
                 <div className="flex items-center gap-2 text-sm text-secondary mt-4">
@@ -202,20 +202,18 @@ export default function PersonProfileContent({
               </section>
             )}
 
+            {person.instagramEmbeds && person.instagramEmbeds.length > 0 && (
+              <section className="no-print">
+                <h2 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2">
+                  <InstagramIcon size={18} className="text-primary" />
+                  Vídeos do Instagram
+                </h2>
+                <InstagramCarousel urls={person.instagramEmbeds} />
+              </section>
+            )}
+
             {extraSections}
           </div>
-        </div>
-      </div>
-
-      <div className="border-t border-border py-8">
-        <div className="section-container text-center">
-          <Button
-            variant="secondary"
-            href={backHref}
-            icon={<ArrowLeft size={16} />}
-          >
-            {backLabel}
-          </Button>
         </div>
       </div>
     </div>

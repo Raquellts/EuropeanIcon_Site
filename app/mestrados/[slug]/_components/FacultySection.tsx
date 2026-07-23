@@ -2,7 +2,7 @@
 
 import { User, ArrowRight } from "lucide-react";
 import { getFacultyByMaster, getRoleCategory } from "@/src/data/people";
-import { personPhotoPath } from "@/src/data/paths";
+import { personPhotoPath, masterAssetPath } from "@/src/data/paths";
 import { Button } from "../../../_shared/components/ui/Button";
 import FacultyCard from "../../../_shared/components/ui/FacultyCard";
 import Pill from "../../../_shared/components/ui/Pill";
@@ -17,9 +17,9 @@ interface FacultySectionProps {
 
 export default function FacultySection({
   masterSlug: rawMasterSlug,
-  maxCoordinators = 3,
-  maxOrientadores = 3,
-  maxDocentes = 6,
+  maxCoordinators = 1,
+  maxOrientadores = 4,
+  maxDocentes = 4,
 }: FacultySectionProps) {
   const masterSlug = rawMasterSlug.replace("mestrado-", "");
   const allFaculty = getFacultyByMaster(masterSlug);
@@ -71,24 +71,18 @@ export default function FacultySection({
                 Coordenador{coordinators.length > 1 ? "es" : ""}
                 <span className="h-px flex-1 bg-gold/20" />
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {visibleCoordinators.map((person) => (
-                  <FacultyCard
-                    key={person.slug}
-                    person={person}
-                    photoSrc={personPhotoPath(person.slug)}
-                  />
-                ))}
-              </div>
-              <div className="text-center mt-8">
-                <Button
-                  variant="primary"
-                  href={`/mestrados/docentes?mestrado=${masterSlug}`}
-                  icon={<ArrowRight size={16} />}
-                >
-                  Ver todos os coordenadores
-                </Button>
-              </div>
+              {visibleCoordinators.map((person) => (
+                <FacultyCard
+                  key={person.slug}
+                  person={person}
+                  photoSrc={personPhotoPath(person.slug)}
+                  banner
+                  bannerPhotoSrc={masterAssetPath(
+                    masterSlug,
+                    "coordinator-banner.webp",
+                  )}
+                />
+              ))}
             </div>
           </ScrollReveal>
         )}
@@ -102,7 +96,7 @@ export default function FacultySection({
                 Orientadores
                 <span className="h-px flex-1 bg-gold/20" />
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {visibleOrientadores.map((person) => (
                   <FacultyCard
                     key={person.slug}
@@ -133,7 +127,7 @@ export default function FacultySection({
                 Corpo Docente
                 <span className="h-px flex-1 bg-gold/20" />
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {visibleDocentes.map((person) => (
                   <FacultyCard
                     key={person.slug}

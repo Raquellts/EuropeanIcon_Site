@@ -35,6 +35,8 @@ export interface Person extends Partial<BaseEntity> {
   contact?: string;
   /** Mestrados (slugs) em que a pessoa é corpo docente. */
   facultyOf?: string[];
+  /** URLs de embeds do Instagram (reels/posts) para exibir no carrossel. */
+  instagramEmbeds?: string[];
 }
 
 export const people: Person[] = [
@@ -671,7 +673,7 @@ export const people: Person[] = [
   {
     slug: "adriana-manzoli",
     name: "Dra. Adriana Manzoli",
-    role: "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientadora do Mestrado em HOF",
     description:
       "Doutoranda em Ciências Biomédicas (IUNIR/Argentina). Mestre em Harmonização Orofacial (European Face & Body Institute | UEMC). Especialista em Ortodontia (FUNORTE). Especialista em Didática do Ensino Superior (UNL).",
     social: {
@@ -682,7 +684,7 @@ export const people: Person[] = [
   {
     slug: "andrea-francoso",
     name: "Dra. Andrea Françoso",
-    role: "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientadora do Mestrado em HOF",
     description:
       "Fisioterapeuta com 28 anos de experiência. Mestra em Harmonização Orofacial pelo Instituto European. Residência em Harmonização Orofacial em Harvard.",
     social: {
@@ -693,7 +695,7 @@ export const people: Person[] = [
   {
     slug: "noemi-borgas",
     name: "Dra. Noemi Borgas",
-    role: "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientadora do Mestrado em HOF",
     description:
       "Doutora em Ciências da Saúde (UML). Mestre em Harmonização Orofacial (European Face & Body Institute | UEMC). Especialista em Cirurgia e traumatologia Buco Maxilo Facial (ABO | Facset).",
     social: {
@@ -704,7 +706,7 @@ export const people: Person[] = [
   {
     slug: "simone-lopes",
     name: "Dra. Simone Lopes",
-    role: "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientadora do Mestrado em HOF",
     description:
       "Doutoranda em Ciências da Saúde (IUNIR). Mestrado em Odontologia Clínica (UFMS). Cirurgiã Dentista e Bióloga. Presidente da Associação Brasileira de Cirurgiões Dentistas (ABCD-MS).",
     social: {
@@ -715,7 +717,7 @@ export const people: Person[] = [
   {
     slug: "glaucia-alves",
     name: "Dra. Glaucia Alves",
-    role: "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientadora do Mestrado em HOF",
     description:
       "Formada em Odontologia pela Universidade Federal de Pernambuco (UFPE). Especialização em Endodontia pela ABO de Barra Mansa. Oficial dentista formada pela Escola de Saúde do Exército (ESSEX).",
     social: {
@@ -726,7 +728,7 @@ export const people: Person[] = [
   {
     slug: "irina-bernardino",
     name: "Dra. Irina Bernardino",
-    role: "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientadora do Mestrado em HOF",
     description:
       "Médica Dentista formada na Faculdade de Medicina Dentária da Universidade do Porto, Portugal. Pós-graduação em Ortodontia. Especialização em Implantologia e Reabilitação Oral. Mestrado em Harmonização Orofacial.",
     social: {
@@ -737,7 +739,7 @@ export const people: Person[] = [
   {
     slug: "raphael-bonadimen",
     name: "Dr. Raphael Bonadimen",
-    role: "Coordenador de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientador do Mestrado em HOF",
     description:
       "Doutorado em Ciências Biomédicas (Instituto Universitario Italiano de Rosario, IUNIR). Mestrado em Assistência Farmacêutica (Universidade Vila Velha, UVV).",
     social: {
@@ -748,7 +750,7 @@ export const people: Person[] = [
   {
     slug: "alana-lucas",
     name: "Dra. Alana Lucas",
-    role: "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientadora do Mestrado em HOF",
     description:
       "Doutorado em Ciências Biomédicas (Instituto Universitario Italiano de Rosario, IUNIR). Graduação em Biomedicina (Fundação Universidade Federal de Ciências da Saúde de Porto Alegre, UFCSPA).",
     social: {
@@ -759,7 +761,7 @@ export const people: Person[] = [
   {
     slug: "ana-picolini",
     name: "Dra. Ana Picolini",
-    role: "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientadora do Mestrado em HOF",
     description:
       "MBA Gestão Feminina (SONATA, Porto Alegre/RS). Doutoranda em Ciências Biomédicas (IUNIR, Rosario – Argentina). Graduação em Biomedicina Estética (UNYLEYA, Rio de Janeiro).",
     social: {
@@ -770,7 +772,7 @@ export const people: Person[] = [
   {
     slug: "isabela-lopes",
     name: "Dra. Isabela Lopes",
-    role: "Coordenadora de Orientação Acadêmica do Mestrado em HOF",
+    role: "Orientadora do Mestrado em HOF",
     description:
       "Graduada em Odontologia pela Universidade para o Desenvolvimento do Estado e da Região do Pantanal (2016). Especialista em Harmonização Orofacial (2019) e Ortodontia (2020).",
     social: {
@@ -898,6 +900,7 @@ export const people: Person[] = [
       instagram: "https://www.instagram.com/flaviodomingues7/",
     },
     facultyOf: ["harmonizacao-orofacial"],
+    instagramEmbeds: ["https://www.instagram.com/reel/DbF9_shksOB/"],
   },
   {
     slug: "itagina-baiocchi",
@@ -1250,7 +1253,7 @@ export const people: Person[] = [
     description:
       "Formado em 2005 pelas FMU. Especialista em Processo Penal pela Escola Paulista da Magistratura de São Paulo (2007). Mestre em Direito Penal Econômico pela Escola de Direito da FGV-SP.",
     social: {
-      instagram: "",
+      instagram: "https://www.instagram.com/alexandrenoal.profissional/",
     },
     facultyOf: ["direito-penal-economico"],
   },
