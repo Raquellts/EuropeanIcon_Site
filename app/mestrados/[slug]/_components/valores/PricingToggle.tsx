@@ -7,7 +7,7 @@ import {
   ArrowLeftRight,
   ArrowRight,
 } from "lucide-react";
-import { Button } from "../../../../app/_shared/components/ui/Button";
+import { Button } from "../../../../_shared/components/ui/Button";
 
 interface PricingToggleProps {
   basePrice: string;
