@@ -26,6 +26,10 @@ const config: Config = {
         warning: "rgb(var(--warning-rgb) / <alpha-value>)",
         danger: "rgb(var(--danger-rgb) / <alpha-value>)",
       },
+      backgroundImage: {
+        "gradient-gold":
+          "linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold), var(--gold-dark))",
+      },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         display: ["var(--font-playfair)", "serif"],

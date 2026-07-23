@@ -4,6 +4,7 @@ import MasterSection from "../instituto/_components/MasterSection";
 import WhatsAppButton from "../_shared/components/ui/WhatsAppButton";
 import Footer from "../_shared/components/ui/Footer";
 import ScrollReveal from "../_shared/components/ui/ScrollReveal";
+import Pill from "../_shared/components/ui/Pill";
 
 export const metadata: Metadata = {
   title: "Mestrados Internacionais - European & Icon Institute",
@@ -23,10 +24,10 @@ export default function MestradosPage() {
 
           <div className="section-container relative z-10 flex flex-col items-center text-center gap-6 py-24 md:py-28">
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 backdrop-blur px-4 py-1.5 text-xs text-muted">
+              <Pill variant="hero">
                 <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
                 formação intensiva
-              </div>
+              </Pill>
             </ScrollReveal>
 
             <ScrollReveal delay={80}>

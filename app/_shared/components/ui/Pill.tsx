@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type PillVariant = "gold" | "muted" | "outline" | "tagline";
+type PillVariant = "gold" | "muted" | "outline" | "tagline" | "hero" | "hero-gold";
 
 interface PillProps {
   variant?: PillVariant;
@@ -18,6 +18,9 @@ const variantStyles: Record<PillVariant, string> = {
   outline: "border border-border bg-surface px-4 py-1.5 text-xs text-secondary",
   tagline:
     "border border-text bg-background px-3 py-1 text-xs font-medium text-text transition-colors  group-hover:text-gold group-hover:border-gold",
+  hero: "border border-border bg-surface/70 backdrop-blur px-4 py-1.5 text-xs text-muted",
+  "hero-gold":
+    "border border-gold/30 bg-surface/70 backdrop-blur px-4 py-1.5 text-xs text-gold",
 };
 
 export default function Pill({

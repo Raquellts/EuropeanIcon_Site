@@ -97,16 +97,16 @@ export default function HeroSection({
           <Button
             variant="secondary"
             size="lg"
-            onClick={() => navigateTo("grade")}
+            href={`/mestrados/${slug}/valores`}
           >
-            Grade Curricular
+            Valores
           </Button>
           <Button
             variant="secondary"
             size="lg"
-            href={`/mestrados/${slug}/valores`}
+            onClick={() => navigateTo("grade")}
           >
-            Valores
+            Grade Curricular
           </Button>
         </div>
 

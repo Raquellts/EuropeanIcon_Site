@@ -122,10 +122,10 @@ export default function InstituteSection() {
         {/* Cell 1: Badge + Title (top-left, 2 cols) */}
         <div className="col-span-2 row-span-1 flex flex-col justify-end px-10 pt-16 pb-6">
           <ScrollReveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-surface/70 backdrop-blur px-4 py-1.5 text-xs text-gold mb-4">
+            <Pill variant="hero-gold" className="mb-4">
               <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
               {institute.heroSubtitle}
-            </div>
+            </Pill>
           </ScrollReveal>
 
           <ScrollReveal delay={80}>

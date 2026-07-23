@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import Link from "next/link";
 import type { ReactNode, ComponentPropsWithoutRef } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "gold";
+type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonBaseProps {
@@ -28,11 +28,10 @@ type ButtonAsLink = ButtonBaseProps &
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: `gradient-gold font-semibold text-black hover:scale-105`,
+  primary: `border border-gold bg-gold/10 text-gold hover:bg-gradient-gold hover:text-background hover:scale-105`,
   secondary:
-    "border border-border text-secondary hover:bg-surface-hover hover:text-primary",
+    "border border-border bg-surface/70 backdrop-blur text-secondary hover:bg-surface-hover hover:text-primary",
   ghost: "text-secondary hover:text-primary hover:bg-surface-hover",
-  gold: "border border-gold bg-gold/10 text-gold hover:bg-gold hover:text-background ",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

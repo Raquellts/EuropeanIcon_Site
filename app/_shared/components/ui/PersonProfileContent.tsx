@@ -49,7 +49,13 @@ export default function PersonProfileContent({
           <div className="md:col-span-1">
             <div className="sticky top-24">
               <div className="aspect-square rounded-2xl border border-border bg-surface-hover flex items-center justify-center overflow-hidden mb-6">
-                <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                <div
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
                   <ImageWithFallback
                     src={photoSrc}
                     alt={person.slug}
@@ -114,7 +120,7 @@ export default function PersonProfileContent({
 
               {hasCv && cvUrlPath && (
                 <Button
-                  variant="gold"
+                  variant="primary"
                   href={cvUrlPath}
                   icon={<Download size={16} />}
                   className="mt-6"
@@ -184,7 +190,7 @@ export default function PersonProfileContent({
                   {person.facultyOf.map((masterSlug) => (
                     <Button
                       key={masterSlug}
-                      variant="gold"
+                      variant="primary"
                       href={`/mestrados/mestrado-${masterSlug}`}
                     >
                       {masterSlug === "direito-penal-economico"

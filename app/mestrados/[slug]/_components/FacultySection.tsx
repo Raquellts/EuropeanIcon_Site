@@ -82,7 +82,7 @@ export default function FacultySection({
               </div>
               <div className="text-center mt-8">
                 <Button
-                  variant="gold"
+                  variant="primary"
                   href={`/mestrados/docentes?mestrado=${masterSlug}`}
                   icon={<ArrowRight size={16} />}
                 >
@@ -113,7 +113,7 @@ export default function FacultySection({
               </div>
               <div className="text-center mt-8">
                 <Button
-                  variant="gold"
+                  variant="primary"
                   href={`/mestrados/docentes?mestrado=${masterSlug}`}
                   icon={<ArrowRight size={16} />}
                 >
@@ -144,7 +144,7 @@ export default function FacultySection({
               </div>
               <div className="text-center mt-8">
                 <Button
-                  variant="gold"
+                  variant="primary"
                   href={`/mestrados/docentes?mestrado=${masterSlug}`}
                   icon={<ArrowRight size={16} />}
                 >

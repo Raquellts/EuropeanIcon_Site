@@ -60,16 +60,13 @@ export default function TeamHighlightsSection() {
                   {/* Card */}
                   {person && (
                     <div className="w-full">
-                      <FacultyCard
-                        person={person}
-                        photoSrc={photoSrc}
-                      />
+                      <FacultyCard person={person} photoSrc={photoSrc} />
                     </div>
                   )}
 
                   {/* Botão */}
                   <Button
-                    variant="gold"
+                    variant="primary"
                     href={`/mestrados/docentes?mestrado=${masterKey}`}
                     icon={<ArrowRight size={16} />}
                   >

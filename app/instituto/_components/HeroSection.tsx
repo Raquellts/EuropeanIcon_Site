@@ -5,6 +5,7 @@ import { Button } from "../../_shared/components/ui/Button";
 import VideoBackground from "../../_shared/components/ui/VideoBackground";
 import StatCard from "../../_shared/components/ui/StatCard";
 import ScrollReveal from "../../_shared/components/ui/ScrollReveal";
+import Pill from "../../_shared/components/ui/Pill";
 import { useAnchorNavigation } from "../../_shared/hooks/useAnchorNavigation";
 import { useParallax } from "../../_shared/hooks/useParallax";
 
@@ -44,10 +45,10 @@ export default function HeroSection() {
       <div className="flex-1 flex items-center justify-center z-10">
         <div className="section-container flex flex-col items-center text-center gap-7 py-24 md:py-28">
           <ScrollReveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 backdrop-blur px-4 py-1.5 text-xs text-muted">
+            <Pill variant="hero">
               <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
               {institute.heroSubtitle}
-            </div>
+            </Pill>
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
