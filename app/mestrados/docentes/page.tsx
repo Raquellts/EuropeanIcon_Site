@@ -387,7 +387,7 @@ export default function DocentesPage() {
                   </span>
                   <div className="h-px flex-1 bg-border" />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {group.people.map((person, index) => (
                     <ScrollReveal key={person.slug} delay={(index % 8) * 40}>
                       <FacultyCard

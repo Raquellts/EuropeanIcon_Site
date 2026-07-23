@@ -66,7 +66,7 @@ export default function FacultyCard({
               {person.name}
             </h4>
             {person.description && (
-              <p className="text-xs text-secondary line-clamp-2 mt-1">
+              <p className="text-xs text-secondary truncate mt-1">
                 {person.description}
               </p>
             )}
@@ -102,19 +102,19 @@ export default function FacultyCard({
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-            <h4 className="font-bold text-primary group-hover:text-gold transition-colors text-xl md:text-2xl leading-tight">
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
+            <h4 className="font-bold text-primary group-hover:text-gold transition-colors text-base sm:text-xl md:text-2xl leading-tight">
               {person.name}
             </h4>
-            <p className="text-sm text-gold font-medium uppercase tracking-wide mt-1">
+            <p className="text-[10px] sm:text-sm text-gold font-medium uppercase tracking-wide mt-1 truncate">
               {person.role}
             </p>
             {person.description && (
-              <p className="text-sm text-secondary mt-2 line-clamp-3 max-w-2xl">
+              <p className="text-xs text-secondary mt-2 truncate hidden sm:block">
                 {person.description}
               </p>
             )}
-            <div className="flex items-center gap-4 mt-3">
+            <div className="hidden sm:flex items-center gap-4 mt-3">
               {person.social?.instagram && (
                 <span className="inline-flex items-center gap-1.5 text-xs text-white/70">
                   <InstagramIcon size={14} />
@@ -129,7 +129,10 @@ export default function FacultyCard({
               )}
               <span className="inline-flex items-center gap-1.5 text-xs text-white/70 group-hover:text-gold transition-colors ml-auto">
                 Saiba mais
-                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight
+                  size={14}
+                  className="transition-transform group-hover:translate-x-1"
+                />
               </span>
             </div>
           </div>
@@ -166,15 +169,15 @@ export default function FacultyCard({
             <h4 className="font-bold text-primary group-hover:text-gold transition-colors leading-snug text-sm">
               {person.name}
             </h4>
-            <p className="text-xs text-gold font-medium uppercase tracking-wide">
+            <p className="text-[10px] sm:text-xs text-gold font-medium uppercase tracking-wide truncate">
               {person.role}
             </p>
             {person.description && (
-              <p className="text-sm text-secondary line-clamp-2 mt-0.5">
+              <p className="text-xs text-secondary truncate mt-0.5 hidden sm:block">
                 {person.description}
               </p>
             )}
-            <div className="flex gap-2 mt-1">
+            <div className="hidden sm:flex gap-2 mt-1">
               {person.social?.instagram && (
                 <span className="inline-flex items-center gap-1 text-xs text-muted">
                   <InstagramIcon size={12} />
@@ -188,9 +191,12 @@ export default function FacultyCard({
                 </span>
               )}
             </div>
-            <span className="inline-flex items-center gap-1 text-xs text-muted group-hover:text-gold transition-colors mt-1">
+            <span className="hidden sm:inline-flex items-center gap-1 text-xs text-muted group-hover:text-gold transition-colors mt-1">
               Saiba mais
-              <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight
+                size={12}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </span>
           </div>
         </div>
