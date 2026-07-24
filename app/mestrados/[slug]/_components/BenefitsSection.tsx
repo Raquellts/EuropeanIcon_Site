@@ -110,7 +110,7 @@ export default function BenefitsSection({ benefits }: BenefitsSectionProps) {
             Uma formação construída para quem pretende ir além, com excelência
             acadêmica e reconhecimento internacional.
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

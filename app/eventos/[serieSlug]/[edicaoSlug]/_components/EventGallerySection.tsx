@@ -19,7 +19,7 @@ export default function EventGallerySection({ edition }: EventGallerySectionProp
           <p className="text-secondary max-w-2xl mx-auto">
             Fotos de edições anteriores, do mestrado e da instituição.
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
         </div>
 
         <div className="relative max-w-4xl mx-auto">

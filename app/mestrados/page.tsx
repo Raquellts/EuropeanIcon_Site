@@ -49,7 +49,7 @@ export default function MestradosPage() {
               </p>
             </ScrollReveal>
 
-            <div className="h-1 w-20 gradient-gold rounded-full mt-2" />
+            <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mt-2" />
           </div>
         </section>
 

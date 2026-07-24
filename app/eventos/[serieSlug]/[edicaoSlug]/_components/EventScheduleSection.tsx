@@ -37,7 +37,7 @@ export default function EventScheduleSection({
           <p className="text-secondary max-w-2xl mx-auto">
             Confira a programação completa do evento.
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">

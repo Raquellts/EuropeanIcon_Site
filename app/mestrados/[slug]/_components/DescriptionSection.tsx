@@ -15,7 +15,7 @@ export default function DescriptionSection({
   coordinator,
 }: DescriptionSectionProps) {
   return (
-    <section className="py-16">
+    <section className="py-16 border-t border-border">
       <div className="section-container">
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-3">
@@ -32,9 +32,7 @@ export default function DescriptionSection({
                 <p className="text-xs text-muted uppercase tracking-wider mb-1">
                   Certificação
                 </p>
-                <p className="text-sm text-secondary">
-                  {master.certification}
-                </p>
+                <p className="text-sm text-secondary">{master.certification}</p>
               </div>
             )}
           </div>

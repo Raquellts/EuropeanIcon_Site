@@ -21,7 +21,7 @@ export default function EventLocationSection({
           <h2 className="text-3xl md:text-4xl font-bold header-text mb-4">
             Local do Evento
           </h2>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">

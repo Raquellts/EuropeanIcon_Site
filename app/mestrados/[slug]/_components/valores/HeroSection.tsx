@@ -39,7 +39,7 @@ export default function HeroSection({ master, slug, meta }: HeroSectionProps) {
               {master?.title || "Valores"}
             </h1>
 
-            <div className="h-1 w-20 gradient-gold rounded-full mx-auto mb-6" />
+            <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mb-6" />
 
             {meta?.tagline && (
               <p className="text-secondary text-lg italic max-w-xl mx-auto mb-10">

@@ -29,7 +29,7 @@ export default function EventParticipantsSection({
           <p className="text-secondary max-w-2xl mx-auto">
             {edition.phrases.participants[status]}
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">

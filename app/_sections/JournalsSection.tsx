@@ -14,7 +14,7 @@ export default function JournalsSection() {
             Revistas científicas do European Institute com publicações de
             excelência acadêmica.
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">

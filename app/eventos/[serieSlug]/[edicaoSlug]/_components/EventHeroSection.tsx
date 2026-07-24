@@ -57,7 +57,7 @@ export default function EventHeroSection({
         </p>
 
         {status === "after" && (
-          <div className="inline-flex flex-col items-center gap-2 rounded-2xl border border-border bg-zinc-900/80 px-8 py-6">
+          <div className="inline-flex flex-col items-center gap-2 rounded-2xl border border-border bg-background/80 px-8 py-6">
             <span className="text-lg font-semibold text-primary">
               {edition.phrases.after.status}
             </span>

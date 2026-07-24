@@ -55,7 +55,7 @@ export default function GallerySection({ gallery }: GallerySectionProps) {
           <p className="text-secondary max-w-2xl mx-auto">
             Fotos e vídeos dos programas de mestrado e da instituição.
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
         </div>
 
         <div

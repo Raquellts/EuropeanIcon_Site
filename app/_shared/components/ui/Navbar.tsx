@@ -154,10 +154,10 @@ export default function Navbar() {
         onMouseLeave={scheduleClose}
       >
         <div
-          className={`absolute inset-0 transition-all duration-500 ${
+          className={`absolute inset-0 nav-blur transition-all duration-500 ${
             scrolled || megaOpen
-              ? "bg-zinc-900/85 backdrop-blur-xl border-b border-border shadow-lg shadow-black/20"
-              : "bg-gradient-to-b from-zinc-900/70 to-transparent border-b border-transparent"
+              ? "bg-background/85 backdrop-blur-xl border-b border-border shadow-lg shadow-black/20"
+              : "bg-background/10 backdrop-blur-xl border-b border-border"
           }`}
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -263,13 +263,13 @@ export default function Navbar() {
             onMouseLeave={scheduleClose}
           >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-2 pb-4">
-              <div className="section-fade-in overflow-hidden rounded-2xl border border-border bg-zinc-900/95 backdrop-blur-xl shadow-2xl shadow-black/40">
+              <div className="section-fade-in overflow-hidden rounded-2xl border border-border bg-background/90 backdrop-blur-xl shadow-2xl shadow-black/40">
                 <div className="grid grid-cols-12 gap-0">
                   {/* Featured column */}
                   {activeItem.featured && (
                     <button
                       onClick={() => handleNavClick(activeItem.featured!.href)}
-                      className="col-span-4 group relative flex flex-col justify-between p-7 text-left bg-gradient-to-br from-gold-dark/25 via-surface to-surface border-r border-border overflow-hidden"
+                      className="col-span-4 group relative flex flex-col justify-between p-7 text-left bg-gradient-to-br from-gold-dark/10 via-surface to-surface border-r border-border overflow-hidden"
                     >
                       <div className="sparkle-dots absolute inset-0 opacity-40" />
                       <div className="relative z-10">
@@ -391,7 +391,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen(false)}
           />
           <div
-            className={`absolute left-0 right-0 bottom-0 bg-zinc-900/97 backdrop-blur-xl border-t border-border overflow-y-auto transition-all duration-500 ${scrolled ? "top-16" : "top-20"}`}
+            className={`absolute left-0 right-0 bottom-0 bg-background/97 backdrop-blur-xl border-t border-border overflow-y-auto transition-all duration-500 ${scrolled ? "top-16" : "top-20"}`}
           >
             <div className="mx-auto max-w-7xl px-4 py-4 space-y-1">
               {navigation.map((item) => {
@@ -493,7 +493,7 @@ export default function Navbar() {
                             return (
                               <div
                                 key={child.label}
-                                className="border-t border-border bg-surface/40"
+                                className="border-t border-border"
                               >
                                 <button
                                   onClick={() =>

@@ -90,7 +90,7 @@ export default function JournalPage({ params }: Props) {
                     <p className="text-xs font-semibold text-gold uppercase tracking-widest mb-2">
                       Revista Científica
                     </p>
-                    <div className="h-1 w-12 gradient-gold rounded-full mb-4" />
+                    <div className="h-1 w-12 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mb-4" />
                     <h2 className="text-2xl md:text-3xl font-bold header-text mb-3">
                       {journal.name}
                     </h2>
@@ -135,7 +135,7 @@ export default function JournalPage({ params }: Props) {
                     <p className="text-secondary/60 max-w-2xl mx-auto">
                       Diretrizes para submissão de trabalhos acadêmicos.
                     </p>
-                    <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+                    <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
                   </div>
                   <NormsTabs norms={journal.norms} />
                 </div>

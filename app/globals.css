@@ -9,17 +9,26 @@
    2. DESIGN TOKENS
    ============================================ */
 :root {
+  --background-rgb: 18 19 21;
   --background: #121315;
+  --surface-rgb: 26 28 32;
   --surface: #1a1c20;
+  --surface-hover-rgb: 36 39 45;
   --surface-hover: #24272d;
+  --border-rgb: 45 49 56;
   --border: #2d3138;
+  --primary-rgb: 245 245 244;
   --primary: #f5f5f4;
+  --secondary-rgb: 184 189 200;
   --secondary: #b8bdc8;
+  --muted-rgb: 139 145 157;
   --muted: #8b919d;
   --gold-ultralight: #ffecae;
   --gold-light: #ffe387;
   --gold-rgb: 231 182 67;
+  --gold-light-rgb: 255 227 135;
   --gold: #e7b643;
+  --gold-dark-rgb: 153 109 28;
   --gold-dark: #996d1c;
   --success-rgb: 71 184 129;
   --success: #47b881;
@@ -27,6 +36,14 @@
   --warning: #f0b54a;
   --danger-rgb: 227 93 106;
   --danger: #e35d6a;
+}
+
+/* Fallback: navegadores sem suporte a backdrop-filter (Safari etc.) */
+@supports not (backdrop-filter: blur(0px)) {
+  .nav-blur {
+    background: rgb(var(--background-rgb) / 0.92) !important;
+    backdrop-filter: none !important;
+  }
 }
 
 /* ============================================
@@ -108,17 +125,6 @@ h2 {
 /* ============================================
    5. GRADIENTS
    ============================================ */
-
-/* Gradiente estático dourado */
-.gradient-gold {
-  background: linear-gradient(
-    135deg,
-    var(--gold),
-    var(--gold-light),
-    var(--gold),
-    var(--gold-dark)
-  );
-}
 
 /* Gradiente dourado aplicado em texto (preenchimento) */
 .header-text {

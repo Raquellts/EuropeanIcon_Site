@@ -34,7 +34,7 @@ export default function TeamHighlightsSection() {
             Profissionais renomados que fazem a diferença na formação de novos
             líderes internacionais.
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
         </ScrollReveal>
 
         <div className="grid grid-cols-2 md:grid-cols-2 gap-6 md:gap-10 max-w-4xl mx-auto">

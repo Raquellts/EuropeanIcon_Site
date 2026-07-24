@@ -10,25 +10,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        surface: "var(--surface)",
-        "surface-hover": "var(--surface-hover)",
-        border: "var(--border)",
-        primary: "var(--primary)",
-        secondary: "var(--secondary)",
-        muted: "var(--muted)",
+        background: "rgb(var(--background-rgb) / <alpha-value>)",
+        surface: "rgb(var(--surface-rgb) / <alpha-value>)",
+        "surface-hover": "rgb(var(--surface-hover-rgb) / <alpha-value>)",
+        border: "rgb(var(--border-rgb) / <alpha-value>)",
+        primary: "rgb(var(--primary-rgb) / <alpha-value>)",
+        secondary: "rgb(var(--secondary-rgb) / <alpha-value>)",
+        muted: "rgb(var(--muted-rgb) / <alpha-value>)",
         gold: {
-          light: "rgb(var(--gold-rgb) / <alpha-value>)",
+          light: "rgb(var(--gold-light-rgb) / <alpha-value>)",
           DEFAULT: "rgb(var(--gold-rgb) / <alpha-value>)",
-          dark: "var(--gold-dark)",
+          dark: "rgb(var(--gold-dark-rgb) / <alpha-value>)",
         },
         success: "rgb(var(--success-rgb) / <alpha-value>)",
         warning: "rgb(var(--warning-rgb) / <alpha-value>)",
         danger: "rgb(var(--danger-rgb) / <alpha-value>)",
-      },
-      backgroundImage: {
-        "gradient-gold":
-          "linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold), var(--gold-dark))",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

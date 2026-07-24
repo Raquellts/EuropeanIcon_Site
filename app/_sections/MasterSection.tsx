@@ -27,7 +27,7 @@ export default function MasterSection() {
             referência, unindo excelência acadêmica, inovação e reconhecimento
             internacional.
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-6" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-6" />
         </ScrollReveal>
 
         <div className="flex flex-col gap-8">

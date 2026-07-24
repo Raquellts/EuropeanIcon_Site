@@ -17,7 +17,7 @@ export default function EventAboutSection({ edition }: EventAboutSectionProps) {
           <h2 className="text-3xl md:text-4xl font-bold header-text mb-4">
             Sobre o Evento
           </h2>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto" />
         </div>
 
         <p className="text-secondary text-lg max-w-4xl mx-auto text-center mb-16 leading-relaxed">

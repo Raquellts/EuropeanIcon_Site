@@ -18,7 +18,7 @@ export default function PartnersSection() {
             Instituições e organizações que colaboram com o European & Icon
             Institute
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
         </div>
       </div>
 

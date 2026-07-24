@@ -23,7 +23,7 @@ export default function CertificationSection({
             <h2 className="text-2xl md:text-4xl font-bold header-text mb-3">
               Certificação e Reconhecimento
             </h2>
-            <div className="h-1 w-16 gradient-gold rounded-full mx-auto" />
+            <div className="h-1 w-16 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto" />
           </div>
         </ScrollReveal>
 

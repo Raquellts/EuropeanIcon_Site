@@ -35,48 +35,38 @@ export default function InternationalModulesSection({
   if (!master?.locations || master.locations.length === 0) return null;
 
   return (
-    <section className="border-t border-border">
-      <div className="section-container py-20 md:py-24">
+    <section className="border-t border-border py-20 md:py-24">
+      <div className="section-container">
         <ScrollReveal>
           <div className="text-center mb-14">
             <h2 className="text-2xl md:text-4xl font-bold header-text mb-3">
               Módulos Presenciais Internacionais
             </h2>
-            <div className="h-1 w-16 gradient-gold rounded-full mx-auto" />
+            <div className="h-1 w-16 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto" />
           </div>
         </ScrollReveal>
       </div>
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 px-4 lg:px-0">
         {(master.locations || []).map((loc, i) => {
           const img = locationImages[loc];
           const flag = countryFlags[loc] || "🌍";
           const desc = locDescs[loc];
-          const total = master.locations?.length || 0;
 
           return (
             <ScrollReveal key={i} delay={i * 100}>
-              <div
-                className={`relative h-64 md:h-80 overflow-hidden ${
-                  i < total - 1 ? "border-b border-border" : ""
-                }`}
-              >
-                {/* Foto de fundo */}
+              <div className="relative h-64 md:h-80 rounded-xl overflow-hidden group">
                 {img && (
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 )}
-
-                {/* Overlay escuro */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
-
-                {/* Conteúdo */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50  to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-6">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xl">{flag}</span>
                     <span className="text-xs font-semibold uppercase tracking-wider text-gold">
@@ -84,7 +74,7 @@ export default function InternationalModulesSection({
                     </span>
                   </div>
                   {desc && (
-                    <p className="text-secondary text-sm md:text-base max-w-lg leading-relaxed">
+                    <p className="text-secondary text-sm md:text-base leading-relaxed">
                       {desc}
                     </p>
                   )}

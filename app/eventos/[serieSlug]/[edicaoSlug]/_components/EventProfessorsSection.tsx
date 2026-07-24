@@ -32,7 +32,7 @@ export default function EventProfessorsSection({
           <p className="text-secondary max-w-2xl mx-auto">
             {edition.phrases.professors[status]}
           </p>
-          <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-gold via-gold-light to-gold-dark rounded-full mx-auto mt-4" />
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
