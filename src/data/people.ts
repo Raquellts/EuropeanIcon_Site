@@ -107,7 +107,9 @@ export const people: Person[] = [
       "Lavagem de Dinheiro",
       "Segurança Pública",
     ],
-    social: {},
+    social: {
+      instagram: "https://www.instagram.com/arthur_lemosjr/",
+    },
     facultyOf: ["direito-penal-economico"],
   },
   {

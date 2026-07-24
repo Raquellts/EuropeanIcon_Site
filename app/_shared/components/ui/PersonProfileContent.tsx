@@ -146,7 +146,7 @@ export default function PersonProfileContent({
                   <User2Icon size={18} className="text-primary" />
                   Sobre
                 </h2>
-                <p className="text-secondary leading-relaxed">
+                <p className="text-secondary leading-relaxed text-justify">
                   {person.description}
                 </p>
               </section>
@@ -158,7 +158,7 @@ export default function PersonProfileContent({
                   <Globe size={18} className="text-primary" />
                   Currículo
                 </h2>
-                <p className="text-secondary leading-relaxed">
+                <p className="text-secondary leading-relaxed text-justify">
                   {person.curriculum}
                 </p>
               </section>

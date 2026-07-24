@@ -98,7 +98,7 @@ export default function JournalPage({ params }: Props) {
                       <span className="w-2 h-2 rounded-full bg-gold" />
                       <span className="text-sm text-secondary">{journal.subject}</span>
                     </div>
-                    <p className="text-secondary leading-relaxed text-base">
+                    <p className="text-secondary leading-relaxed text-base text-justify">
                       {journal.description}
                     </p>
                   </div>

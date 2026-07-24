@@ -50,7 +50,7 @@ export default function EventTestimonialsSection({
                   <p className="text-xs text-muted">{t.role}</p>
                 </div>
               </div>
-              <p className="text-sm text-secondary leading-relaxed">
+              <p className="text-sm text-secondary leading-relaxed text-justify">
                 &ldquo;{t.text}&rdquo;
               </p>
             </div>

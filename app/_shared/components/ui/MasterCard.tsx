@@ -75,7 +75,7 @@ export default function MasterCard({ master, index }: MasterCardProps) {
               {master.title}
             </h3>
 
-            <p className="text-secondary leading-relaxed line-clamp-4">
+            <p className="text-secondary leading-relaxed line-clamp-4 text-justify">
               {master.description}
             </p>
 

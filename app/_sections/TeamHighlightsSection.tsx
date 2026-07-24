@@ -28,7 +28,7 @@ export default function TeamHighlightsSection() {
             Nossa Equipe
           </Pill>
           <h2 className="text-3xl md:text-5xl font-bold header-text mb-4">
-            Conheça Nossos Coordenadores
+            Coordenadores Científicos
           </h2>
           <p className="text-secondary max-w-2xl mx-auto leading-relaxed">
             Profissionais renomados que fazem a diferença na formação de novos
@@ -37,7 +37,7 @@ export default function TeamHighlightsSection() {
           <div className="h-1 w-20 gradient-gold rounded-full mx-auto mt-4" />
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-6 md:gap-10 max-w-4xl mx-auto">
           {masters.map((master, index) => {
             const masterKey = master.slug.replace("mestrado-", "");
             const featuredSlug = featuredSlugs[masterKey];
@@ -54,7 +54,7 @@ export default function TeamHighlightsSection() {
                 <div className="flex flex-col items-center text-center gap-5">
                   {/* Badge */}
                   <p className="text-xs font-semibold uppercase tracking-wider text-gold">
-                    Coordenador Científico do Mestrado de {shortName}
+                    {shortName}
                   </p>
 
                   {/* Card */}
@@ -63,19 +63,20 @@ export default function TeamHighlightsSection() {
                       <FacultyCard person={person} photoSrc={photoSrc} />
                     </div>
                   )}
-
-                  {/* Botão */}
-                  <Button
-                    variant="primary"
-                    href={`/mestrados/docentes?mestrado=${masterKey}`}
-                    icon={<ArrowRight size={16} />}
-                  >
-                    Ver todos os professores
-                  </Button>
                 </div>
               </ScrollReveal>
             );
           })}
+        </div>
+
+        <div className="text-center mt-10">
+          <Button
+            variant="primary"
+            href="/mestrados/docentes"
+            icon={<ArrowRight size={16} />}
+          >
+            Ver todos os professores
+          </Button>
         </div>
       </div>
     </section>

@@ -69,9 +69,8 @@ export default function HeroSection({
           Voltar para Mestrados
         </Link>
 
-        <Pill
-          icon={<span className="h-2 w-2 rounded-full bg-gold animate-pulse" />}
-        >
+        <Pill variant="hero">
+          <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
           Formações internacionais de alto nível
         </Pill>
 

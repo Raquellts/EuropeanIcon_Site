@@ -4,6 +4,7 @@ import { Crown, Briefcase } from "lucide-react";
 import ScrollReveal from "../_shared/components/ui/ScrollReveal";
 import SocialIconButton from "../_shared/components/ui/SocialIconButton";
 import InstagramIcon from "../_shared/components/ui/InstagramIcon";
+import ImageWithFallback from "../_shared/components/ui/ImageWithFallback";
 import Pill from "../_shared/components/ui/Pill";
 
 const ceoData = {
@@ -39,10 +40,14 @@ export default function CeoSection() {
         <ScrollReveal>
           <div className="max-w-4xl mx-auto rounded-3xl border border-border bg-surface p-8 md:p-12 shadow-xl shadow-black/20">
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-              {/* Foto / Placeholder */}
+              {/* Foto */}
               <div className="shrink-0">
-                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center border-2 border-gold/20">
-                  <Crown size={48} className="text-gold" />
+                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-gold/20">
+                  <ImageWithFallback
+                    src="/pessoas/rose-magina/foto.webp"
+                    alt="Rose Magina"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
@@ -74,7 +79,7 @@ export default function CeoSection() {
                   {ceoData.bio.map((paragraph, i) => (
                     <p
                       key={i}
-                      className="text-secondary text-sm leading-relaxed"
+                      className="text-secondary text-sm leading-relaxed text-justify"
                     >
                       {paragraph}
                     </p>

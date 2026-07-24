@@ -18,7 +18,7 @@ export default function AboutCard({ icon, title, description, type }: AboutCardP
 
             <h3 className={`font-semibold ${type === 'about' ? 'text-xl text-primary mb-3' : type === 'institute' ? 'text-md text-primary' : ''}`}>{title}</h3>
 
-            <p className={`text-secondary leading-relaxed ${type === 'about' ? 'text-md' : type === 'institute' ? 'text-sm' : ''}`}>
+            <p className={`text-secondary leading-relaxed text-justify ${type === 'about' ? 'text-md' : type === 'institute' ? 'text-sm' : ''}`}>
               {description}
             </p>
             </div>

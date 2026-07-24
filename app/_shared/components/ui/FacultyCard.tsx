@@ -102,7 +102,7 @@ export default function FacultyCard({
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-left">
             <h4 className="font-bold text-primary group-hover:text-gold transition-colors text-base sm:text-xl md:text-2xl leading-tight">
               {person.name}
             </h4>
@@ -165,7 +165,7 @@ export default function FacultyCard({
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/70 to-transparent" />
 
           {/* Info sobreposta */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-1.5">
+          <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-1.5 text-left">
             <h4 className="font-bold text-primary group-hover:text-gold transition-colors leading-snug text-sm">
               {person.name}
             </h4>

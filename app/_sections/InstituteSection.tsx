@@ -64,7 +64,7 @@ export default function InstituteSection() {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={160}>
-            <p className="text-secondary text-sm leading-relaxed mb-6">
+            <p className="text-secondary text-sm leading-relaxed mb-6 text-justify">
               {institute.description}
             </p>
           </ScrollReveal>
@@ -118,18 +118,18 @@ export default function InstituteSection() {
       </div>
 
       {/* Desktop: asymmetric mosaic */}
-      <div className="hidden lg:grid lg:grid-cols-4 lg:grid-rows-[auto_1fr_auto] min-h-screen">
+      <div className="hidden lg:grid lg:grid-cols-4 lg:grid-rows-[auto_1fr_auto] min-h-screen 2xl:pt-10">
         {/* Cell 1: Badge + Title (top-left, 2 cols) */}
         <div className="col-span-2 row-span-1 flex flex-col justify-end px-10 pt-16 pb-6">
           <ScrollReveal>
-            <Pill variant="hero-gold" className="mb-4">
+            <Pill variant="hero-gold" className="mb-4 2xl:ml-20">
               <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
               {institute.heroSubtitle}
             </Pill>
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-            <h2 className="text-4xl xl:text-5xl font-bold header-text">
+            <h2 className="text-4xl xl:text-5xl font-bold header-text 2xl:ml-20">
               {institute.name}
             </h2>
           </ScrollReveal>
@@ -154,12 +154,12 @@ export default function InstituteSection() {
         {/* Cell 3: Description + Stats (below title, 2 cols) */}
         <div className="col-span-2 row-span-1 flex flex-col justify-start px-10 pb-16 pt-6">
           <ScrollReveal delay={160}>
-            <p className="text-secondary leading-relaxed text-sm mb-6 max-w-xl">
+            <p className="text-secondary leading-relaxed text-sm mb-6 max-w-2xl text-justify 2xl:ml-20">
               {institute.description}
             </p>
           </ScrollReveal>
           <ScrollReveal delay={240}>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 2xl:ml-20">
               {stats.map((stat) => (
                 <span
                   key={stat.label}
@@ -184,7 +184,7 @@ export default function InstituteSection() {
                 <h3 className="font-semibold text-sm text-primary mb-2">
                   Missão
                 </h3>
-                <p className="text-secondary text-xs leading-relaxed">
+                <p className="text-secondary text-xs leading-relaxed text-justify">
                   {institute.mission}
                 </p>
               </div>
@@ -197,7 +197,7 @@ export default function InstituteSection() {
                 <h3 className="font-semibold text-sm text-primary mb-2">
                   Foco Internacional
                 </h3>
-                <p className="text-secondary text-xs leading-relaxed">
+                <p className="text-secondary text-xs leading-relaxed text-justify">
                   {institute.focus}
                 </p>
               </div>
@@ -210,10 +210,10 @@ export default function InstituteSection() {
                 <h3 className="font-semibold text-sm text-primary mb-2">
                   Excelência Acadêmica
                 </h3>
-                <p className="text-secondary text-xs leading-relaxed">
-                  Programas únicos com formação intensiva,
-                  estruturados com base em evidências científicas e alianças com
-                  instituições de renome mundial.
+                <p className="text-secondary text-xs leading-relaxed text-justify">
+                  Programas únicos com formação intensiva, estruturados com base
+                  em evidências científicas e alianças com instituições de
+                  renome mundial.
                 </p>
               </div>
             </ScrollReveal>
@@ -240,7 +240,9 @@ function MissionCard({
       </div>
       <div>
         <h3 className="font-semibold text-xs text-primary mb-0.5">{title}</h3>
-        <p className="text-secondary text-xs leading-relaxed">{text}</p>
+        <p className="text-secondary text-xs leading-relaxed text-justify">
+          {text}
+        </p>
       </div>
     </div>
   );

@@ -43,9 +43,9 @@ export default function MestradosPage() {
 
             <ScrollReveal delay={160}>
               <p className="max-w-2xl text-base md:text-lg text-secondary leading-relaxed text-pretty">
-                Programas únicos com formação intensiva,
-                estruturados com base em evidências científicas e reconhecidos
-                no Espaço Europeu de Ensino Superior.
+                Programas únicos com formação intensiva, estruturados com base
+                em evidências científicas e reconhecidos no Espaço Europeu de
+                Ensino Superior.
               </p>
             </ScrollReveal>
 

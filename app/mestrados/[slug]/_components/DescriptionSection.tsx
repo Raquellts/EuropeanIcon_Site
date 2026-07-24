@@ -22,7 +22,7 @@ export default function DescriptionSection({
             {master.description.split("\n\n").map((paragraph, i) => (
               <p
                 key={i}
-                className={`text-secondary leading-relaxed lg:text-lg text-sm${i > 0 ? " mt-6" : ""}`}
+                className={`text-secondary leading-relaxed lg:text-lg text-sm text-justify${i > 0 ? " mt-6" : ""}`}
               >
                 {paragraph}
               </p>
